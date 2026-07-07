@@ -95,4 +95,241 @@
       "tone": "positive",
       "cat": "Speech & Thought",
       "phrase": "💡 Daily life: \"A credible witness in court\"",
-      "context
+      "context": "Paired with reliable data or trustworthy sources to support an argument or hypothesis.",
+      "mnem": "Credible -> 'Credit' card accepted. The store trusts you enough to accept your plastic credit.",
+      "vis": "An alien hands a cashier a glowing 'credit' card, and because the alien is so polite, the cashier finds the story completely believable.",
+      "syns": ["plausible", "trustworthy", "believable", "tenable"]
+    },
+    {
+      "word": "diffuse",
+      "def": "Spread out over a large area; not concentrated; wordy and disorganized.",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A diffuse and rambling essay\"",
+      "context": "Can describe physical particles scattering or a writing style that lacks focus and contains too many words.",
+      "mnem": "Diffuse -> 'Diffused' bomb smoke. The smoke spreads everywhere across the room, filling every corner.",
+      "vis": "A smoke bomb goes off, and the 'diffused' purple fog spreads so thinly across the city that you can barely see your hand.",
+      "syns": ["dispersed", "verbose", "prolix", "scattered", "wordy"]
+    },
+    {
+      "word": "documentary",
+      "def": "Consisting of or based on official documents and objective records.",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Provide documentary evidence\"",
+      "context": "ETS uses this to denote objective, factual verification as opposed to anecdotal or speculative assertions.",
+      "mnem": "Documentary -> 'Documents' arrayed. A collection of physical paper records confirming a historical fact.",
+      "vis": "A detective solves a mystery not by guessing, but by dumping a massive pile of physical 'documents' onto the court floor.",
+      "syns": ["empirical", "factual", "recorded", "archival"]
+    },
+    {
+      "word": "exhaustive",
+      "def": "Fully comprehensive; examining, including, or considering all elements or aspects.",
+      "tone": "positive",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"An exhaustive search for the missing files\"",
+      "context": "Used to denote thoroughness, completeness, and rigor in research or investigative work.",
+      "mnem": "Exhaustive -> 'Exhausted' researcher. Looking at every single detail until you are completely worn out.",
+      "vis": "A detective crawls on his hands and knees with a magnifying glass until he collapses from being completely 'exhausted'.",
+      "syns": ["comprehensive", "thorough", "encyclopedic", "meticulous", "all-inclusive"]
+    },
+    {
+      "word": "exhilarating",
+      "def": "Making one feel very happy, animated, or elated; thrilling.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An exhilarating roller coaster ride\"",
+      "context": "Describes experiences, discoveries, or events that evoke intense excitement or energy.",
+      "mnem": "Exhilarating -> 'Hilarious' ride. A ride so funny and fast it makes you scream with joy.",
+      "vis": "A person rides a giant, flying rocket skate that tells 'hilarious' jokes, making them laugh hysterically while soaring through clouds.",
+      "syns": ["invigorating", "thrilling", "enlivening", "intoxicating"]
+    },
+    {
+      "word": "extraneous",
+      "def": "Irrelevant or unrelated to the subject being dealt with; coming from the outside.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Filter out extraneous information\"",
+      "context": "Often appears in scientific contexts where researchers must eliminate outside variables or unneeded data points.",
+      "mnem": "Extraneous -> 'Extra news'. Unnecessary gossip columns added to a serious scientific journal.",
+      "vis": "A scientist opens an important report but has to throw away pages of 'extra news' about celebrity fashion to find the physics data.",
+      "syns": ["irrelevant", "superfluous", "immaterial", "adventitious", "peripheral"]
+    },
+    {
+      "word": "fervor",
+      "def": "Intense and passionate feeling.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Speak with religious fervor\"",
+      "context": "Associated with zealots, passionate advocates, or intense emotional commitment to a cause.",
+      "mnem": "Fervor -> 'Fever' of passion. Your temperature rises because you care so intensely about an idea.",
+      "vis": "An activist gives a speech so filled with passion that a literal 'fever' breaks out, making them steam like a boiling kettle.",
+      "syns": ["zeal", "ardor", "passion", "vehemence", "avidity"]
+    },
+    {
+      "word": "futile",
+      "def": "Incapable of producing any useful result; pointless.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A futile attempt to resist\"",
+      "context": "Indicates that an effort, policy, or strategy is completely ineffective and bound to fail.",
+      "mnem": "Futile -> 'Few tiles'. Trying to roof an entire mansion when you only have a few tiles left.",
+      "vis": "A builder stands in a rainstorm hopelessly trying to cover a massive stadium with just 'a few tiles', watching the rain pour through.",
+      "syns": ["fruitless", "vain", "bootless", "ineffective", "unavailing"]
+    },
+    {
+      "word": "illusory",
+      "def": "Based on or producing illusion; deceptive; unreal.",
+      "tone": "negative",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"An illusory sense of security\"",
+      "context": "Used to describe gains, promises, or appearances that seem real but lack true substance or permanent existence.",
+      "mnem": "Illusory -> 'Illusionist' trick. A magician making a real object look like it vanished into thin air.",
+      "vis": "A hiker runs toward a shimmering lake in the desert, only for an 'illusionist' to pop out from behind a curtain showing it's just a mirror.",
+      "syns": ["deceptive", "specious", "chimerical", "delusive", "evanescent"]
+    },
+    {
+      "word": "invidious",
+      "def": "Likely to arouse or incur resentment or anger in others; unfairly discriminating.",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"An invidious comparison between siblings\"",
+      "context": "Describes tasks, distinctions, or comparisons that cause envy, offense, or dynamic unpleasantness.",
+      "mnem": "Invidious -> 'In video' envy. Seeing someone else's perfect life in a video makes everyone resentful.",
+      "vis": "A boss broadcasts a 'video' showcasing one employee's massive bonus, causing the rest of the staff to glare with deep resentment.",
+      "syns": ["envious", "discriminatory", "offensive", "obnoxious", "detestable"]
+    },
+    {
+      "word": "lethargic",
+      "def": "Sluggish and apathetic; lacking energy.",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Feel lethargic after a heavy meal\"",
+      "context": "Used to describe economies, individuals, or responses that fail to show vigor, activity, or alertness.",
+      "mnem": "Lethargic -> 'Leather log'. Moving as slowly as a giant, heavy log made out of old leather.",
+      "vis": "A runner wakes up for a race but finds their legs have turned into a heavy 'leather log', forcing them to crawl at a snail's pace.",
+      "syns": ["sluggish", "somnolent", "torpid", "inert", "listless"]
+    },
+    {
+      "word": "metaphorical",
+      "def": "Characteristic of or relating to a metaphor; figurative; not literal.",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A metaphorical expression\"",
+      "context": "Contrasted directly with 'literal' descriptions in analysis of literary, philosophical, or everyday language.",
+      "mnem": "Metaphorical -> 'Met a four'-headed bird. You didn't actually meet one; it was just a symbolic figure of speech.",
+      "vis": "A poet claims he 'met a four'-headed bird of destiny, but clarifies to the literal-minded police that it was just a figure of speech.",
+      "syns": ["figurative", "allegorical", "symbolic", "tropic"]
+    },
+    {
+      "word": "mimic",
+      "def": "To imitate closely, especially to ridicule or emulate.",
+      "tone": "neutral",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Mimic the behavior of predators\"",
+      "context": "Appears in biology questions (evolutionary mimicry) or psychology contexts involving behavioral imitation.",
+      "mnem": "Mimic -> 'Mime' in a box. A street performer copying every single movement you make.",
+      "vis": "A 'mime' follows an unsuspecting man down the street, mirroring his walk so perfectly that onlookers think they are twins.",
+      "syns": ["imitate", "ape", "emulate", "parody", "simulate"]
+    },
+    {
+      "word": "numinous",
+      "def": "Having a strong religious or spiritual quality; indicating or suggesting the presence of a divinity.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"The numinous atmosphere of the ancient temple\"",
+      "context": "Used to describe awe-inspiring, mysterious, or deeply spiritual settings or psychological experiences.",
+      "mnem": "Numinous -> 'New minus' gravity. A spiritual experience so intense that you feel a brand new lack of physical weight.",
+      "vis": "Walking into an ancient cathedral, you experience a 'new minus' gravity sensation, floating toward the ceiling in pure spiritual awe.",
+      "syns": ["spiritual", "transcendental", "sacred", "ethereal", "awe-inspiring"]
+    },
+    {
+      "word": "obscure",
+      "def": "Not discovered or known about; uncertain; to conceal or make unclear.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"An obscure reference in the text\"",
+      "context": "As an adjective, means unknown or difficult to understand; as a verb, it means to hide or mask something.",
+      "mnem": "Obscure -> 'Obstacle cure'. The cure for a disease is hidden behind a giant obstacle where no one can find it.",
+      "vis": "Medical researchers try to find a hidden formula, but a giant stone wall acts as an 'obstacle to the cure', keeping it completely hidden.",
+      "syns": ["opaque", "ambiguous", "recondite", "obfuscate", "eclipse"]
+    },
+    {
+      "word": "overt",
+      "def": "Done or shown openly; plainly apparent; not secret or hidden.",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"An overt display of hostility\"",
+      "context": "Direct antonym to 'covert'. Used when actions, signals, or traits are completely explicit and visible to all.",
+      "mnem": "Overt -> 'Open' cart. A shopping cart completely open for the whole world to see exactly what is inside.",
+      "vis": "A thief tries to steal items but uses an 'open' cart with flashing neon signs, making his crime completely obvious to the guards.",
+      "syns": ["manifest", "explicit", "blatant", "patent", "unconcealed"]
+    },
+    {
+      "word": "pellucid",
+      "def": "Translucently clear; lucid in style or expression; easily understood.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Pellucid waters of the mountain lake\"",
+      "context": "Describes highly effective, crystal-clear writing, explanations, or physical transparency.",
+      "mnem": "Pellucid -> 'Peel lucid'. Peeling away a blurry sticker to reveal a perfectly clear, lucid glass window underneath.",
+      "vis": "A reader struggles with a muddy text until they 'peel' away a dark layer, revealing a 'lucid', glowing font that makes perfect sense.",
+      "syns": ["limpid", "lucid", "transparent", "perspicuous", "clear"]
+    },
+    {
+      "word": "perpetuate",
+      "def": "Make (something, typically an undesirable situation or an unfounded belief) continue indefinitely.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Perpetuate harmful stereotypes\"",
+      "context": "Often used negatively to describe actions that sustain myths, institutional inequalities, or bad habits over generations.",
+      "mnem": "Perpetuate -> 'Perpetual' tape. Wrapping a machine in endless tape so it never stops running or changing.",
+      "vis": "An old judge wraps a corrupt law in 'perpetual' golden tape, ensuring it stays active and unchangeable forever.",
+      "syns": ["immortalize", "sustain", "preserve", "protract", "maintain"]
+    },
+    {
+      "word": "rational",
+      "def": "Based on or in accordance with reason or logic.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A rational explanation for the phenomenon\"",
+      "context": "Contrasted with emotional, impulsive, or superstitious thinking in arguments and decision-making text completions.",
+      "mnem": "Rational -> 'Ratio' analyst. A person who calculates perfect mathematical ratios instead of guessing wildly.",
+      "vis": "While a crowd panics about a ghost, a cool-headed analyst calculates the exact 'ratios' of light and proves it's just a projector.",
+      "syns": ["logical", "judicious", "lucid", "sane", "cogent"]
+    },
+    {
+      "word": "scathing",
+      "def": "Witheringly scornful; severely critical.",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"A scathing review of the movie\"",
+      "context": "Appears when critics, opponents, or commentators deliver extremely harsh, damaging evaluations.",
+      "mnem": "Scathing -> 'Scathing' steam. Words so hot and critical they physically scald the skin of the recipient.",
+      "vis": "A theater critic opens his mouth and shoots actual 'scald' steam onto the stage, melting the actors' props with his harsh review.",
+      "syns": ["acerbic", "vitriolic", "mordant", "trenchant", "caustic"]
+    },
+    {
+      "word": "subtle",
+      "def": "So delicate or precise as to be difficult to analyze or describe; understated.",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A subtle change in the artistic style\"",
+      "context": "Used to denote nuances or distinctions that require close observation or high acuity to detect.",
+      "mnem": "Subtle -> 'Sub' titles small. Subtitles written in such a tiny, faint font that you have to squint to read them.",
+      "vis": "A viewer watches a foreign movie where the 'sub' titles are printed in micro-text, requiring a magnifying glass to catch the fine meaning.",
+      "syns": ["nuanced", "attenuated", "understated", "elusive", "delicate"]
+    },
+    {
+      "word": "superficial",
+      "def": "Existing or occurring at or on the surface; lacking depth or substance.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A superficial understanding of the topic\"",
+      "context": "Describes analyses, relationships, or wounds that do not penetrate deeply; shallow.",
+      "mnem": "Superficial -> 'Super fish' facial. A fish that only swims on the very top layer of water to look at its own reflection.",
+      "vis": "A vain 'super fish' refuses to swim into the ocean depths, preferring to stay on the absolute surface to give itself a facial.",
+      "syns": ["shallow", "cursory", "facile", "frivolous", "surface"]
+    }
+  ]
+}
