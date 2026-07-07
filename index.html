@@ -32,7 +32,7 @@
         .gre-btn-cloud-load { background-color: #4f46e5; }
         .gre-btn:hover { opacity: 0.9; }
         .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-        .gre-card { background-color: #faf7f0; border: 1px solid #eadecc; border-radius: 10px; padding: 16px; box-shadow: 0 1px 4px rgba(44, 39, 32, 0.02); display: flex; flex-direction: column; position: relative; box-sizing: border-box; }
+        .gre-card { background-color: #faf7f0; border: 1px solid #eadecc; border-radius: 10px; padding: 16px; box-shadow: 0 1px 4px rgba(44, 39, 32, 0.02); display: flex; flex-direction: column; position: relative; box-sizing: border-box; text-align: left; }
         .gre-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
         .gre-word { font-size: 20px; font-weight: 700; color: #1c1914; margin: 0; word-break: break-word; }
         .gre-tags-row { display: flex; gap: 6px; margin-bottom: 10px; align-items: center; flex-wrap: wrap; }
@@ -70,30 +70,33 @@
         .fc-btn { background-color: #faf7f0; border: 2px solid #eadecc; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 600; cursor: pointer; color: #574f44; flex: 1; min-height: 44px; }
         .fc-counter { font-size: 14px; font-weight: 600; color: #786e5f; white-space: nowrap; }
         
-        /* Statistics Screen & Modal Popup Architecture styling rules */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; }
         .stats-card { border: 1px solid #eadecc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; -webkit-tap-highlight-color: transparent; }
         .stats-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(44,39,32,0.08); }
         .stats-group-title { font-size: 20px; font-weight: 800; margin: 0; color: #1c1914; }
         .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; }
         
-        /* Modal Backdrop Engine Overlay Container */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(28, 25, 20, 0.4); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; }
+        /* Modal Window Formatting (Font Stack Consistency Handled Here) */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(28, 25, 20, 0.4); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         .modal-overlay.active { display: flex; }
-        .modal-content-wrapper { background: #fdfbf7; border: 2px solid #eadecc; border-radius: 16px; max-width: 500px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.15); animation: modalFadeIn 0.25s ease-out; }
+        .modal-content-wrapper { background: #fdfbf7; border: 2px solid #eadecc; border-radius: 16px; max-width: 520px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.15); animation: modalFadeIn 0.25s ease-out; position: relative; }
         @keyframes modalFadeIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .modal-header { padding: 16px; border-bottom: 1px solid #eadecc; display: flex; justify-content: space-between; align-items: center; background: #faf7f0; border-top-left-radius: 14px; border-top-right-radius: 14px; }
-        .modal-title { font-size: 20px; font-weight: 800; color: #1c1914; margin: 0; }
+        .modal-title { font-size: 18px; font-weight: 800; color: #1c1914; margin: 0; }
         .modal-close-btn { background: none; border: none; font-size: 24px; font-weight: 700; color: #a39684; cursor: pointer; padding: 0 4px; line-height: 1; }
         .modal-body { padding: 16px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 8px; }
         
-        /* Color-Coded Popover Progress List Line Rows */
-        .modal-word-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 8px; border: 1px solid transparent; font-weight: 600; font-size: 15px; }
+        .modal-word-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 8px; border: 1px solid transparent; font-weight: 700; font-size: 15px; cursor: pointer; transition: background-color 0.15s; }
+        .modal-word-row:hover { opacity: 0.85; }
         .modal-word-row.known { background-color: #d1fae5; color: #065f46; border-color: #a7f3d0; }
         .modal-word-row.delayed { background-color: #fef3c7; color: #92400e; border-color: #fde68a; }
         .modal-word-row.unknown { background-color: #fee2e2; color: #991b1b; border-color: #fca5a5; }
         .modal-word-row.unseen { background-color: #f1f5f9; color: #475569; border-color: #cbd5e1; }
-        .modal-status-txt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; opacity: 0.85; }
+        .modal-status-txt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; opacity: 0.85; }
+        
+        /* Deep-Dive Back Tracking Controls Navigation Item styling */
+        .modal-back-btn { background: #ede8dc; border: 1px solid #c4b7a6; color: #443e36; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 6px; cursor: pointer; text-transform: uppercase; transition: background-color 0.15s; }
+        .modal-back-btn:hover { background-color: #e1d9c6; }
     </style>
 </head>
 <body>
@@ -166,16 +169,15 @@
     <div id="greDisplayContainer"></div>
 </div>
 
-<!-- Reusable Global Statistics Popover Modal Markup Block -->
 <div class="modal-overlay" id="statsGroupModal">
     <div class="modal-content-wrapper">
         <div class="modal-header">
             <h3 class="modal-title" id="modalGroupHeaderTitle">Group Summary</h3>
-            <button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>
+            <div id="modalHeaderActionZone">
+                <button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>
+            </div>
         </div>
-        <div class="modal-body" id="modalGroupListBody">
-            <!-- Programmatically populated word status items output here -->
-        </div>
+        <div class="modal-body" id="modalGroupListBody"></div>
     </div>
 </div>
 
@@ -186,6 +188,9 @@ let flashcardRevealed = false;
 let currentFilteredList = [];
 let isRandomized = false;
 let memoryScores = {};
+
+// Track the state history of the popup deep dive sequence loop
+let lastActiveModalGroupId = null;
 
 const displayContainer = document.getElementById('greDisplayContainer');
 const searchInput = document.getElementById('greSearch');
@@ -199,10 +204,10 @@ const btnCloudSave = document.getElementById('greBtnCloudSave');
 const btnCloudLoad = document.getElementById('greBtnCloudLoad');
 const groupOptionsContainer = document.getElementById('groupOptionsContainer');
 
-// Modal Elements references
 const statsGroupModal = document.getElementById('statsGroupModal');
 const modalGroupHeaderTitle = document.getElementById('modalGroupHeaderTitle');
 const modalGroupListBody = document.getElementById('modalGroupListBody');
+const modalHeaderActionZone = document.getElementById('modalHeaderActionZone');
 
 const getApiUrl = (user) => `/api/state-manager?user=${encodeURIComponent(user)}`;
 
@@ -502,20 +507,20 @@ function renderStatisticsDashboard() {
             <div class="stats-metric-row" style="color: #b91c1c;"><span>Review:</span><span class="stats-val">${g.reviewNeeded}</span></div>
         `;
         
-        // Trigger event tracking listener mapping for stats modal deployment mapping
         card.addEventListener('click', () => openStatsGroupModal(g.group));
-        
         grid.appendChild(card);
     });
     displayContainer.appendChild(grid);
 }
 
-// Open and load color coded metrics into modal view layer layout safely
 function openStatsGroupModal(groupId) {
+    lastActiveModalGroupId = groupId; // Stash background marker for backward navigation
     modalGroupHeaderTitle.textContent = `📋 Group ${groupId} Breakdown`;
+    
+    // Default Close view configuration layout mapping
+    modalHeaderActionZone.innerHTML = `<button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>`;
     modalGroupListBody.innerHTML = '';
     
-    // Extract out all words tagged under this specific sequence ID matching constraints
     const groupWords = wordsData.filter(item => item.group === groupId).sort((a,b) => a.word.localeCompare(b.word));
     
     groupWords.forEach(item => {
@@ -532,19 +537,58 @@ function openStatsGroupModal(groupId) {
             <span class="modal-word-txt">${item.word}</span>
             <span class="modal-status-txt">${readableStatus}</span>
         `;
+        
+        // Deep-dive study deployment click event trigger
+        row.addEventListener('click', () => renderDeepDiveWordCard(item));
         modalGroupListBody.appendChild(row);
     });
     
     statsGroupModal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Lock main scrolling window
+    document.body.style.overflow = 'hidden';
+}
+
+// Deep-Dive Rendering Engine: Spins up a full study layout card inside the modal structure box
+function renderDeepDiveWordCard(item) {
+    modalGroupHeaderTitle.textContent = `🔍 Deep Dive: ${item.word}`;
+    
+    // Top Right Back Action Navigation button creation loop
+    modalHeaderActionZone.innerHTML = `<button class="modal-back-btn" onclick="openStatsGroupModal(${lastActiveModalGroupId})">← Back</button>`;
+    
+    const synChips = (item.syns || []).map(s => `<span class="gre-chip">${s}</span>`).join('');
+    const memBadgeHTML = getMemoryBadgeHTML(item.word);
+    
+    modalGroupListBody.innerHTML = `
+        <div class="gre-card" style="border:none; background:transparent; padding:0; box-shadow:none;">
+            <div class="gre-tags-row" style="margin-top:4px;">
+                <span class="gre-tag group-tag">Group ${item.group}</span>
+                <span class="gre-tag">${item.cat || 'General'}</span>
+                ${memBadgeHTML}
+            </div>
+            <p class="gre-def">${item.def || ''}</p>
+            <span class="gre-collocation" style="margin-bottom:8px;">${item.phrase || ''}</span>
+            
+            <div class="gre-section-title">⚠️ How GRE Uses This Word</div>
+            <p class="gre-context-box">${item.context || ''}</p>
+            
+            <div class="gre-section-title">Mnemonic Trick</div>
+            <p class="gre-mnemonic">${item.mnem || ''}</p>
+            
+            <div class="gre-section-title">Mental Image</div>
+            <p class="gre-vis">${item.vis || ''}</p>
+            
+            <div class="gre-section-title">GRE Synonyms</div>
+            <div class="gre-chips" style="margin-bottom:10px;">${synChips}</div>
+        </div>
+    `;
+    // Snap scroll directly back up to top parameters for clean mobile accessibility reads
+    modalGroupListBody.scrollTop = 0;
 }
 
 function closeStatsGroupModal() {
     statsGroupModal.classList.remove('active');
-    document.body.style.overflow = ''; // Unlock scrolling tracking rules safely
+    document.body.style.overflow = '';
 }
 
-// Bind close event directly if user clicks overlay background zone safely
 statsGroupModal.addEventListener('click', (e) => {
     if (e.target === statsGroupModal) closeStatsGroupModal();
 });
