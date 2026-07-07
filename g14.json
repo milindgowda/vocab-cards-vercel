@@ -98,7 +98,7 @@
       "context": "Appears frequently in scientific or statistical passages describing the relationship between variables.",
       "mnem": "Correlate -> 'Co-relate'",
       "vis": "Two distinct data graphs suddenly growing arms, shaking hands, and dancing in perfect synchronization.",
-      "syns": ["correspond", "match", "parallel", "associate"]
+      "syns": ["corresponding", "match", "parallel", "associate"]
     },
     {
       "word": "deride",
@@ -117,4 +117,219 @@
       "tone": "neutral",
       "cat": "Control & Separation",
       "phrase": "💡 Daily life: \"Dictate the terms of agreement\"",
-      "context": "Used when an overarching factor, condition, or person
+      "context": "Used when an overarching factor, condition, or person completely determines an outcome.",
+      "mnem": "Dictate -> 'Dictator'",
+      "vis": "An intense king stamping his foot, forcing an entire room of scribes to write down his every single word.",
+      "syns": ["command", "prescribe", "determine", "impose"]
+    },
+    {
+      "word": "discreet",
+      "def": "Careful and circumspect in one's speech or actions, especially to avoid causing offense or revealing private information",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Make discreet inquiries\"",
+      "context": "Describes espionage, diplomatic maneuvers, or private investigations requiring absolute secrecy.",
+      "mnem": "Discreet -> 'Ee's are hidden'",
+      "vis": "The double 'ee's in the word hiding behind a bush wearing sunglasses and tiptoeing away silently.",
+      "syns": ["circumspect", "cautious", "prudent", "tactful"]
+    },
+    {
+      "word": "divorced",
+      "def": "Separate or disconnected from something",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Divorced from reality\"",
+      "context": "ETS uses this abstractly to describe ideas, theories, or policies that are entirely disconnected from practical facts.",
+      "mnem": "Divorced -> 'Split apart'",
+      "vis": "A massive, abstract brain physically floating away from a solid rock labeled 'Reality' into outer space.",
+      "syns": ["severed", "disconnected", "isolated", "disjoined"]
+    },
+    {
+      "word": "elitist",
+      "def": "Demonstrating a belief that a society or system should be led by an elite class",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"An elitist attitude\"",
+      "context": "Often features in passages criticizing art institutions or academic circles that exclude the general public.",
+      "mnem": "Elitist -> 'Elite list'",
+      "vis": "A snobby billionaire tearing up a guest list and only letting people wearing diamond top-hats into a club.",
+      "syns": ["snobbish", "exclusive", "arrogant", "haughty"]
+    },
+    {
+      "word": "exacting",
+      "def": "Making great demands on one's skill, care, or attention",
+      "tone": "neutral",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Exacting standards of quality\"",
+      "context": "Used to describe difficult tasks, rigorous masters, or precise scientific methodologies.",
+      "mnem": "Exacting -> 'Exact-ing'",
+      "vis": "A perfectionist chef measuring individual grains of salt with a microscope to ensure an exact recipe.",
+      "syns": ["demanding", "rigorous", "meticulous", "stringent"]
+    },
+    {
+      "word": "flummoxed",
+      "def": "Bewildered or perplexed",
+      "tone": "negative",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Completely flummoxed by the question\"",
+      "context": "Appears when an unexpected anomaly leaves researchers or experts completely unable to explain a phenomenon.",
+      "mnem": "Flummoxed -> 'Flume ox'",
+      "vis": "A giant ox sliding down a water flume ride, looking wildly confused and spinning around upside down.",
+      "syns": ["perplexed", "baffled", "confounded", "mystified"]
+    },
+    {
+      "word": "fruitful",
+      "def": "Producing good or helpful results; productive",
+      "tone": "positive",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A fruitful collaboration\"",
+      "context": "Describes periods of intense artistic output, highly successful corporate partnerships, or rich soil.",
+      "mnem": "Fruitful -> 'Full of fruit'",
+      "vis": "A single wooden desk bursting open with a cornucopia of bright apples and oranges as a scholar writes a masterpiece.",
+      "syns": ["productive", "prolific", "fecund", "advantageous"]
+    },
+    {
+      "word": "inborn",
+      "def": "Natural to a person or animal; innate",
+      "tone": "neutral",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An inborn talent for music\"",
+      "context": "Often sets up the 'nature vs. nurture' dichotomy in psychological or biological reading passages.",
+      "mnem": "Inborn -> 'Born inside'",
+      "vis": "A newborn baby emerging from the womb holding a tiny golden violin and playing a flawless sonata.",
+      "syns": ["innate", "inherent", "congenital", "intrinsic"]
+    },
+    {
+      "word": "polymath",
+      "def": "A person of wide-ranging knowledge or learning",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A true Renaissance polymath\"",
+      "context": "Used to praise exceptional historical figures (like Da Vinci) who excelled in both arts and sciences.",
+      "mnem": "Polymath -> 'Poly (many) math'",
+      "vis": "A person with eight arms simultaneously solving calculus, painting a mural, playing cello, and writing a novel.",
+      "syns": ["erudite", "intellectual", "savant", "scholar"]
+    },
+    {
+      "word": "reticent",
+      "def": "Not revealing one's thoughts or feelings readily",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Reticent to speak about the past\"",
+      "context": "Indicates a person who is intentionally tight-lipped, quiet, or unwilling to share information freely.",
+      "mnem": "Reticent -> 'Ready cent'",
+      "vis": "A man keeping his lips zipped tight, refusing to talk until you put a copper cent coin into his slot machine mouth.",
+      "syns": ["taciturn", "reserved", "uncommunicative", "diffident"]
+    },
+    {
+      "word": "stringent",
+      "def": "Strict, precise, and exacting",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Stringent safety regulations\"",
+      "context": "Typically modifies laws, financial budgets, regulations, or testing conditions that allow no room for error.",
+      "mnem": "Stringent -> 'Strict gent'",
+      "vis": "A stern gentleman tying up a package with tight iron strings, measuring the knots to the exact millimeter.",
+      "syns": ["rigorous", "severe", "strict", "inflexible"]
+    },
+    {
+      "word": "subservient",
+      "def": "Prepared to obey others unquestioningly; less important",
+      "tone": "negative",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"A subservient attitude\"",
+      "context": "Describes a political state that is overly yielding to a dominant power, or an individual acting like a servant.",
+      "mnem": "Subservient -> 'Sub servant'",
+      "vis": "A submarine pilot bowing deeply and taking orders from a giant king fish ruling the underwater ocean.",
+      "syns": ["submissive", "servile", "obsequious", "subordinate"]
+    },
+    {
+      "word": "surreptitious",
+      "def": "Kept secret, especially because it would not be approved of",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A surreptitious glance\"",
+      "context": "Describes illicit meetings, under-the-table financial transactions, or stealthy glances.",
+      "mnem": "Surreptitious -> 'Sir reptitious (reptile)'",
+      "vis": "A sneaky snake wearing a trench coat and sunglasses, crawling silently through grass to steal a secret document.",
+      "syns": ["clandestine", "furtive", "stealthy", "covert"]
+    },
+    {
+      "word": "tantalizing",
+      "def": "Tormenting or teasing with the sight or promise of something unobtainable",
+      "tone": "positive",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A tantalizing glimpse of success\"",
+      "context": "Used when an attractive reward, truth, or discovery is kept just barely out of reach of a researcher or protagonist.",
+      "mnem": "Tantalizing -> 'Tantalus'",
+      "vis": "The mythological Tantalus standing in water up to his neck, while juicy grapes lower right above his mouth but vanish when he bites.",
+      "syns": ["enticing", "teasing", "alluring", "provocative"]
+    },
+    {
+      "word": "tantamount",
+      "def": "Equivalent in seriousness to; virtually the same as",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Tantamount to an admission of guilt\"",
+      "context": "An equivalence keyword used by ETS to show that an action or choice is completely identical in effect to another.",
+      "mnem": "Tantamount -> 'Taunt amount'",
+      "vis": "Two mountains facing each other, throwing the exact same amount of taunts back and forth, making them completely equal.",
+      "syns": ["equivalent", "commensurate", "identical", "synonymous"]
+    },
+    {
+      "word": "torpor",
+      "def": "A state of physical or mental inactivity; lethargy",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Sink into a winter torpor\"",
+      "context": "Often applied to describe an economy stagnating, an uninspired artist, or a hibernating animal's metabolism.",
+      "mnem": "Torpor -> 'Torpedo poor'",
+      "vis": "A broken torpedo sinking to the bottom of the muddy ocean floor, completely stationary and covered in moss.",
+      "syns": ["lethargy", "sluggishness", "inertia", "lassitude"]
+    },
+    {
+      "word": "trenchant",
+      "def": "Vigorous or incisive in expression or style",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A trenchant analysis\"",
+      "context": "Highly valued quality in critical writing; means clear, cutting, sharp, and highly effective commentary.",
+      "mnem": "Trenchant -> 'Trench ant'",
+      "vis": "An ant wearing army boots digging a perfectly sharp, straight trench in the dirt with a razor blade.",
+      "syns": ["incisive", "penetrating", "acute", "mordant"]
+    },
+    {
+      "word": "umbrage",
+      "def": "Offense or annoyance",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Take umbrage at the remark\"",
+      "context": "Usually appears in the phrase 'take umbrage,' where an old guard or touchy critic gets easily offended by an action.",
+      "mnem": "Umbrage -> 'Umbrella rage'",
+      "vis": "An angry old lady aggressively swinging her umbrella in a rage because someone stepped on her lawn.",
+      "syns": ["offense", "resentment", "indignation", "pique"]
+    },
+    {
+      "word": "versatile",
+      "def": "Able to adapt or be adapted to many different functions or activities",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A versatile tool\"",
+      "context": "Describes materials, organisms, or scholars that easily shift roles or function well under diverse conditions.",
+      "mnem": "Versatile -> 'Verses tile'",
+      "vis": "A magic floor tile that changes shape into a ladder, a shield, or a boat depending on the verse of poetry you recite.",
+      "syns": ["adaptable", "flexible", "multifaceted", "resourceful"]
+    },
+    {
+      "word": "wayward",
+      "def": "Difficult to control or predict because of unusual or perverse behavior",
+      "tone": "negative",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"A wayward child\"",
+      "context": "Used to describe erratic trajectories, rebellious individuals, or unpredictable weather patterns.",
+      "mnem": "Wayward -> 'Away ward'",
+      "vis": "A rebellious shopping cart breaking away from the line and rolling crazily down a hill against traffic.",
+      "syns": ["willful", "erratic", "headstrong", "unruly"]
+    }
+  ]
+}
