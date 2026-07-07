@@ -190,4 +190,146 @@
     },
     {
       "word": "judicious",
-      "def":
+      "def": "Having, showing, or done with good judgment or sense.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"The judicious use of limited resources\"",
+      "context": "Highly praised quality in administrators, judges, or financial managers who avoid waste and show cautious prudence.",
+      "mnem": "JUDGE-cious (Like a wise judge)",
+      "vis": "A wise judge uses a tiny scale to measure out gold coins down to the milligram, ensuring perfectly fair distribution.",
+      "syns": ["prudent", "politic", "shrewd", "circumspect"]
+    },
+    {
+      "word": "lucid",
+      "def": "Expressed clearly; easy to understand; bright or luminous.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Provide a lucid explanation of quantum physics\"",
+      "context": "Used to describe writing or explanations that make complex, obscure subjects clear to a general audience.",
+      "mnem": "LUCent/Light",
+      "vis": "A professor speaks, and his words turn into brilliant, glowing light bulbs that illuminate a dark room full of confused students.",
+      "syns": ["intelligible", "cogent", "transparent", "limpid"]
+    },
+    {
+      "word": "pertinent",
+      "def": "Relevant or applicable to a particular matter.",
+      "tone": "neutral",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Ask a pertinent question during class\"",
+      "context": "Identifies pieces of evidence or facts that are essential to resolving an argument or a legal case.",
+      "mnem": "PURPOSE-attained",
+      "vis": "A detective finds a single missing puzzle piece on the floor that perfectly snaps into the center of a murder mystery board.",
+      "syns": ["relevant", "germane", "apposite", "apropos"]
+    },
+    {
+      "word": "propriety",
+      "def": "Conformity to conventionally accepted standards of behavior or morals.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Behave with utmost propriety at court\"",
+      "context": "Describes adherence to strict social etiquette, decorum, and formal rules of conduct.",
+      "mnem": "PROPER-ty (Proper behavior)",
+      "vis": "A man wearing a tuxedo sips his tea with his pinky finger precisely extended, while balancing an etiquette rulebook on his head.",
+      "syns": ["decorum", "respectability", "correctness", "protocol"]
+    },
+    {
+      "word": "scintillating",
+      "def": "Sparkling or shining brightly; brilliantly clever or witty.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Engage in scintillating dinner conversation\"",
+      "context": "Used to characterize exceptionally engaging dialogue, brilliant lectures, or sharp, witty personalities.",
+      "mnem": "SKIN-tilating (Skin glowing like diamonds)",
+      "vis": "A speaker stands at a podium, and every witty joke she tells causes actual sparkling diamonds to fly out of her mouth.",
+      "syns": ["brilliant", "dazzling", "vivacious", "witty"]
+    },
+    {
+      "word": "sensational",
+      "def": "Causing great public interest and excitement, often via exaggeration.",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Sensational headlines in tabloid newspapers\"",
+      "context": "Often carries a negative connotation in ETS questions when media values shocking narratives over objective truth.",
+      "mnem": "SENSATION-al",
+      "vis": "A newspaper boy screams a headline so dramatic that everyone's eyes physically pop out of their heads in total shock.",
+      "syns": ["dramatic", "melodramatic", "spectacular", "lurid"]
+    },
+    {
+      "word": "sophisticated",
+      "def": "Having a refined knowledge of the world; complex or intricate.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A sophisticated computer algorithm\"",
+      "context": "Can describe highly advanced technology, nuanced arguments, or worldly, cultured individuals.",
+      "mnem": "SOPHIST-icated",
+      "vis": "A supercomputer wearing a monocle sips expensive wine while solving multi-million dollar global logistics problems.",
+      "syns": ["refined", "elaborate", "intricate", "cultivated"]
+    },
+    {
+      "word": "strife",
+      "def": "Angry or bitter disagreement; conflict or struggle.",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Internal strife within the political party\"",
+      "context": "Appears in histories of civil wars, corporate infighting, or deep social divisions that threaten stability.",
+      "mnem": "STRIKE-life",
+      "vis": "Two opposing factions fighting over a border line, pulling so hard on a rope that lightning bolts strike down between them.",
+      "syns": ["discord", "friction", "contention", "animosity"]
+    },
+    {
+      "word": "understated",
+      "def": "Presented or expressed in a subtle and effective way.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An understated elegance in her dress\"",
+      "context": "Praised in contexts where minimalist art, quiet dignity, or subtle performances are superior to flashy or loud displays.",
+      "mnem": "UNDER-STATED (Stated quietly below)",
+      "vis": "A billionaire arrives at a gala wearing a simple, unbranded matte-black watch that looks plain but is secretly worth millions.",
+      "syns": ["subtle", "muted", "unobtrusive", "restrained"]
+    },
+    {
+      "word": "unscrupulous",
+      "def": "Having or showing no moral principles; not honest or fair.",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An unscrupulous businessman cheating clients\"",
+      "context": "Used to describe deceptive practices, corrupt individuals, or actions done purely for greed without ethical limits.",
+      "mnem": "No SCRUPLES (No moral breaks)",
+      "vis": "A shady car salesman smiling as he spray-paints over a massive engine leak right before handing over the keys to a customer.",
+      "syns": ["unprincipled", "unethical", "deceitful", "venal"]
+    },
+    {
+      "word": "veracity",
+      "def": "Conformity to facts; accuracy; habitual truthfulness.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Question the veracity of the witness's claim\"",
+      "context": "Often contrasted with deceptive claims, fabrications, or questionable data that lack empirical validation.",
+      "mnem": "VER- (Truth, like verify)",
+      "vis": "A document glows with an intense, holy white light when passed through a lie-detector scanner, confirming its perfect accuracy.",
+      "syns": ["truthfulness", "authenticity", "credibility", "candor"]
+    },
+    {
+      "word": "virulent",
+      "def": "Extremely severe or harmful in its effects; bitterly hostile.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A virulent strain of the flu virus\"",
+      "context": "Can be used biologically (lethal pathogens) or socially (highly venomous, aggressive attacks, or hateful speech).",
+      "mnem": "VIRUS-lent",
+      "vis": "A glowing, toxic green liquid eats right through its glass beaker and immediately melts a hole directly through the lab table.",
+      "syns": ["toxic", "malignant", "vitriolic", "pernicious"]
+    },
+    {
+      "word": "volatile",
+      "def": "Liable to change rapidly and unpredictably, especially for the worse.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A volatile stock market prone to crashes\"",
+      "context": "Describes political situations on the brink of explosion, erratic behavior, or unstable chemical mixtures.",
+      "mnem": "VOLT-atile (Like a high-voltage spark)",
+      "vis": "A chemical beaker that changes color wildly every second before violently exploding the moment a drop of water touches it.",
+      "syns": ["capricious", "mercurial", "erratic", "unstable"]
+    }
+  ]
+}
