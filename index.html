@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Vocabulary Command Center</title>
     <style>
-        /* CSS Styling Variables Archetype Definitions */
         :root {
             --bg-main: #faf9f6;
             --bg-canvas: #ffffff;
@@ -168,7 +167,7 @@
         .fc-counter { font-size: 13.5px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
         
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; width: 100%; }
-        .stats-card { border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
+        .stats-card { border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: transform 0.2s; -webkit-tap-highlight-color: transparent; }
         .stats-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,39,32,0.06); }
         .stats-group-title { font-size: 20px; font-weight: 700; margin: 0; color: var(--text-main); }
         .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; font-weight: 600; }
@@ -198,7 +197,7 @@
 
 <div class="gre-widget-container">
     <div class="gre-controls">
-        <input type="text" id="greSearch" class="gre-search-bar" placeholder="Search parameters index dashboard database items...">
+        <input type="text" id="greSearch" class="gre-search-bar" placeholder="Search dataset vocabulary...">
         
         <div class="controls-row">
             <select id="greModeFilter" class="gre-filter-select-mode">
@@ -563,7 +562,6 @@ function renderFlashcardLayout() {
     displayContainer.appendChild(container);
 }
 
-// CRITICAL FIX: Metrics are dynamically computed strictly from raw loaded file definitions
 function renderStatisticsDashboard() {
     const grid = document.createElement('div');
     grid.className = 'stats-grid';
@@ -754,26 +752,36 @@ async function loadFromCloudBlobs() {
     }
 }
 
+// FIX: Dynamic parallel request loop that gathers cards cleanly even if middle sequence entries are absent
 async function autoScanServerWordLists() {
     let freshWords = [];
     const scanPromises = [];
-    for (let i = 1; i <= 100; i++) {
+    
+    // Extends range up to group 30 to catch future additions cleanly
+    for (let i = 1; i <= 30; i++) {
         const fileName = `g${i}.json`;
         const fetchPromise = fetch(`./${fileName}`)
             .then(async (response) => {
                 if (response.ok) {
                     const parsed = await response.json();
                     if (parsed.group && Array.isArray(parsed.cards)) {
-                        freshWords = [...freshWords, ...parsed.cards.map(c => ({ ...c, group: parseInt(parsed.group) }))];
+                        const parsedGroupNum = parseInt(parsed.group);
+                        const compiledCards = parsed.cards.map(c => ({ ...c, group: parsedGroupNum }));
+                        freshWords = [...freshWords, ...compiledCards];
                     }
                 }
             })
             .catch(() => {});
         scanPromises.push(fetchPromise);
     }
+    
     await Promise.all(scanPromises);
     wordsData = freshWords;
+    
     updateGroupFilterOptions();
+    
+    // Select all available checkboxes by default to build the baseline deck array completely
+    document.querySelectorAll('#dropdownGroup input[type="checkbox"]').forEach(cb => cb.checked = true);
     
     let baseList = getFilteredData();
     currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
