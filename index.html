@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Vocabulary Command Center</title>
     <style>
+        /* CSS Styling Variables Archetype Definitions */
         :root {
             --bg-main: #faf9f6;
             --bg-canvas: #ffffff;
@@ -28,9 +29,13 @@
             --color-unseen: #9b9389;
             --color-unseen-bg: #f4f3f0;
             
-            --tone-pos: #4cc9f0;
-            --tone-neg: #f72585;
-            --tone-neu: #7209b7;
+            /* Restored Classic Tone Palette Variables */
+            --tone-pos-bg: #d1fae5;
+            --tone-pos-txt: #065f46;
+            --tone-neg-bg: #fee2e2;
+            --tone-neg-txt: #991b1b;
+            --tone-neu-bg: #fef3c7;
+            --tone-neu-txt: #92400e;
         }
 
         body { 
@@ -124,10 +129,11 @@
         .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
         .gre-tags-row { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; }
         
-        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; }
-        .gre-badge.positive { background-color: var(--tone-pos); }
-        .gre-badge.negative { background-color: var(--tone-neg); }
-        .gre-badge.neutral { background-color: var(--tone-neu); }
+        /* Restored Classic Tone Badges Color-Coding Layout */
+        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; }
+        .gre-badge.positive { background-color: var(--tone-pos-bg); color: var(--tone-pos-txt); }
+        .gre-badge.negative { background-color: var(--tone-neg-bg); color: var(--tone-neg-txt); }
+        .gre-badge.neutral { background-color: var(--tone-neu-bg); color: var(--tone-neu-txt); }
         
         .mem-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; white-space: nowrap; border: 1px solid transparent; }
         .mem-badge.known { background-color: var(--color-known-bg); color: var(--color-known); border-color: rgba(82, 183, 136, 0.2); }
@@ -143,16 +149,23 @@
         .gre-vis { font-size: 13px; color: #4a453f; margin: 0 0 12px 0; line-height: 1.45; }
         .gre-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; }
         .gre-chip { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 4px 8px; border-radius: 5px; font-weight: 500; border: 1px solid rgba(0,0,0,0.03); }
+        .gre-chip.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .gre-tag { font-size: 11px; color: var(--text-muted); background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 3px 7px; border-radius: 5px; font-weight: 500; }
         .gre-tag.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 15px; background-color: var(--bg-main); border-radius: 12px; border: 1px dashed var(--border-color); }
         
+        /* Unified Flashcards Formatting Flex Structure Layout Rules */
         .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 480px; width: 100%; box-sizing: border-box; }
-        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
+        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 380px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
         .fc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(44, 39, 32, 0.06); border-color: var(--border-focus); }
-        .fc-card.revealed { align-items: stretch; text-align: left; justify-content: flex-start; }
-        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; }
-        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-accent); padding: 4px 10px; border-radius: 20px; }
+        
+        /* FIX: True absolute layout centering when unrevealed stack frame maps items */
+        .fc-card.unrevealed-layout { justify-content: center; align-items: center; text-align: center; }
+        .fc-card.revealed-layout { justify-content: flex-start; align-items: stretch; text-align: left; }
+        
+        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin: 0 0 12px 0; letter-spacing: -1px; word-break: break-all; }
+        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; background-color: var(--bg-accent); padding: 5px 12px; border-radius: 20px; text-align: center; }
+        
         .fc-score-row { display: flex; gap: 8px; width: 100%; margin-top: 14px; }
         .score-btn { flex: 1; padding: 12px 4px; font-size: 13px; font-weight: 700; border: 1px solid transparent; border-radius: 10px; cursor: pointer; text-transform: uppercase; min-height: 44px; transition: all 0.15s; }
         .score-btn.know { background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
@@ -507,13 +520,18 @@ function renderFlashcardLayout() {
     const container = document.createElement('div');
     container.className = 'fc-container';
     const card = document.createElement('div');
-    card.className = `fc-card ${flashcardRevealed ? 'revealed' : ''}`;
+    
+    // Toggle structure alignment mapping class flags cleanly
+    card.className = `fc-card ${flashcardRevealed ? 'revealed-layout' : 'unrevealed-layout'}`;
     const memBadgeHTML = getMemoryBadgeHTML(item.word);
     
     if (!flashcardRevealed) {
+        // FIX: Re-introduced elegant double stacked center layout formatting
         card.innerHTML = `
-            <div class="fc-front-title">${item.word}</div>
-            <div class="gre-tags-row">${memBadgeHTML}</div>
+            <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div class="fc-front-title">${item.word}</div>
+                <div class="gre-tags-row" style="justify-content: center;">${memBadgeHTML}</div>
+            </div>
             <div class="fc-hint">Group ${item.group} • Tap to reveal</div>
         `;
     } else {
@@ -752,12 +770,9 @@ async function loadFromCloudBlobs() {
     }
 }
 
-// FIX: Dynamic parallel request loop that gathers cards cleanly even if middle sequence entries are absent
 async function autoScanServerWordLists() {
     let freshWords = [];
     const scanPromises = [];
-    
-    // Extends range up to group 30 to catch future additions cleanly
     for (let i = 1; i <= 30; i++) {
         const fileName = `g${i}.json`;
         const fetchPromise = fetch(`./${fileName}`)
@@ -774,13 +789,10 @@ async function autoScanServerWordLists() {
             .catch(() => {});
         scanPromises.push(fetchPromise);
     }
-    
     await Promise.all(scanPromises);
     wordsData = freshWords;
-    
     updateGroupFilterOptions();
     
-    // Select all available checkboxes by default to build the baseline deck array completely
     document.querySelectorAll('#dropdownGroup input[type="checkbox"]').forEach(cb => cb.checked = true);
     
     let baseList = getFilteredData();
