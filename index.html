@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Vocabulary Command Center</title>
     <style>
-        /* Modern CSS Reset & Variable Design System */
+        /* CSS Styling Variables Archetype Definitions */
         :root {
             --bg-main: #faf9f6;
             --bg-canvas: #ffffff;
@@ -15,13 +15,11 @@
             --border-color: #e6e1da;
             --border-focus: #c5b39a;
             
-            /* Primary Actions */
             --primary: #8c7863;
             --primary-hover: #73614e;
             --secondary: #e26d5c;
             --secondary-hover: #ca5747;
             
-            /* Status Indicators */
             --color-known: #52b788;
             --color-known-bg: #effbf5;
             --color-delayed: #ee9b00;
@@ -31,7 +29,6 @@
             --color-unseen: #9b9389;
             --color-unseen-bg: #f4f3f0;
             
-            /* Tone Indicators */
             --tone-pos: #4cc9f0;
             --tone-neg: #f72585;
             --tone-neu: #7209b7;
@@ -91,7 +88,6 @@
             box-shadow: 0 0 0 3px rgba(197, 179, 154, 0.15);
         }
         
-        /* Dropdown custom design styles */
         .multi-select-dropdown { position: relative; flex: 1 1 calc(20% - 10px); min-width: 165px; box-sizing: border-box; }
         .dropdown-button { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 10px; background-color: var(--bg-canvas); color: var(--text-main); font-size: 14px; text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; font-weight: 500; transition: all 0.15s ease; display: flex; justify-content: space-between; align-items: center; }
         .dropdown-button:hover:not(:disabled) { border-color: var(--border-focus); background-color: var(--bg-main); }
@@ -109,7 +105,6 @@
         .sync-input { border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 6px; font-size: 13px; background: var(--bg-canvas); color: var(--text-main); font-weight: 500; outline: none; width: 100px; transition: border-color 0.15s; }
         .sync-input:focus { border-color: var(--border-focus); }
         
-        /* Beautiful Action Buttons Group */
         .btn-container { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; margin-top: 4px; }
         .gre-btn { flex: 1 1 130px; padding: 12px 16px; color: white; border: none; border-radius: 10px; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; min-height: 44px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         .gre-btn-filter { background-color: var(--secondary); font-size: 14.5px; font-weight: 700; flex: 2 1 200px; letter-spacing: 0.3px; }
@@ -122,11 +117,7 @@
         .gre-btn-cloud-save:hover { background-color: #3f37c9; }
         .gre-btn-cloud-load { background-color: #560bad; }
         .gre-btn-cloud-load:hover { background-color: #3a0ca3; }
-        .gre-btn:hover:not(:disabled) { opacity: 1; transform: translateY(-1px); }
-        .gre-btn:active:not(:disabled) { transform: translateY(0); }
-        .gre-btn:disabled, .dropdown-button:disabled { opacity: 0.5; cursor: not-allowed; }
         
-        /* Grid Layout & Minimalistic Card Typography Details */
         .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; position: relative; box-sizing: border-box; text-align: left; transition: all 0.2s ease; }
         .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 6px 24px rgba(44,39,32,0.04); }
@@ -134,7 +125,6 @@
         .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
         .gre-tags-row { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; }
         
-        /* Context Badges system rules */
         .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; }
         .gre-badge.positive { background-color: var(--tone-pos); }
         .gre-badge.negative { background-color: var(--tone-neg); }
@@ -158,7 +148,6 @@
         .gre-tag.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 15px; background-color: var(--bg-main); border-radius: 12px; border: 1px dashed var(--border-color); }
         
-        /* Aesthetic Flashcard Deck Layout System */
         .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 480px; width: 100%; box-sizing: border-box; }
         .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
         .fc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(44, 39, 32, 0.06); border-color: var(--border-focus); }
@@ -178,14 +167,12 @@
         .fc-btn:hover { border-color: var(--border-focus); background-color: var(--bg-main); }
         .fc-counter { font-size: 13.5px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
         
-        /* Clean Statistics Dashboard Grid design rules */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; width: 100%; }
         .stats-card { border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
         .stats-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,39,32,0.06); }
         .stats-group-title { font-size: 20px; font-weight: 700; margin: 0; color: var(--text-main); }
         .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; font-weight: 600; }
         
-        /* Unified Elegant Modal Design Blocks */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(45, 41, 36, 0.4); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; }
         .modal-overlay.active { display: flex; }
         .modal-content-wrapper { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; max-width: 500px; width: 100%; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 24px 50px rgba(0,0,0,0.12); animation: modalFadeIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; }
@@ -224,7 +211,6 @@
                 <option value="review">🚨 Needs Review</option>
             </select>
 
-            <!-- Memory Filter Dropdown -->
             <div class="multi-select-dropdown" id="dropdownMemory">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownMemory')">🧠 Memory States (All)</button>
                 <div class="dropdown-content">
@@ -235,13 +221,11 @@
                 </div>
             </div>
 
-            <!-- Group Filter Dropdown -->
             <div class="multi-select-dropdown" id="dropdownGroup">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownGroup')">📁 Word Groups (All)</button>
                 <div class="dropdown-content" id="groupOptionsContainer"></div>
             </div>
 
-            <!-- Category Filter Dropdown -->
             <div class="multi-select-dropdown" id="dropdownCategory">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownCategory')">🏷️ Categories (All)</button>
                 <div class="dropdown-content">
@@ -255,7 +239,6 @@
                 </div>
             </div>
 
-            <!-- Tone Filter Dropdown -->
             <div class="multi-select-dropdown" id="dropdownTone">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownTone')">🎭 Tones (All)</button>
                 <div class="dropdown-content">
@@ -580,6 +563,7 @@ function renderFlashcardLayout() {
     displayContainer.appendChild(container);
 }
 
+// CRITICAL FIX: Metrics are dynamically computed strictly from raw loaded file definitions
 function renderStatisticsDashboard() {
     const grid = document.createElement('div');
     grid.className = 'stats-grid';
