@@ -1,0 +1,98 @@
+{
+  "group": 13,
+  "cards": [
+    {
+      "word": "affinity",
+      "def": "A natural liking for or attraction to a person, thing, or idea; close resemblance or connection.",
+      "tone": "positive",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"An affinity for classical music\"",
+      "context": "ETS pairs this word with words indicating harmony, close structural relationships, or spontaneous intellectual connections.",
+      "mnem": "Affinity sounds like 'a finity' -> an infinite closeness or pull toward something.",
+      "vis": "A scientist finds an 'affinity' for a dolphin, feeling an infinite magnetic pull that physically drags them into the water.",
+      "syns": ["propensity", "predilection", "affinity", "rapport", "analogy"]
+    },
+    {
+      "word": "altruistic",
+      "def": "Unselfishly concerned for or devoted to the welfare of others.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An altruistic donation to charity\"",
+      "context": "Often contrasted with 'selfish', 'egoistic', or 'mercenary' motives in sentence completions.",
+      "mnem": "Altruistic -> 'All true' sticks. People who are completely honest and true only live to help others.",
+      "vis": "A billionaire hands out 'all true' gold bars to random citizens on the street until he has absolutely nothing left for himself.",
+      "syns": ["philanthropic", "magnanimous", "benevolent", "unselfish"]
+    },
+    {
+      "word": "baroque",
+      "def": "Extravagantly ornate, florid, or complex in style.",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"The baroque prose of the novel\"",
+      "context": "Used to describe overly complicated arguments, architectural designs, or writing styles that are detailed to a fault.",
+      "mnem": "Baroque sounds like 'Bar broke' -> the bar was so heavily decorated with gold statues that it broke under the weight.",
+      "vis": "A tavern owner looks on in horror as his 'bar broke' because it was encrusted with millions of heavy diamonds and gold leaves.",
+      "syns": ["ornate", "flamboyant", "convoluted", "ostentatious"]
+    },
+    {
+      "word": "byzantine",
+      "def": "Excessively complex, devious, or characterized by administrative bureaucracy.",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Byzantine tax laws and regulations\"",
+      "context": "Appears in contexts involving highly convoluted systems, labyrinthine regulations, or political intrigue.",
+      "mnem": "Byzantine -> 'Busy ant' design. An ant hill so massive and complicated that even the ants get lost in the red tape.",
+      "vis": "A citizen tries to file a form but is trapped inside a 'busy ant' maze where every corridor requires a different stamp and clearance.",
+      "syns": ["convoluted", "intricate", "labyrinthine", "tortuous", "daedal"]
+    },
+    {
+      "word": "compromise",
+      "def": "To settle a dispute by mutual concession, or to weaken, endanger, or expose to suspicion.",
+      "tone": "neutral",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Compromise structural integrity\"",
+      "context": "GRE heavily tests its secondary definition: to undermine, weaken, or dangerously expose something (e.g., compromising core principles).",
+      "mnem": "Compromise -> 'Promise' broken. Giving up a part of your promise weakens your position.",
+      "vis": "A bridge builder breaks his promise and uses cheap glue, causing the entire highway to sag and become fatally 'compromised'.",
+      "syns": ["undermine", "jeopardize", "concede", "prejudice", "impair"]
+    },
+    {
+      "word": "conciliatory",
+      "def": "Intended or likely to placate, pacify, or reconcile.",
+      "tone": "positive",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"A conciliatory gesture after an argument\"",
+      "context": "Used when an aggressive or stubborn party shifts to making peace offerings or trying to defuse a hostile situation.",
+      "mnem": "Conciliatory sounds like 'Con-silly-ate' -> making a silly face to calm down an angry convict.",
+      "vis": "A warden makes a funny, 'silly' face to an angry crowd of rioting convicts, instantly turning their rage into peaceful laughter.",
+      "syns": ["placatory", "appeasing", "mollifying", "propitiatory", "pacifying"]
+    },
+    {
+      "word": "countenance",
+      "def": "A person's face or facial expression; (verb) to admit as acceptable or possible.",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Refuse to countenance such behavior\"",
+      "context": "As a verb, it often shows up in negative constructions like 'will not countenance', meaning they won't tolerate or approve of something.",
+      "mnem": "Countenance -> 'Count the ants'. You have to keep a calm, steady face while counting ants crawling across your nose.",
+      "vis": "A stoic guard maintains a rigid, unchanging facial expression while trying to 'count the ants' marching directly over his eyelids.",
+      "syns": ["tolerate", "brook", "endorse", "sanction", "demeanor"]
+    },
+    {
+      "word": "covert",
+      "def": "Not openly acknowledged or displayed; secret or hidden.",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"A covert military operation\"",
+      "context": "Often contrasted directly with 'overt' or 'manifest' in questions dealing with transparency or secrecy.",
+      "mnem": "Covert -> 'Covered' completely. Kept completely under a blanket out of sight.",
+      "vis": "A spy wears a massive, 'covered' cardboard box while sneaking through a brightly lit museum to steal a diamond.",
+      "syns": ["clandestine", "surreptitious", "furtive", "stealthy", "hidden"]
+    },
+    {
+      "word": "credible",
+      "def": "Able to be believed; convincing.",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A credible witness in court\"",
+      "context
