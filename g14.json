@@ -1,0 +1,120 @@
+{
+  "group": 14,
+  "cards": [
+    {
+      "word": "acquiesce",
+      "def": "Accept something reluctantly but without protest",
+      "tone": "neutral",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Acquiesce to the demands\"",
+      "context": "Often used in sentences where a weaker party yields to a stronger power despite initial reluctance.",
+      "mnem": "Acquiesce -> 'Ack, yes!'",
+      "vis": "A tired student sighing 'Ack, yes!' while giving in to a mountain of homework assignments.",
+      "syns": ["concede", "comply", "assent", "recede"]
+    },
+    {
+      "word": "adroit",
+      "def": "Clever or skillful in using the hands or mind",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An adroit maneuver\"",
+      "context": "Used to describe politicians or professionals managing tricky situations smoothly and effectively.",
+      "mnem": "Adroit -> 'Android'",
+      "vis": "A highly advanced android performing ultra-precise, lightning-fast brain surgery with absolute ease.",
+      "syns": ["adept", "deft", "dexterous", "shrewd"]
+    },
+    {
+      "word": "amend",
+      "def": "Make minor changes in a text in order to make it more fair, accurate, or up-to-date",
+      "tone": "positive",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Amend the constitution\"",
+      "context": "Appears in contexts involving legal documents, policies, or personal behavior being improved.",
+      "mnem": "Amend -> 'A mend'",
+      "vis": "A tailor meticulously mending a torn, old law document with golden thread to fix its errors.",
+      "syns": ["modify", "rectify", "alter", "ameliorate"]
+    },
+    {
+      "word": "animus",
+      "def": "Hostility or ill feeling; motivation or purpose",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Harbor personal animus\"",
+      "context": "ETS uses this to indicate deep-seated bias, resentment, or a driving hostile motivation between rivals.",
+      "mnem": "Animus -> 'Enemy us'",
+      "vis": "An angry crowd chanting 'You are an enemy to us!' while shooting laser beams from their eyes.",
+      "syns": ["animosity", "antagonism", "enmity", "rancor"]
+    },
+    {
+      "word": "apologist",
+      "def": "A person who offers an argument in defense of something controversial",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A corporate apologist\"",
+      "context": "Often contrasts a harsh critic; indicates someone defending a regime, policy, or radical theory.",
+      "mnem": "Apologist -> 'Apology list'",
+      "vis": "A defense lawyer unrolling a massive scroll of excuses, reading an apology list to excuse a villain's crimes.",
+      "syns": ["defender", "advocate", "champion", "proponent"]
+    },
+    {
+      "word": "astringent",
+      "def": "Sharp, severe, or biting; causing the contraction of body tissues",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An astringent critique\"",
+      "context": "Used metaphorically to describe a style of commentary that is painfully harsh, analytical, and dry.",
+      "mnem": "Astringent -> 'A string gent'",
+      "vis": "A harsh gentleman pulling tight strings around a modern painting to physically squeeze the color out of it.",
+      "syns": ["acerbic", "caustic", "scathing", "austere"]
+    },
+    {
+      "word": "collaborate",
+      "def": "Work jointly on an activity, especially to produce or create something",
+      "tone": "positive",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Collaborate on a research project\"",
+      "context": "Found in passages detailing scientists, artists, or nations pooling resources to achieve a common goal.",
+      "mnem": "Collaborate -> 'Co-labor'",
+      "vis": "Two rival laboratory scientists begrudgingly holding the same test tube to brew a secret potion together.",
+      "syns": ["cooperate", "conspire", "collude", "team up"]
+    },
+    {
+      "word": "competent",
+      "def": "Having the necessary ability, knowledge, or skill to do something successfully",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A competent professional\"",
+      "context": "Used to denote adequate or baseline efficiency, sometimes contrasted with true excellence or mastery.",
+      "mnem": "Competent -> 'Compete ant'",
+      "vis": "An incredibly organized ant wearing a tiny hardhat, easily winning a lifting competition against sluggish beetles.",
+      "syns": ["capable", "proficient", "adept", "qualified"]
+    },
+    {
+      "word": "correlate",
+      "def": "Have a mutual relationship or connection, in which one thing affects or depends on another",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Correlate data points\"",
+      "context": "Appears frequently in scientific or statistical passages describing the relationship between variables.",
+      "mnem": "Correlate -> 'Co-relate'",
+      "vis": "Two distinct data graphs suddenly growing arms, shaking hands, and dancing in perfect synchronization.",
+      "syns": ["correspond", "match", "parallel", "associate"]
+    },
+    {
+      "word": "deride",
+      "def": "Express contempt for; ridicule or mock",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Deride someone's efforts\"",
+      "context": "Indicates a shift where critics mock or dismiss an unconventional idea or scientific breakthrough.",
+      "mnem": "Deride -> 'Dee ride'",
+      "vis": "A crowd pointing and laughing hysterically at a clown attempting to ride a unicycle with square wheels.",
+      "syns": ["mock", "ridicule", "scorn", "disdain"]
+    },
+    {
+      "word": "dictate",
+      "def": "Lay down authoritatively; prescribe or determine",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Dictate the terms of agreement\"",
+      "context": "Used when an overarching factor, condition, or person
