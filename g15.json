@@ -1,0 +1,193 @@
+{
+  "group": 15,
+  "cards": [
+    {
+      "word": "alienate",
+      "def": "To cause someone to feel isolated, estranged, or hostile.",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Alienate your closest friends\"",
+      "context": "Often used in ETS questions to describe political leaders or policies that distance or offend a specific faction of supporters.",
+      "mnem": "ALIEN-ate",
+      "vis": "An alien arrives at a dinner party and eats all the food, causing everyone to completely isolate and distance themselves from him.",
+      "syns": ["estrange", "distance", "isolate", "disaffect"]
+    },
+    {
+      "word": "apathy",
+      "def": "Lack of interest, enthusiasm, or concern.",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Voter apathy during local elections\"",
+      "context": "Appears when describing public indifference to critical social issues, often contrasted with activism or passion.",
+      "mnem": "A-PATHY (A = without, Pathos = feeling)",
+      "vis": "A person sitting on a path while a massive parade passes by, completely staring into space with zero expression.",
+      "syns": ["indifference", "lethargy", "impassivity", "torpor"]
+    },
+    {
+      "word": "apropos",
+      "def": "Very appropriate to a particular situation; with reference to.",
+      "tone": "neutral",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"An apropos remark during the debate\"",
+      "context": "Used to denote remarks, timings, or clothes that perfectly fit the specific context or occasion.",
+      "mnem": "Appropriate Proposal",
+      "vis": "A man makes a proposal at a wedding that is so perfectly timed and fitting that the entire room gives a standing ovation.",
+      "syns": ["pertinent", "relevant", "germane", "apposite"]
+    },
+    {
+      "word": "apt",
+      "def": "Appropriate or suitable in the circumstances; having a tendency to do something.",
+      "tone": "neutral",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"An apt description of the situation\"",
+      "context": "Appears in blanks where an analysis or metaphor perfectly captures the essence of a complex topic.",
+      "mnem": "APTitude",
+      "vis": "An apartment that is perfectly designed to fit a tenant's exact needs, making it an incredibly suitable living space.",
+      "syns": ["suitable", "fitting", "appropriate", "prone"]
+    },
+    {
+      "word": "cloak",
+      "def": "To hide, cover, or disguise something.",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Cloak operational details in secrecy\"",
+      "context": "Often used in corporate or political contexts where true motives or data are intentionally hidden behind a deceptive facade.",
+      "mnem": "CLOAK of invisibility",
+      "vis": "A wizard throws a massive velvet cloak over a giant, glowing neon sign to completely obscure it from the police.",
+      "syns": ["shroud", "mask", "camouflage", "conceal"]
+    },
+    {
+      "word": "consensus",
+      "def": "General agreement among a group of people.",
+      "tone": "positive",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Reach a consensus on the budget\"",
+      "context": "Typically found in passages describing scientific agreement or political coalitions finding common ground.",
+      "mnem": "Con-SENSES (All senses agree)",
+      "vis": "A group of distinct alien creatures all nodding their heads in unison as they sign a single peace treaty.",
+      "syns": ["accord", "unanimity", "concord", "harmony"]
+    },
+    {
+      "word": "distort",
+      "def": "To pull or twist out of shape; to misrepresent facts.",
+      "tone": "negative",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Distort the truth for personal gain\"",
+      "context": "Used when media or biased researchers warp data or testimonies to support a preconceived, inaccurate narrative.",
+      "mnem": "DIS-TORQUE (Twist out of place)",
+      "vis": "A politician grabs a straight iron bar representing facts and physically twists it into a corkscrew during a live interview.",
+      "syns": ["misrepresent", "falsify", "warp", "contort"]
+    },
+    {
+      "word": "divergent",
+      "def": "Tending to be different or develop in different directions.",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Divergent paths in their careers\"",
+      "context": "Appears in sentences comparing two theories, species, or opinions that start out similar but grow radically apart over time.",
+      "mnem": "DIVERGE",
+      "vis": "A single train track splits violently into two separate directions, sending one train north to the Arctic and one south to the desert.",
+      "syns": ["deviant", "differing", "disparate", "conflicting"]
+    },
+    {
+      "word": "elated",
+      "def": "Ecstatically happy and proud.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Elated by the graduation news\"",
+      "context": "Describes an overwhelming surge of joy following a hard-won victory or an unexpected stroke of good fortune.",
+      "mnem": "ELEVATED mood",
+      "vis": "A lottery winner becomes so intensely happy that they physically float up into the air like a helium balloon.",
+      "syns": ["exuberant", "exultant", "ecstatic", "jubilant"]
+    },
+    {
+      "word": "enchant",
+      "def": "To fill someone with great delight; to charm or captivate.",
+      "tone": "positive",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Enchant the audience with a performance\"",
+      "context": "Often describes artwork, literature, or charismatic figures that effortlessly hold the complete attention of observers.",
+      "mnem": "EN-CHANT (Sing a magical chant)",
+      "vis": "A singer belts out a magical melody, causing everyone in the auditorium to grow giant cartoon heart-eyes and sway in unison.",
+      "syns": ["captivate", "beguile", "enthrall", "fascinate"]
+    },
+    {
+      "word": "entrenched",
+      "def": "Firmly established and difficult or unlikely to change.",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Entrenched beliefs passed down for generations\"",
+      "context": "Used to describe habits, institutional bureaucracies, or cultural biases that resist reform efforts completely.",
+      "mnem": "In a TRENCH",
+      "vis": "A giant statue of an ancient tradition is buried deep inside a concrete trench, with a crew of bulldozers unable to even budge it.",
+      "syns": ["ingrained", "inveterate", "deep-seated", "ineradicable"]
+    },
+    {
+      "word": "exotic",
+      "def": "Originating in or characteristic of a distant foreign country; strikingly unusual.",
+      "tone": "neutral",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Exotic fruits found in tropical markets\"",
+      "context": "Contrasted against what is domestic, mundane, or native in ecological or cultural passages.",
+      "mnem": "EX-OUT (From outside)",
+      "vis": "A bright purple, glowing neon bird flying through a flock of ordinary grey pigeons in a crowded city square.",
+      "syns": ["foreign", "alien", "outlandish", "unfamiliar"]
+    },
+    {
+      "word": "exploitative",
+      "def": "Making use of a situation or treating others unfairly in order to gain an advantage.",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Exploitative labor practices in sweatshops\"",
+      "context": "Appears in critical passages discussing monopolies, historical injustices, or unethical corporations taking advantage of vulnerable populations.",
+      "mnem": "EXPLOIT-ative",
+      "vis": "A greedy boss lounges on a velvet couch while forcing a tiny, exhausted hamster to run on a wheel to power his mansion's electricity.",
+      "syns": ["predatory", "unscrupulous", "opportunistic", "parasitic"]
+    },
+    {
+      "word": "foreseeable",
+      "def": "Able to be anticipated or predicted beforehand.",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"No changes in the foreseeable future\"",
+      "context": "Often used in economic projections or trend analyses to qualify predictions based on current available evidence.",
+      "mnem": "FORE-SEE-able",
+      "vis": "A psychic looking through a telescope and clearly seeing a giant calendar date marked next week with absolute certainty.",
+      "syns": ["predictable", "anticipated", "expected", "calculable"]
+    },
+    {
+      "word": "forsake",
+      "def": "To abandon or desert a person, cause, or habit.",
+      "tone": "negative",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"Forsake your principles for money\"",
+      "context": "Often shows up in context shifts where a person abandons long-held ideologies or leaves their allies in a moment of crisis.",
+      "mnem": "For God's SAKE, don't leave",
+      "vis": "A captain jumps off a sinking ship into a private speedboat, completely abandoning his crew who are yelling after him.",
+      "syns": ["abandon", "renounce", "desert", "relinquish"]
+    },
+    {
+      "word": "gratify",
+      "def": "To give someone pleasure or satisfaction; to indulge a desire.",
+      "tone": "positive",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"Gratify an immediate craving for sweets\"",
+      "context": "Describes actions that fulfill whims or desires, sometimes contrasted with delayed gratification or self-discipline.",
+      "mnem": "GREAT-ify (Make feel great)",
+      "vis": "A butler hands a golden platter containing a massive hot fudge sundae to a king, completely satisfying his sudden craving.",
+      "syns": ["satisfy", "indulge", "please", "assuage"]
+    },
+    {
+      "word": "heed",
+      "def": "To pay close attention to advice, a warning, or an indicator.",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Heed the warnings of climate scientists\"",
+      "context": "Appears frequently in scenarios where disaster strikes because leadership failed to listen to expert warnings.",
+      "mnem": "HEAR and do",
+      "vis": "A hiker stops dead in his tracks and presses his ear closely to a signpost that is shouting out directions around an active volcano.",
+      "syns": ["listen to", "mind", "follow", "observe"]
+    },
+    {
+      "word": "judicious",
+      "def":
