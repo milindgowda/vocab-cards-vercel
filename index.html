@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE Vocabulary Command Center</title>
+    <style>
+        body { background-color: #f5f2eb; margin: 0; padding: 10px; }
+        .gre-widget-container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #fdfbf7; padding: 16px; border-radius: 12px; box-shadow: 0 4px 12px rgba(44, 39, 32, 0.05); max-width: 1200px; margin: 20px auto; color: #2c2720; border: 1px solid #eadecc; box-sizing: border-box; }
+        .gre-controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 10px; width: 100%; align-items: center; }
+        .gre-search-bar { width: 100%; padding: 12px 16px; border: 2px solid #eadecc; background-color: #fbf9f3; color: #2c2720; border-radius: 8px; font-size: 16px; outline: none; box-sizing: border-box; }
+        .gre-search-bar:focus { border-color: #d4a373; }
+        .multi-select-dropdown { position: relative; flex: 1 1 calc(25% - 10px); min-width: 160px; box-sizing: border-box; }
+        .dropdown-button { width: 100%; padding: 12px; border: 2px solid #eadecc; border-radius: 8px; background-color: #fbf9f3; color: #2c2720; font-size: 14px; text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; font-weight: 500; }
+        .dropdown-content { display: none; position: absolute; background-color: #faf7f0; min-width: 220px; border: 2px solid #eadecc; border-radius: 8px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); z-index: 10; max-height: 250px; overflow-y: auto; padding: 8px; box-sizing: border-box; margin-top: 4px; }
+        .multi-select-dropdown.open .dropdown-content { display: block; }
+        .dropdown-option { display: flex; align-items: center; gap: 8px; padding: 6px 8px; cursor: pointer; border-radius: 4px; font-size: 14px; color: #443e36; }
+        .dropdown-option:hover { background-color: #ede8dc; }
+        .dropdown-option input { cursor: pointer; margin: 0; width: 16px; height: 16px; accent-color: #d4a373; }
+        .gre-filter-select-mode { flex: 1 1 150px; padding: 12px; border: 2px solid #eadecc; border-radius: 8px; background-color: #fbf9f3; color: #2c2720; font-size: 15px; cursor: pointer; outline: none; }
+        .gre-sync-badge { background-color: #ede8dc; border: 1px solid #eadecc; border-radius: 8px; padding: 10px 14px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+        .sync-input { border: 1px solid #c4b7a6; padding: 4px 8px; border-radius: 4px; font-size: 13px; background: #fdfbf7; color: #2c2720; outline: none; width: 120px; }
+        .btn-container { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; margin-top: 5px; }
+        .gre-btn { flex: 1 1 140px; padding: 12px 16px; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; min-height: 44px; }
+        .gre-btn-filter { background-color: #ea580c; font-size: 15px; font-weight: 700; flex: 2 1 200px; box-shadow: 0 2px 4px rgba(234, 88, 12, 0.2); }
+        .gre-btn-filter:hover { background-color: #c2410c; }
+        .gre-btn-sync { background-color: #0d9488; }
+        .gre-btn-random { background-color: #7c2d12; }
+        .gre-btn-random.active { background-color: #ea580c; }
+        .gre-btn-cloud-save { background-color: #2563eb; }
+        .gre-btn-cloud-load { background-color: #4f46e5; }
+        .gre-btn:hover { opacity: 0.9; }
+        .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .gre-card { background-color: #faf7f0; border: 1px solid #eadecc; border-radius: 10px; padding: 16px; box-shadow: 0 1px 4px rgba(44, 39, 32, 0.02); display: flex; flex-direction: column; position: relative; box-sizing: border-box; }
+        .gre-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
+        .gre-word { font-size: 20px; font-weight: 700; color: #1c1914; margin: 0; word-break: break-word; }
+        .gre-tags-row { display: flex; gap: 6px; margin-bottom: 10px; align-items: center; flex-wrap: wrap; }
+        .gre-badge { font-size: 11px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-radius: 9999px; letter-spacing: 0.5px; white-space: nowrap; }
+        .gre-badge.positive { background-color: #d1fae5; color: #065f46; }
+        .gre-badge.negative { background-color: #fee2e2; color: #991b1b; }
+        .gre-badge.neutral { background-color: #fef3c7; color: #92400e; }
+        .mem-badge { font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; }
+        .mem-badge.known { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .mem-badge.delayed { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .mem-badge.unknown { background-color: #fce7f3; color: #9d174d; border: 1px solid #fbcfe8; }
+        .mem-badge.unseen { background-color: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; }
+        .gre-def { font-size: 14px; color: #574f44; margin: 0 0 8px 0; font-style: italic; }
+        .gre-collocation { font-size: 13px; color: #065f46; background-color: #e6f4ea; padding: 6px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 12px; display: inline-block; word-break: break-word; }
+        .gre-section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #a39684; margin: 10px 0 4px 0; letter-spacing: 0.5px; }
+        .gre-context-box { font-size: 13px; color: #2c2720; background-color: #fff7ed; border-left: 4px solid #ea580c; padding: 8px 12px; border-radius: 4px; margin: 0 0 10px 0; line-height: 1.4; }
+        .gre-mnemonic { font-size: 14px; color: #1d4ed8; font-weight: 500; background-color: #eff6ff; padding: 6px 10px; border-radius: 6px; margin: 0 0 8px 0; }
+        .gre-vis { font-size: 13px; color: #443e36; margin: 0 0 10px 0; line-height: 1.4; }
+        .gre-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+        .gre-chip { background-color: #ede8dc; color: #574f44; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 500; }
+        .gre-tag { font-size: 11px; color: #786e5f; background-color: #f3eee3; border: 1px solid #eadecc; padding: 2px 6px; border-radius: 4px; }
+        .gre-tag.group-tag { background-color: #ede8dc; font-weight: bold; color: #443e36; }
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: #786e5f; font-size: 16px; background-color: #faf7f0; border-radius: 8px; border: 1px dashed #c4b7a6; }
+        .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 530px; width: 100%; box-sizing: border-box; }
+        .fc-card { background: #faf7f0; border: 2px solid #eadecc; border-radius: 16px; min-height: 340px; width: 100%; padding: 20px; box-shadow: 0 10px 25px rgba(44, 39, 32, 0.05); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        .fc-card.revealed { align-items: stretch; text-align: left; justify-content: flex-start; }
+        .fc-front-title { font-size: 34px; font-weight: 800; color: #1c1914; margin-bottom: 12px; word-break: break-all; }
+        .fc-hint { font-size: 12px; color: #a39684; text-transform: uppercase; letter-spacing: 1px; }
+        .fc-score-row { display: flex; gap: 6px; width: 100%; margin-top: 12px; }
+        .score-btn { flex: 1; padding: 12px 4px; font-size: 12px; font-weight: 700; border: 1px solid #eadecc; border-radius: 6px; cursor: pointer; text-transform: uppercase; min-height: 44px; }
+        .score-btn.know { background-color: #e6f4ea; color: #137333; }
+        .score-btn.delay { background-color: #fef7e0; color: #b06000; }
+        .score-btn.dont { background-color: #fce8e6; color: #c5221f; }
+        .fc-navigation { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 12px; gap: 12px; }
+        .fc-btn { background-color: #faf7f0; border: 2px solid #eadecc; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 600; cursor: pointer; color: #574f44; flex: 1; min-height: 44px; }
+        .fc-counter { font-size: 14px; font-weight: 600; color: #786e5f; white-space: nowrap; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; }
+        .stats-card { border: 1px solid #eadecc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; }
+        .stats-group-title { font-size: 20px; font-weight: 800; margin: 0; color: #1c1914; }
+        .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="gre-widget-container">
+    <div class="gre-controls">
+        <input type="text" id="greSearch" class="gre-search-bar" placeholder="Search dataset vocabulary...">
+        
+        <div class="controls-row">
+            <select id="greModeFilter" class="gre-filter-select-mode">
+                <option value="study">📝 Study Mode</option>
+                <option value="flashcard">🎴 Flashcards</option>
+                <option value="statistics">📊 Statistics</option>
+            </select>
+            <select id="greStatsSortFilter" class="gre-filter-select-mode" style="display: none;">
+                <option value="know">🥇 Highest Mastery</option>
+                <option value="review">🚨 Needs Review</option>
+            </select>
+
+            <div class="multi-select-dropdown" id="dropdownMemory">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownMemory')">🧠 Memory States (All)</button>
+                <div class="dropdown-content">
+                    <label class="dropdown-option"><input type="checkbox" value="unseen" checked> Unseen</label>
+                    <label class="dropdown-option"><input type="checkbox" value="known" checked> Known</label>
+                    <label class="dropdown-option"><input type="checkbox" value="delayed" checked> Delayed</label>
+                    <label class="dropdown-option"><input type="checkbox" value="unknown" checked> Don't Know</label>
+                </div>
+            </div>
+
+            <div class="multi-select-dropdown" id="dropdownGroup">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownGroup')">📁 Word Groups (All)</button>
+                <div class="dropdown-content" id="groupOptionsContainer"></div>
+            </div>
+
+            <div class="multi-select-dropdown" id="dropdownCategory">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownCategory')">🏷️ Categories (All)</button>
+                <div class="dropdown-content">
+                    <label class="dropdown-option"><input type="checkbox" value="Control & Separation" checked> Control & Separation</label>
+                    <label class="dropdown-option"><input type="checkbox" value="Speech & Thought" checked> Speech & Thought</label>
+                    <label class="dropdown-option"><input type="checkbox" value="Behavior & Traits" checked> Behavior & Traits</label>
+                    <label class="dropdown-option"><input type="checkbox" value="Compliance & Accord" checked> Compliance & Accord</label>
+                    <label class="dropdown-option"><input type="checkbox" value="Social Dynamics" checked> Social Dynamics</label>
+                    <label class="dropdown-option"><input type="checkbox" value="Quantity & State" checked> Quantity & State</label>
+                    <label class="dropdown-option"><input type="checkbox" value="General" checked> General / Other</label>
+                </div>
+            </div>
+
+            <div class="multi-select-dropdown" id="dropdownTone">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownTone')">🎭 Tones (All)</button>
+                <div class="dropdown-content">
+                    <label class="dropdown-option"><input type="checkbox" value="positive" checked> Positive</label>
+                    <label class="dropdown-option"><input type="checkbox" value="negative" checked> Negative</label>
+                    <label class="dropdown-option"><input type="checkbox" value="neutral" checked> Neutral</label>
+                </div>
+            </div>
+
+            <div class="gre-sync-badge">
+                👤 Profile ID: <input type="text" id="greUserPin" class="sync-input" value="student1">
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="gre-btn gre-btn-filter" id="greBtnApplyFilter">🔍 Apply Filters</button>
+            <button class="gre-btn gre-btn-random" id="greBtnRandom">🔀 Random Off</button>
+            <button class="gre-btn gre-btn-sync" id="greBtnSync">🔄 Refresh Word Lists</button>
+            <button class="gre-btn gre-btn-cloud-save" id="greBtnCloudSave">☁️ Save to Cloud</button>
+            <button class="gre-btn gre-btn-cloud-load" id="greBtnCloudLoad">☁️ Load from Cloud</button>
+        </div>
+    </div>
+    <div id="greDisplayContainer"></div>
+</div>
+
+<script>
+let wordsData = [];
+let currentFlashcardIndex = 0;
+let flashcardRevealed = false;
+let currentFilteredList = [];
+let isRandomized = false;
+let memoryScores = {};
+
+const displayContainer = document.getElementById('greDisplayContainer');
+const searchInput = document.getElementById('greSearch');
+const modeFilter = document.getElementById('greModeFilter');
+const statsSortFilter = document.getElementById('greStatsSortFilter');
+const userPinInput = document.getElementById('greUserPin');
+const btnSync = document.getElementById('greBtnSync');
+const btnRandom = document.getElementById('greBtnRandom');
+const btnApplyFilter = document.getElementById('greBtnApplyFilter');
+const btnCloudSave = document.getElementById('greBtnCloudSave');
+const btnCloudLoad = document.getElementById('greBtnCloudLoad');
+const groupOptionsContainer = document.getElementById('groupOptionsContainer');
+
+// Hit /api/... instead of Netlify's long signature
+const getApiUrl = (user) => `/api/state-manager?user=${encodeURIComponent(user)}`;
+
+function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    const isOpen = dropdown.classList.contains('open');
+    closeAllDropdowns();
+    if (!isOpen) dropdown.classList.add('open');
+}
+
+function closeAllDropdowns() {
+    document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('open'));
+}
+
+window.addEventListener('click', (e) => {
+    if (!e.target.closest('.multi-select-dropdown')) closeAllDropdowns();
+});
+
+function updateDropdownLabels() {
+    const checkCount = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]:checked`)).length;
+    const totalCount = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]`)).length;
+    const setLabel = (id, baseName) => {
+        const checked = checkCount(id);
+        const total = totalCount(id);
+        const btn = document.querySelector(`#${id} .dropdown-button`);
+        if (checked === total) btn.textContent = `${baseName} (All)`;
+        else if (checked === 0) btn.textContent = `${baseList} (None)`;
+        else btn.textContent = `${baseList} (${checked} Selected)`;
+    };
+    // Standard label updates
+    document.getElementById('greMemoryFilter').previousElementSibling?.setAttribute ? null : true;
+}
+
+function saveAppStateToBrowser() {
+    const getChecked = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-option input:checked`)).map(c => c.value);
+    const state = {
+        search: searchInput.value,
+        mode: modeFilter.value,
+        randomized: isRandomized,
+        flashcardIndex: currentFlashcardIndex,
+        scores: memoryScores,
+        userPin: userPinInput.value,
+        filterMemory: Array.from(document.querySelectorAll('#dropdownMemory input:checked')).map(c=>c.value),
+        filterGroup: Array.from(document.querySelectorAll('#dropdownGroup input:checked')).map(c=>c.value),
+        filterCategory: Array.from(document.querySelectorAll('#dropdownCategory input:checked')).map(c=>c.value),
+        filterTone: Array.from(document.querySelectorAll('#dropdownTone input:checked')).map(c=>c.value)
+    };
+    localStorage.setItem('gre_vercel_app_state', JSON.stringify(state));
+}
+
+function loadAppStateFromBrowser() {
+    const saved = localStorage.getItem('gre_vercel_app_state');
+    if (!saved) return;
+    try {
+        const state = JSON.parse(saved);
+        searchInput.value = state.search || "";
+        modeFilter.value = state.mode || "study";
+        userPinInput.value = state.userPin || "student1";
+        isRandomized = !!state.randomized;
+        currentFlashcardIndex = state.flashcardIndex || 0;
+        memoryScores = state.scores || {};
+
+        btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
+        btnRandom.classList.toggle('active', isRandomized);
+
+        const setChecked = (selector, savedValues) => {
+            if (!savedValues) return;
+            document.querySelectorAll(selector).forEach(cb => cb.checked = savedValues.includes(cb.value));
+        };
+        setChecked('#dropdownMemory input', state.filterMemory);
+        setChecked('#dropdownCategory input', state.filterCategory);
+        setChecked('#dropdownTone input', state.filterTone);
+        window.stashedGroups = state.filterGroup;
+    } catch(e) {}
+}
+
+function updateGroupFilterOptions() {
+    const groups = [...new Set(wordsData.map(item => item.group))].sort((a,b) => a-b);
+    groupOptionsContainer.innerHTML = '';
+    groups.forEach(g => {
+        const label = document.createElement('label');
+        label.className = 'dropdown-option';
+        const isChecked = window.stashedGroups ? window.stashedGroups.includes(String(g)) : true;
+        label.innerHTML = `<input type="checkbox" value="${g}" ${isChecked ? 'checked' : ''}> Group ${g}`;
+        groupOptionsContainer.appendChild(label);
+    });
+    delete window.stashedGroups;
+}
+
+function shuffleArray(array) {
+    let shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function getMemoryBadgeHTML(word) {
+    const status = memoryScores[word] || 'unseen';
+    if (status === 'known') return `<span class="mem-badge known">Known</span>`;
+    if (status === 'delayed') return `<span class="mem-badge delayed">Delayed</span>`;
+    if (status === 'unknown') return `<span class="mem-badge unknown">Don't Know</span>`;
+    return `<span class="mem-badge unseen">Unseen</span>`;
+}
+
+function getFilteredData() {
+    const query = searchInput.value.toLowerCase().trim();
+    const getChecked = (id) => Array.from(document.querySelectorAll(`#${id} input:checked`)).map(c => c.value);
+    
+    const selMem = getChecked('dropdownMemory');
+    const selGrp = getChecked('dropdownGroup');
+    const selCat = getChecked('dropdownCategory');
+    const selTon = getChecked('dropdownTone');
+    
+    return wordsData.filter(item => {
+        const wordStr = (item.word || '').toLowerCase();
+        const defStr = (item.def || '').toLowerCase();
+        const phraseStr = (item.phrase || '').toLowerCase();
+        const contextStr = (item.context || '').toLowerCase();
+        const synsArray = Array.isArray(item.syns) ? item.syns : [];
+        const status = memoryScores[item.word] || 'unseen';
+        
+        const matchesSearch = query === "" || 
+                              wordStr.includes(query) || 
+                              defStr.includes(query) || 
+                              phraseStr.includes(query) || 
+                              contextStr.includes(query) ||
+                              synsArray.some(s => s.toLowerCase().includes(query));
+                              
+        return matchesSearch && selMem.includes(status) && selGrp.includes(String(item.group)) && selCat.includes(item.cat || 'General') && selTon.includes(item.tone || 'neutral');
+    });
+}
+
+function handleFilterExecution() {
+    currentFlashcardIndex = 0;
+    flashcardRevealed = false;
+    closeAllDropdowns();
+    
+    let baseList = getFilteredData();
+    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+    updateView();
+}
+
+function updateView() {
+    const mode = modeFilter.value;
+    const isStats = mode === 'statistics';
+    statsSortFilter.style.display = isStats ? "inline-block" : "none";
+    searchInput.disabled = btnRandom.disabled = btnApplyFilter.disabled = isStats;
+    document.querySelectorAll('.dropdown-button').forEach(b => b.disabled = isStats);
+
+    displayContainer.innerHTML = '';
+    if (wordsData.length === 0) {
+        displayContainer.innerHTML = `<div class="no-results">Downloading vocabulary files...</div>`;
+        return;
+    }
+    if (currentFilteredList.length === 0) {
+        displayContainer.innerHTML = '<div class="no-results">No vocabulary words match your criteria parameters. Click "Apply Filters".</div>';
+        return;
+    }
+    
+    if (mode === 'study') renderStudyGrid();
+    else if (mode === 'flashcard') {
+        if (currentFlashcardIndex >= currentFilteredList.length) currentFlashcardIndex = 0;
+        renderFlashcardLayout();
+    }
+    else if (mode === 'statistics') renderStatisticsDashboard();
+    saveAppStateToBrowser();
+}
+
+function renderStudyGrid() {
+    const grid = document.createElement('div');
+    grid.className = 'gre-grid';
+    currentFilteredList.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'gre-card';
+        const synChips = (item.syns || []).map(s => `<span class="gre-chip">${s}</span>`).join('');
+        const memBadgeHTML = getMemoryBadgeHTML(item.word);
+        card.innerHTML = `
+            <div class="gre-card-header"><h3 class="gre-word">${item.word}</h3><span class="gre-badge ${item.tone || 'neutral'}">${item.tone || 'neutral'}</span></div>
+            <div class="gre-tags-row"><span class="gre-tag group-tag">G ${item.group}</span><span class="gre-tag">${item.cat || 'General'}</span>${memBadgeHTML}</div>
+            <p class="gre-def">${item.def || ''}</p><span class="gre-collocation">${item.phrase || ''}</span>
+            <div class="gre-section-title">⚠️ How GRE Uses This Word</div><p class="gre-context-box">${item.context || ''}</p>
+            <div class="gre-section-title">Mnemonic Trick</div><p class="gre-mnemonic">${item.mnem || ''}</p>
+            <div class="gre-section-title">Mental Image</div><p class="gre-vis">${item.vis || ''}</p>
+            <div class="gre-section-title">GRE Synonyms</div><div class="gre-chips">${synChips}</div>
+        `;
+        grid.appendChild(card);
+    });
+    displayContainer.appendChild(grid);
+}
+
+async function rateFlashcard(word, rating) {
+    memoryScores[word] = rating;
+    saveAppStateToBrowser();
+    moveFlashcard(1);
+}
+
+function renderFlashcardLayout() {
+    displayContainer.innerHTML = '';
+    const item = currentFilteredList[currentFlashcardIndex];
+    const container = document.createElement('div');
+    container.className = 'fc-container';
+    const card = document.createElement('div');
+    card.className = `fc-card ${flashcardRevealed ? 'revealed' : ''}`;
+    const memBadgeHTML = getMemoryBadgeHTML(item.word);
+    
+    if (!flashcardRevealed) {
+        card.innerHTML = `
+            <div class="fc-front-title">${item.word}</div>
+            <div class="gre-tags-row">${memBadgeHTML}</div>
+            <div class="fc-hint" style="margin-top:15px;">Group ${item.group} • Tap Card To Flip</div>
+        `;
+    } else {
+        const synChips = (item.syns || []).map(s => `<span class="gre-chip">${s}</span>`).join('');
+        card.innerHTML = `
+            <div class="gre-card-header"><h3 class="gre-word" style="font-size: 24px;">${item.word}</h3><span class="gre-badge ${item.tone || 'neutral'}">${item.tone || 'neutral'}</span></div>
+            <div class="gre-tags-row"><span class="gre-tag group-tag">Group ${item.group}</span><span class="gre-tag">${item.cat || 'General'}</span>${memBadgeHTML}</div>
+            <p class="gre-def">${item.def || ''}</p><span class="gre-collocation">${item.phrase || ''}</span>
+            <div class="gre-section-title">⚠️ How GRE Uses This Word</div><p class="gre-context-box">${item.context || ''}</p>
+            <div class="gre-section-title">Mnemonic Trick</div><p class="gre-mnemonic">${item.mnem || ''}</p>
+            <div class="gre-section-title">Mental Image</div><p class="gre-vis">${item.vis || ''}</p>
+            <div class="gre-section-title">GRE Synonyms</div><div class="gre-chips">${synChips}</div>
+        `;
+    }
+    
+    card.addEventListener('click', () => {
+        flashcardRevealed = !flashcardRevealed;
+        renderFlashcardLayout();
+    });
+    
+    if (flashcardRevealed) {
+        const scoreRow = document.createElement('div');
+        scoreRow.className = 'fc-score-row';
+        const btnKnow = document.createElement('button'); btnKnow.className = 'score-btn know'; btnKnow.textContent = "Know";
+        btnKnow.onclick = (e) => { e.stopPropagation(); rateFlashcard(item.word, 'known'); };
+        const btnDelay = document.createElement('button'); btnDelay.className = 'score-btn delay'; btnDelay.textContent = "Time";
+        btnDelay.onclick = (e) => { e.stopPropagation(); rateFlashcard(item.word, 'delayed'); };
+        const btnDont = document.createElement('button'); btnDont.className = 'score-btn dont'; btnDont.textContent = "Don't";
+        btnDont.onclick = (e) => { e.stopPropagation(); rateFlashcard(item.word, 'unknown'); };
+        scoreRow.appendChild(btnKnow); scoreRow.appendChild(btnDelay); scoreRow.appendChild(btnDont);
+        container.appendChild(card); container.appendChild(scoreRow);
+    } else {
+        container.appendChild(card);
+    }
+    
+    const nav = document.createElement('div');
+    nav.className = 'fc-navigation';
+    const btnPrev = document.createElement('button'); btnPrev.className = 'fc-btn'; btnPrev.innerHTML = '← Prev';
+    btnPrev.onclick = (e) => { e.stopPropagation(); moveFlashcard(-1); };
+    const counter = document.createElement('div'); counter.className = 'fc-counter';
+    counter.textContent = `${currentFlashcardIndex + 1} / ${currentFilteredList.length}`;
+    const btnNext = document.createElement('button'); btnNext.className = 'fc-btn'; btnNext.innerHTML = 'Next →';
+    btnNext.onclick = (e) => { e.stopPropagation(); moveFlashcard(1); };
+    nav.appendChild(btnPrev); nav.appendChild(counter); nav.appendChild(btnNext);
+    container.appendChild(nav);
+    displayContainer.appendChild(container);
+}
+
+function renderStatisticsDashboard() {
+    const grid = document.createElement('div');
+    grid.className = 'stats-grid';
+    const groupMap = {};
+    wordsData.forEach(item => {
+        if (!groupMap[item.group]) groupMap[item.group] = { group: item.group, total: 0, known: 0, delayed: 0, reviewNeeded: 0 };
+        groupMap[item.group].total++;
+        const status = memoryScores[item.word] || 'unseen';
+        if (status === 'known') groupMap[item.group].known++;
+        else if (status === 'delayed') groupMap[item.group].delayed++;
+        else groupMap[item.group].reviewNeeded++;
+    });
+
+    let groupsArray = Object.values(groupMap);
+    if (statsSortFilter.value === 'know') {
+        groupsArray.sort((a, b) => (b.known / b.total) - (a.known / a.total));
+    } else {
+        groupsArray.sort((a, b) => (b.reviewNeeded / b.total) - (a.reviewNeeded / a.total));
+    }
+
+    groupsArray.forEach(g => {
+        const card = document.createElement('div');
+        card.className = 'stats-card';
+        const knownRatio = g.known / g.total;
+        const hue = Math.round(knownRatio * 140);
+        card.style.backgroundColor = `hsl(${hue}, 70%, 93%)`;
+        card.style.borderColor = `hsl(${hue}, 40%, 80%)`;
+        card.innerHTML = `
+            <h3 class="stats-group-title">Group ${g.group}</h3>
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 4px 0;">
+            <div class="stats-metric-row" style="color: #15803d;"><span>Known:</span><span class="stats-val">${g.known}/${g.total} (${Math.round((g.known/g.total)*100)}%)</span></div>
+            <div class="stats-metric-row" style="color: #b45309;"><span>Delayed:</span><span class="stats-val">${g.delayed}</span></div>
+            <div class="stats-metric-row" style="color: #b91c1c;"><span>Review:</span><span class="stats-val">${g.reviewNeeded}</span></div>
+        `;
+        grid.appendChild(card);
+    });
+    displayContainer.appendChild(grid);
+}
+
+function moveFlashcard(direction) {
+    flashcardRevealed = false;
+    currentFlashcardIndex += direction;
+    if (currentFlashcardIndex < 0) currentFlashcardIndex = currentFilteredList.length - 1;
+    else if (currentFlashcardIndex >= currentFilteredList.length) currentFlashcardIndex = 0;
+    updateView();
+}
+
+window.addEventListener('keydown', (e) => {
+    if (modeFilter.value !== 'flashcard' || currentFilteredList.length === 0) return;
+    if (e.key === 'ArrowLeft') moveFlashcard(-1);
+    if (e.key === 'ArrowRight') moveFlashcard(1);
+    if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault(); flashcardRevealed = !flashcardRevealed; renderFlashcardLayout();
+    }
+    if (flashcardRevealed) {
+        const item = currentFilteredList[currentFlashcardIndex];
+        if (e.key === '1') rateFlashcard(item.word, 'known');
+        if (e.key === '2') rateFlashcard(item.word, 'delayed');
+        if (e.key === '3') rateFlashcard(item.word, 'unknown');
+    }
+});
+
+btnRandom.addEventListener('click', () => {
+    isRandomized = !isRandomized;
+    btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
+    btnRandom.classList.toggle('active', isRandomized);
+    currentFlashcardIndex = 0; flashcardRevealed = false;
+    currentFilteredList = isRandomized ? shuffleArray(currentFilteredList) : getFilteredData();
+    updateView();
+});
+
+async function saveToCloudBlobs() {
+    const user = userPinInput.value.trim() || "default_user";
+    btnCloudSave.textContent = "⏳ Saving...";
+    try {
+        const response = await fetch(getApiUrl(user), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ scores: memoryScores })
+        });
+        const textData = await response.text();
+        let parsedData;
+        try { parsedData = JSON.parse(textData); } catch(e) {}
+        if (!response.ok) throw new Error(parsedData?.details || parsedData?.error || `HTTP Error ${response.status}`);
+        alert(`Cloud save successful for: "${user}"!`);
+    } catch(err) {
+        alert("Cloud saving failed!\n\nDetails: " + err.message);
+    } finally {
+        btnCloudSave.textContent = "☁️ Save to Cloud";
+    }
+}
+
+async function loadFromCloudBlobs() {
+    const user = userPinInput.value.trim() || "default_user";
+    btnCloudLoad.textContent = "⏳ Loading...";
+    try {
+        const response = await fetch(getApiUrl(user));
+        const textData = await response.text();
+        let parsedData;
+        try { parsedData = JSON.parse(textData); } catch(e) {}
+        if (!response.ok) throw new Error(parsedData?.details || parsedData?.error || `HTTP Error ${response.status}`);
+        
+        memoryScores = parsedData.scores || {};
+        saveAppStateToBrowser();
+        handleFilterExecution();
+        alert(`Cloud data loaded for: "${user}"!`);
+    } catch(err) {
+        alert("Cloud loading failed!\n\nDetails: " + err.message);
+    } finally {
+        btnCloudLoad.textContent = "☁️ Load from Cloud";
+    }
+}
+
+async function autoScanServerWordLists() {
+    let freshWords = [];
+    const scanPromises = [];
+    for (let i = 1; i <= 100; i++) {
+        const fileName = `g${i}.json`;
+        const fetchPromise = fetch(`./${fileName}`)
+            .then(async (response) => {
+                if (response.ok) {
+                    const parsed = await response.json();
+                    if (parsed.group && Array.isArray(parsed.cards)) {
+                        freshWords = [...freshWords, ...parsed.cards.map(c => ({ ...c, group: parseInt(parsed.group) }))];
+                    }
+                }
+            })
+            .catch(() => {});
+        scanPromises.push(fetchPromise);
+    }
+    await Promise.all(scanPromises);
+    wordsData = freshWords;
+    updateGroupFilterOptions();
+    
+    let baseList = getFilteredData();
+    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+    updateView();
+}
+
+async function initApp() {
+    loadAppStateFromBrowser();
+    await autoScanServerWordLists();
+}
+
+btnSync.addEventListener('click', autoScanServerWordLists);
+btnCloudSave.addEventListener('click', saveToCloudBlobs);
+btnCloudLoad.addEventListener('click', loadFromCloudBlobs);
+btnApplyFilter.addEventListener('click', handleFilterExecution);
+searchInput.addEventListener('input', () => {
+    let baseList = getFilteredData();
+    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+    updateView();
+});
+userPinInput.addEventListener('input', saveAppStateToBrowser);
+modeFilter.addEventListener('change', () => { flashcardRevealed = false; updateView(); });
+statsSortFilter.addEventListener('change', updateView);
+
+initApp();
+</script>
+</body>
+</html>
