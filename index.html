@@ -69,10 +69,31 @@
         .fc-navigation { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 12px; gap: 12px; }
         .fc-btn { background-color: #faf7f0; border: 2px solid #eadecc; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 600; cursor: pointer; color: #574f44; flex: 1; min-height: 44px; }
         .fc-counter { font-size: 14px; font-weight: 600; color: #786e5f; white-space: nowrap; }
+        
+        /* Statistics Screen & Modal Popup Architecture styling rules */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; }
-        .stats-card { border: 1px solid #eadecc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; }
+        .stats-card { border: 1px solid #eadecc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; -webkit-tap-highlight-color: transparent; }
+        .stats-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(44,39,32,0.08); }
         .stats-group-title { font-size: 20px; font-weight: 800; margin: 0; color: #1c1914; }
         .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; }
+        
+        /* Modal Backdrop Engine Overlay Container */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(28, 25, 20, 0.4); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; }
+        .modal-overlay.active { display: flex; }
+        .modal-content-wrapper { background: #fdfbf7; border: 2px solid #eadecc; border-radius: 16px; max-width: 500px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.15); animation: modalFadeIn 0.25s ease-out; }
+        @keyframes modalFadeIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-header { padding: 16px; border-bottom: 1px solid #eadecc; display: flex; justify-content: space-between; align-items: center; background: #faf7f0; border-top-left-radius: 14px; border-top-right-radius: 14px; }
+        .modal-title { font-size: 20px; font-weight: 800; color: #1c1914; margin: 0; }
+        .modal-close-btn { background: none; border: none; font-size: 24px; font-weight: 700; color: #a39684; cursor: pointer; padding: 0 4px; line-height: 1; }
+        .modal-body { padding: 16px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+        
+        /* Color-Coded Popover Progress List Line Rows */
+        .modal-word-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 8px; border: 1px solid transparent; font-weight: 600; font-size: 15px; }
+        .modal-word-row.known { background-color: #d1fae5; color: #065f46; border-color: #a7f3d0; }
+        .modal-word-row.delayed { background-color: #fef3c7; color: #92400e; border-color: #fde68a; }
+        .modal-word-row.unknown { background-color: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+        .modal-word-row.unseen { background-color: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+        .modal-status-txt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; opacity: 0.85; }
     </style>
 </head>
 <body>
@@ -145,6 +166,19 @@
     <div id="greDisplayContainer"></div>
 </div>
 
+<!-- Reusable Global Statistics Popover Modal Markup Block -->
+<div class="modal-overlay" id="statsGroupModal">
+    <div class="modal-content-wrapper">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modalGroupHeaderTitle">Group Summary</h3>
+            <button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>
+        </div>
+        <div class="modal-body" id="modalGroupListBody">
+            <!-- Programmatically populated word status items output here -->
+        </div>
+    </div>
+</div>
+
 <script>
 let wordsData = [];
 let currentFlashcardIndex = 0;
@@ -165,7 +199,11 @@ const btnCloudSave = document.getElementById('greBtnCloudSave');
 const btnCloudLoad = document.getElementById('greBtnCloudLoad');
 const groupOptionsContainer = document.getElementById('groupOptionsContainer');
 
-// Hit /api/... instead of Netlify's long signature
+// Modal Elements references
+const statsGroupModal = document.getElementById('statsGroupModal');
+const modalGroupHeaderTitle = document.getElementById('modalGroupHeaderTitle');
+const modalGroupListBody = document.getElementById('modalGroupListBody');
+
 const getApiUrl = (user) => `/api/state-manager?user=${encodeURIComponent(user)}`;
 
 function toggleDropdown(id) {
@@ -191,15 +229,16 @@ function updateDropdownLabels() {
         const total = totalCount(id);
         const btn = document.querySelector(`#${id} .dropdown-button`);
         if (checked === total) btn.textContent = `${baseName} (All)`;
-        else if (checked === 0) btn.textContent = `${baseList} (None)`;
-        else btn.textContent = `${baseList} (${checked} Selected)`;
+        else if (checked === 0) btn.textContent = `${baseName} (None)`;
+        else btn.textContent = `${baseName} (${checked} Selected)`;
     };
-    // Standard label updates
-    document.getElementById('greMemoryFilter').previousElementSibling?.setAttribute ? null : true;
+    setLabel('dropdownMemory', '🧠 Memory States');
+    setLabel('dropdownGroup', '📁 Word Groups');
+    setLabel('dropdownCategory', '🏷️ Categories');
+    setLabel('dropdownTone', '🎭 Tones');
 }
 
 function saveAppStateToBrowser() {
-    const getChecked = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-option input:checked`)).map(c => c.value);
     const state = {
         search: searchInput.value,
         mode: modeFilter.value,
@@ -252,6 +291,7 @@ function updateGroupFilterOptions() {
         groupOptionsContainer.appendChild(label);
     });
     delete window.stashedGroups;
+    updateDropdownLabels();
 }
 
 function shuffleArray(array) {
@@ -303,6 +343,7 @@ function handleFilterExecution() {
     currentFlashcardIndex = 0;
     flashcardRevealed = false;
     closeAllDropdowns();
+    updateDropdownLabels();
     
     let baseList = getFilteredData();
     currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
@@ -321,7 +362,7 @@ function updateView() {
         displayContainer.innerHTML = `<div class="no-results">Downloading vocabulary files...</div>`;
         return;
     }
-    if (currentFilteredList.length === 0) {
+    if (currentFilteredList.length === 0 && !isStats) {
         displayContainer.innerHTML = '<div class="no-results">No vocabulary words match your criteria parameters. Click "Apply Filters".</div>';
         return;
     }
@@ -428,6 +469,7 @@ function renderStatisticsDashboard() {
     const grid = document.createElement('div');
     grid.className = 'stats-grid';
     const groupMap = {};
+    
     wordsData.forEach(item => {
         if (!groupMap[item.group]) groupMap[item.group] = { group: item.group, total: 0, known: 0, delayed: 0, reviewNeeded: 0 };
         groupMap[item.group].total++;
@@ -451,6 +493,7 @@ function renderStatisticsDashboard() {
         const hue = Math.round(knownRatio * 140);
         card.style.backgroundColor = `hsl(${hue}, 70%, 93%)`;
         card.style.borderColor = `hsl(${hue}, 40%, 80%)`;
+        
         card.innerHTML = `
             <h3 class="stats-group-title">Group ${g.group}</h3>
             <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 4px 0;">
@@ -458,10 +501,53 @@ function renderStatisticsDashboard() {
             <div class="stats-metric-row" style="color: #b45309;"><span>Delayed:</span><span class="stats-val">${g.delayed}</span></div>
             <div class="stats-metric-row" style="color: #b91c1c;"><span>Review:</span><span class="stats-val">${g.reviewNeeded}</span></div>
         `;
+        
+        // Trigger event tracking listener mapping for stats modal deployment mapping
+        card.addEventListener('click', () => openStatsGroupModal(g.group));
+        
         grid.appendChild(card);
     });
     displayContainer.appendChild(grid);
 }
+
+// Open and load color coded metrics into modal view layer layout safely
+function openStatsGroupModal(groupId) {
+    modalGroupHeaderTitle.textContent = `📋 Group ${groupId} Breakdown`;
+    modalGroupListBody.innerHTML = '';
+    
+    // Extract out all words tagged under this specific sequence ID matching constraints
+    const groupWords = wordsData.filter(item => item.group === groupId).sort((a,b) => a.word.localeCompare(b.word));
+    
+    groupWords.forEach(item => {
+        const status = memoryScores[item.word] || 'unseen';
+        const row = document.createElement('div');
+        row.className = `modal-word-row ${status}`;
+        
+        let readableStatus = "Unseen";
+        if (status === 'known') readableStatus = "Known";
+        if (status === 'delayed') readableStatus = "Delayed";
+        if (status === 'unknown') readableStatus = "Don't Know";
+        
+        row.innerHTML = `
+            <span class="modal-word-txt">${item.word}</span>
+            <span class="modal-status-txt">${readableStatus}</span>
+        `;
+        modalGroupListBody.appendChild(row);
+    });
+    
+    statsGroupModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Lock main scrolling window
+}
+
+function closeStatsGroupModal() {
+    statsGroupModal.classList.remove('active');
+    document.body.style.overflow = ''; // Unlock scrolling tracking rules safely
+}
+
+// Bind close event directly if user clicks overlay background zone safely
+statsGroupModal.addEventListener('click', (e) => {
+    if (e.target === statsGroupModal) closeStatsGroupModal();
+});
 
 function moveFlashcard(direction) {
     flashcardRevealed = false;
@@ -578,7 +664,7 @@ searchInput.addEventListener('input', () => {
     updateView();
 });
 userPinInput.addEventListener('input', saveAppStateToBrowser);
-modeFilter.addEventListener('change', () => { flashcardRevealed = false; updateView(); });
+modeFilter.addEventListener('change', () => { flashcardRevealed = false; closeStatsGroupModal(); updateView(); });
 statsSortFilter.addEventListener('change', updateView);
 
 initApp();
