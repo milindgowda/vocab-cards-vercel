@@ -1,0 +1,185 @@
+{
+  "group": 11,
+  "cards": [
+    {
+      "word": "abhor",
+      "def": "regard with disgust and hatred",
+      "tone": "negative",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"Abhor violence and cruelty\"",
+      "context": "Often paired with a shift word (like 'although') to contrast someone's public praise with their internal deep hatred for a policy.",
+      "mnem": "abhor -> ab + horror",
+      "vis": "A person shrinking back in horror from a plate of broccoli, absolutely detesting its presence.",
+      "syns": ["detest", "loathe", "abominate", "execrate"]
+    },
+    {
+      "word": "boisterous",
+      "def": "noisy, energetic, and rowdy",
+      "tone": "neutral",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A boisterous crowd at the game\"",
+      "context": "Used to describe crowds, children, or celebrations that contrast with quiet, solemn, or sedate environments.",
+      "mnem": "boisterous -> boy-stir-us",
+      "vis": "A room full of hyperactive boys stirring huge pots of soup so violently that it splashes everywhere while they scream.",
+      "syns": ["unruly", "clamorous", "vociferous", "raucous"]
+    },
+    {
+      "word": "chivalrous",
+      "def": "courteous and gallant, especially toward women",
+      "tone": "positive",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"A chivalrous gesture of holding the door\"",
+      "context": "Appears in blanks contrasting modern, rude behavior with old-world, gentlemanly courtesy.",
+      "mnem": "chivalrous -> Shiva (God) + rush",
+      "vis": "Lord Shiva rushing down from the Himalayas just to hold an umbrella over someone in a rainstorm.",
+      "syns": ["gallant", "courteous", "valiant", "magnanimous"]
+    },
+    {
+      "word": "churlish",
+      "def": "rude in a mean-spirited and surly way",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"It would be churlish to complain\"",
+      "context": "Used to describe an ungrateful or impolite response to someone's genuine kindness or hospitality.",
+      "mnem": "churlish -> church-illish",
+      "vis": "A person acting incredibly rude and stick-in-the-mud sick while inside a peaceful church service.",
+      "syns": ["boorish", "ill-mannered", "surly", "sullen"]
+    },
+    {
+      "word": "clandestine",
+      "def": "kept secret or done secretively",
+      "tone": "neutral",
+      "cat": "Control & Separation",
+      "phrase": "💡 Daily life: \"A clandestine meeting in the park\"",
+      "context": "Often used in political or corporate contexts describing illicit or undercover operations hidden from public view.",
+      "mnem": "clandestine -> clan + destiny",
+      "vis": "A secret clan meeting in a dark basement plotting their destiny using glowing maps.",
+      "syns": ["surreptitious", "covert", "furtive", "stealthy"]
+    },
+    {
+      "word": "complacent",
+      "def": "uncritically satisfied with oneself or one's achievements",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"Become complacent after winning\"",
+      "context": "Used when a company or individual stops trying harder because they assume their current success will last forever.",
+      "mnem": "complacent -> come-place-cent",
+      "vis": "A lazy runner who stops mid-race to sit comfortably in first place, sipping a drink while others pass him.",
+      "syns": ["smug", "self-satisfied", "unconcerned"]
+    },
+    {
+      "word": "cumbersome",
+      "def": "large or heavy and therefore difficult to carry or use",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A cumbersome piece of luggage\"",
+      "context": "Can apply physically to objects or metaphorically to slow, bureaucratic processes that hinder efficiency.",
+      "mnem": "cumbersome -> cucumber-some",
+      "vis": "A delivery person sweating profusely while trying to carry a giant, human-sized cucumber up a flight of stairs.",
+      "syns": ["unwieldy", "ponderous", "bulky", "burdensome"]
+    },
+    {
+      "word": "debilitating",
+      "def": "making someone very weak and infirm",
+      "tone": "negative",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"A debilitating physical disease\"",
+      "context": "Describes conditions, strikes, or financial crises that completely paralyze or weaken an entity's operations.",
+      "mnem": "debilitating -> de-ability",
+      "vis": "A wizard zapping an athlete with a spell that drains all their ability, leaving them shaking on the floor.",
+      "syns": ["enervating", "incapacitating", "weakening", "enfeebling"]
+    },
+    {
+      "word": "deliberate",
+      "def": "done consciously and intentionally; to engage in long careful consideration",
+      "tone": "neutral",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A deliberate attempt to mislead\"",
+      "context": "Can act as an adjective meaning intentional, or a verb denoting a jury or committee weighing options slowly.",
+      "mnem": "deliberate -> daily-rate",
+      "vis": "A boss carefully calculating a worker's daily rate with a magnifying glass, taking hours to make a decision.",
+      "syns": ["intentional", "calculated", "ponder", "ruminate"]
+    },
+    {
+      "word": "droll",
+      "def": "amusing in an odd, whimsical, or dry way",
+      "tone": "positive",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A droll sense of humor\"",
+      "context": "Often describes a clever, understated expression of wit that induces quiet amusement rather than loud laughter.",
+      "mnem": "droll -> doll",
+      "vis": "A creepy old doll sitting in an armchair suddenly telling a dry, witty British joke with a straight face.",
+      "syns": ["wry", "facetious", "whimsical", "entertaining"]
+    },
+    {
+      "word": "eccentric",
+      "def": "unconventional and slightly strange",
+      "tone": "neutral",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An eccentric billionaire's habits\"",
+      "context": "Used to describe innovators or bizarre personalities whose behavior deviates from established social norms.",
+      "mnem": "eccentric -> ex-centric (out of center)",
+      "vis": "A wacky scientist walking a mechanical lobster on a leash down the middle of a busy city street.",
+      "syns": ["idiosyncratic", "unorthodox", "quirky", "peculiar"]
+    },
+    {
+      "word": "fractious",
+      "def": "irritable and quarrelsome; difficult to control",
+      "tone": "negative",
+      "cat": "Social Dynamics",
+      "phrase": "💡 Daily life: \"A fractious political debate\"",
+      "context": "Describes groups, coalitions, or individuals prone to fighting, bickering, and splintering apart.",
+      "mnem": "fractious -> fracture",
+      "vis": "An argumentative committee fighting so hard over a project that the conference table literally fractures in half.",
+      "syns": ["peevish", "irritable", "refractory", "recalcitrant"]
+    },
+    {
+      "word": "limpid",
+      "def": "completely clear and transparent; clear and melodious",
+      "tone": "positive",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"The limpid waters of the stream\"",
+      "context": "Describes writing prose that is beautifully clear and easy to understand, or physically clear liquids.",
+      "mnem": "limpid -> liquid-lucid",
+      "vis": "A stream of mountain liquid so perfectly clear that you can see tiny ants crawling on the pebbles at the very bottom.",
+      "syns": ["pellucid", "translucent", "lucid", "crystalline"]
+    },
+    {
+      "word": "mawkish",
+      "def": "sentimental in an exaggerated or sickening way",
+      "tone": "negative",
+      "cat": "Speech & Thought",
+      "phrase": "💡 Daily life: \"A mawkish love story\"",
+      "context": "Used by critics to blast movies, books, or speeches that try way too hard to elicit cheap emotional tears.",
+      "mnem": "mawkish -> mother-kiss",
+      "vis": "A mother kissing her grown teenage son in public 100 times until he gets sick to his stomach from embarrassment.",
+      "syns": ["maudlin", "saccharine", "sentimental", "cloying"]
+    },
+    {
+      "word": "obeisance",
+      "def": "deferential respect; a bow or curtsy",
+      "tone": "positive",
+      "cat": "Compliance & Accord",
+      "phrase": "💡 Daily life: \"Pay obeisance to the king\"",
+      "context": "Typically appears in historical contexts or descriptions of extreme deference shown to authorities/traditions.",
+      "mnem": "obeisance -> obey-sons",
+      "vis": "A king's sons bowing down so low to obey their father that their foreheads touch the palace floor.",
+      "syns": ["deference", "homage", "reverence", "veneration"]
+    },
+    {
+      "word": "ostentatious",
+      "def": "characterized by vulgar or pretentious display designed to impress",
+      "tone": "negative",
+      "cat": "Behavior & Traits",
+      "phrase": "💡 Daily life: \"An ostentatious display of wealth\"",
+      "context": "Contrasted against modesty, understatement, or simplicity in lifestyle and aesthetic choice.",
+      "mnem": "ostentatious -> ostrich-showoff",
+      "vis": "An ostrich wearing a giant diamond necklace and a gold tuxedo, strutting around to show off to ordinary chickens.",
+      "syns": ["pretentious", "showy", "flamboyant", "gaudy"]
+    },
+    {
+      "word": "panacea",
+      "def": "a solution or remedy for all difficulties or diseases",
+      "tone": "positive",
+      "cat": "Quantity & State",
+      "phrase": "💡 Daily life: \"Not
