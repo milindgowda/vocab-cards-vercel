@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Vocabulary Command Center</title>
     <style>
-        /* CSS Styling Variables Archetype Definitions */
         :root {
             --bg-main: #faf9f6;
             --bg-canvas: #ffffff;
@@ -29,13 +28,9 @@
             --color-unseen: #9b9389;
             --color-unseen-bg: #f4f3f0;
             
-            /* Restored Classic Tone Palette Variables */
-            --tone-pos-bg: #d1fae5;
-            --tone-pos-txt: #065f46;
-            --tone-neg-bg: #fee2e2;
-            --tone-neg-txt: #991b1b;
-            --tone-neu-bg: #fef3c7;
-            --tone-neu-txt: #92400e;
+            --tone-pos: #4cc9f0;
+            --tone-neg: #f72585;
+            --tone-neu: #7209b7;
         }
 
         body { 
@@ -106,7 +101,7 @@
         .gre-filter-select-mode:focus { border-color: var(--border-focus); }
         
         .gre-sync-badge { background-color: var(--bg-accent); border-radius: 10px; padding: 10px 14px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--text-muted); }
-        .sync-input { border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 6px; font-size: 13px; background: var(--bg-canvas); color: var(--text-main); font-weight: 500; outline: none; width: 100px; transition: border-color 0.15s; }
+        .sync-input { border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 4px; font-size: 13px; background: var(--bg-canvas); color: var(--text-main); font-weight: 500; outline: none; width: 100px; transition: border-color 0.15s; }
         .sync-input:focus { border-color: var(--border-focus); }
         
         .btn-container { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; margin-top: 4px; }
@@ -122,6 +117,12 @@
         .gre-btn-cloud-load { background-color: #560bad; }
         .gre-btn-cloud-load:hover { background-color: #3a0ca3; }
         
+        /* Unified session design colors mapping */
+        .gre-btn-session-save { background-color: #d946ef; }
+        .gre-btn-session-save:hover { background-color: #a21caf; }
+        .gre-btn-session-load { background-color: #db2777; }
+        .gre-btn-session-load:hover { background-color: #9d174d; }
+
         .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; position: relative; box-sizing: border-box; text-align: left; transition: all 0.2s ease; }
         .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 6px 24px rgba(44,39,32,0.04); }
@@ -129,11 +130,10 @@
         .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
         .gre-tags-row { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; }
         
-        /* Restored Classic Tone Badges Color-Coding Layout */
-        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; }
-        .gre-badge.positive { background-color: var(--tone-pos-bg); color: var(--tone-pos-txt); }
-        .gre-badge.negative { background-color: var(--tone-neg-bg); color: var(--tone-neg-txt); }
-        .gre-badge.neutral { background-color: var(--tone-neu-bg); color: var(--tone-neu-txt); }
+        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; }
+        .gre-badge.positive { background-color: var(--tone-pos); }
+        .gre-badge.negative { background-color: var(--tone-neg); }
+        .gre-badge.neutral { background-color: var(--tone-neu); }
         
         .mem-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; white-space: nowrap; border: 1px solid transparent; }
         .mem-badge.known { background-color: var(--color-known-bg); color: var(--color-known); border-color: rgba(82, 183, 136, 0.2); }
@@ -149,23 +149,16 @@
         .gre-vis { font-size: 13px; color: #4a453f; margin: 0 0 12px 0; line-height: 1.45; }
         .gre-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; }
         .gre-chip { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 4px 8px; border-radius: 5px; font-weight: 500; border: 1px solid rgba(0,0,0,0.03); }
-        .gre-chip.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .gre-tag { font-size: 11px; color: var(--text-muted); background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 3px 7px; border-radius: 5px; font-weight: 500; }
         .gre-tag.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 15px; background-color: var(--bg-main); border-radius: 12px; border: 1px dashed var(--border-color); }
         
-        /* Unified Flashcards Formatting Flex Structure Layout Rules */
         .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 480px; width: 100%; box-sizing: border-box; }
-        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 380px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
+        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
         .fc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(44, 39, 32, 0.06); border-color: var(--border-focus); }
-        
-        /* FIX: True absolute layout centering when unrevealed stack frame maps items */
-        .fc-card.unrevealed-layout { justify-content: center; align-items: center; text-align: center; }
-        .fc-card.revealed-layout { justify-content: flex-start; align-items: stretch; text-align: left; }
-        
-        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin: 0 0 12px 0; letter-spacing: -1px; word-break: break-all; }
-        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; background-color: var(--bg-accent); padding: 5px 12px; border-radius: 20px; text-align: center; }
-        
+        .fc-card.revealed { align-items: stretch; text-align: left; justify-content: flex-start; }
+        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; }
+        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-accent); padding: 4px 10px; border-radius: 20px; }
         .fc-score-row { display: flex; gap: 8px; width: 100%; margin-top: 14px; }
         .score-btn { flex: 1; padding: 12px 4px; font-size: 13px; font-weight: 700; border: 1px solid transparent; border-radius: 10px; cursor: pointer; text-transform: uppercase; min-height: 44px; transition: all 0.15s; }
         .score-btn.know { background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
@@ -269,8 +262,12 @@
             <button class="gre-btn gre-btn-filter" id="greBtnApplyFilter">🔍 Apply Filters</button>
             <button class="gre-btn gre-btn-random" id="greBtnRandom">🔀 Random Off</button>
             <button class="gre-btn gre-btn-sync" id="greBtnSync">🔄 Refresh Word Lists</button>
-            <button class="gre-btn gre-btn-cloud-save" id="greBtnCloudSave">☁️ Save to Cloud</button>
-            <button class="gre-btn gre-btn-cloud-load" id="greBtnCloudLoad">☁️ Load from Cloud</button>
+            <button class="gre-btn gre-btn-cloud-save" id="greBtnCloudSave">☁️ Save Progress</button>
+            <button class="gre-btn gre-btn-cloud-load" id="greBtnCloudLoad">☁️ Load Progress</button>
+            
+            <!-- Complete Unified Filter & Randomness Sync Configuration Triggers -->
+            <button class="gre-btn gre-btn-session-save" id="greBtnSessionSave">🔀 Save Session Config</button>
+            <button class="gre-btn gre-btn-session-load" id="greBtnSessionLoad">🔀 Load Session Config</button>
         </div>
     </div>
     <div id="greDisplayContainer"></div>
@@ -307,6 +304,8 @@ const btnRandom = document.getElementById('greBtnRandom');
 const btnApplyFilter = document.getElementById('greBtnApplyFilter');
 const btnCloudSave = document.getElementById('greBtnCloudSave');
 const btnCloudLoad = document.getElementById('greBtnCloudLoad');
+const btnSessionSave = document.getElementById('greBtnSessionSave');
+const btnSessionLoad = document.getElementById('greBtnSessionLoad');
 const groupOptionsContainer = document.getElementById('groupOptionsContainer');
 
 const statsGroupModal = document.getElementById('statsGroupModal');
@@ -314,7 +313,11 @@ const modalGroupHeaderTitle = document.getElementById('modalGroupHeaderTitle');
 const modalGroupListBody = document.getElementById('modalGroupListBody');
 const modalHeaderActionZone = document.getElementById('modalHeaderActionZone');
 
-const getApiUrl = (user) => `/api/state-manager?user=${encodeURIComponent(user)}`;
+// Split file names between core memory state scores and full alignment session objects
+const getApiUrl = (user, type = "state") => {
+    const suffix = type === "config" ? "_full_session_config" : "";
+    return `/api/state-manager?user=${encodeURIComponent(user + suffix)}`;
+};
 
 function toggleDropdown(id) {
     const dropdown = document.getElementById(id);
@@ -359,7 +362,8 @@ function saveAppStateToBrowser() {
         filterMemory: Array.from(document.querySelectorAll('#dropdownMemory input:checked')).map(c=>c.value),
         filterGroup: Array.from(document.querySelectorAll('#dropdownGroup input:checked')).map(c=>c.value),
         filterCategory: Array.from(document.querySelectorAll('#dropdownCategory input:checked')).map(c=>c.value),
-        filterTone: Array.from(document.querySelectorAll('#dropdownTone input:checked')).map(c=>c.value)
+        filterTone: Array.from(document.querySelectorAll('#dropdownTone input:checked')).map(c=>c.value),
+        savedSequenceWords: isRandomized ? currentFilteredList.map(item => item.word) : []
     };
     localStorage.setItem('gre_vercel_app_state', JSON.stringify(state));
 }
@@ -375,6 +379,7 @@ function loadAppStateFromBrowser() {
         isRandomized = !!state.randomized;
         currentFlashcardIndex = state.flashcardIndex || 0;
         memoryScores = state.scores || {};
+        window.stashedSequenceWords = state.savedSequenceWords || null;
 
         btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
         btnRandom.classList.toggle('active', isRandomized);
@@ -465,6 +470,7 @@ function updateView() {
     const isStats = mode === 'statistics';
     statsSortFilter.style.display = isStats ? "inline-block" : "none";
     searchInput.disabled = btnRandom.disabled = btnApplyFilter.disabled = isStats;
+    btnSessionSave.disabled = btnSessionLoad.disabled = isStats;
     document.querySelectorAll('.dropdown-button').forEach(b => b.disabled = isStats);
 
     displayContainer.innerHTML = '';
@@ -520,18 +526,13 @@ function renderFlashcardLayout() {
     const container = document.createElement('div');
     container.className = 'fc-container';
     const card = document.createElement('div');
-    
-    // Toggle structure alignment mapping class flags cleanly
-    card.className = `fc-card ${flashcardRevealed ? 'revealed-layout' : 'unrevealed-layout'}`;
+    card.className = `fc-card ${flashcardRevealed ? 'revealed' : ''}`;
     const memBadgeHTML = getMemoryBadgeHTML(item.word);
     
     if (!flashcardRevealed) {
-        // FIX: Re-introduced elegant double stacked center layout formatting
         card.innerHTML = `
-            <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <div class="fc-front-title">${item.word}</div>
-                <div class="gre-tags-row" style="justify-content: center;">${memBadgeHTML}</div>
-            </div>
+            <div class="fc-front-title">${item.word}</div>
+            <div class="gre-tags-row">${memBadgeHTML}</div>
             <div class="fc-hint">Group ${item.group} • Tap to reveal</div>
         `;
     } else {
@@ -732,7 +733,7 @@ async function saveToCloudBlobs() {
     const user = userPinInput.value.trim() || "default_user";
     btnCloudSave.textContent = "⏳ Saving...";
     try {
-        const response = await fetch(getApiUrl(user), {
+        const response = await fetch(getApiUrl(user, "state"), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ scores: memoryScores })
@@ -745,7 +746,7 @@ async function saveToCloudBlobs() {
     } catch(err) {
         alert("Cloud saving failed!\n\nDetails: " + err.message);
     } finally {
-        btnCloudSave.textContent = "☁️ Save to Cloud";
+        btnCloudSave.textContent = "☁️ Save Progress";
     }
 }
 
@@ -753,7 +754,7 @@ async function loadFromCloudBlobs() {
     const user = userPinInput.value.trim() || "default_user";
     btnCloudLoad.textContent = "⏳ Loading...";
     try {
-        const response = await fetch(getApiUrl(user));
+        const response = await fetch(getApiUrl(user, "state"));
         const textData = await response.text();
         let parsedData;
         try { parsedData = JSON.parse(textData); } catch(e) {}
@@ -766,7 +767,106 @@ async function loadFromCloudBlobs() {
     } catch(err) {
         alert("Cloud loading failed!\n\nDetails: " + err.message);
     } finally {
-        btnCloudLoad.textContent = "☁️ Load from Cloud";
+        btnCloudLoad.textContent = "☁️ Load Progress";
+    }
+}
+
+// Complete Unified Configuration Sync Save Engine
+async function saveFullSessionConfigToCloud() {
+    const user = userPinInput.value.trim() || "default_user";
+    btnSessionSave.textContent = "⏳ Saving Config...";
+    
+    const getCheckedArray = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]:checked`)).map(c => c.value);
+
+    // Bundle filters, parameters, search text, and current randomized word layout order together
+    const configPayload = {
+        searchText: searchInput.value,
+        activeMode: modeFilter.value,
+        randomStatusOn: isRandomized,
+        flashcardIndex: currentFlashcardIndex,
+        filterMemoryStates: getCheckedArray('dropdownMemory'),
+        filterWordGroups: getCheckedArray('dropdownGroup'),
+        filterCategories: getCheckedArray('dropdownCategory'),
+        filterTones: getCheckedArray('dropdownTone'),
+        wordSequenceLayout: currentFilteredList.map(item => item.word)
+    };
+
+    try {
+        const response = await fetch(getApiUrl(user, "config"), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(configPayload)
+        });
+        if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
+        alert(`Master session configuration successfully saved under profile: "${user}"!`);
+    } catch(err) {
+        alert("Failed to save layout configuration parameters to cloud storage: " + err.message);
+    } finally {
+        btnSessionSave.textContent = "🔀 Save Session Config";
+    }
+}
+
+// Complete Unified Configuration Sync Load Engine
+async function loadFullSessionConfigFromCloud() {
+    const user = userPinInput.value.trim() || "default_user";
+    btnSessionLoad.textContent = "⏳ Restoring Config...";
+    try {
+        const response = await fetch(getApiUrl(user, "config"));
+        if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
+        
+        const config = await response.json();
+        
+        if (!config.wordSequenceLayout) {
+            alert(`No unified configuration blueprint exists yet for user profile: "${user}"`);
+            return;
+        }
+
+        // Restore scalar settings parameters
+        searchInput.value = config.searchText || "";
+        modeFilter.value = config.activeMode || "study";
+        isRandomized = !!config.randomStatusOn;
+        currentFlashcardIndex = config.flashcardIndex || 0;
+        flashcardRevealed = false;
+
+        btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
+        btnRandom.classList.toggle('active', isRandomized);
+
+        // Map visual checkboxes to reflect incoming sync properties 
+        const applySynchronizedCheckboxes = (id, savedList) => {
+            if (!savedList) return;
+            document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]`).forEach(cb => {
+                cb.checked = savedList.includes(cb.value);
+            });
+        };
+        applySynchronizedCheckboxes('dropdownMemory', config.filterMemoryStates);
+        applySynchronizedCheckboxes('dropdownGroup', config.filterWordGroups);
+        applySynchronizedCheckboxes('dropdownCategory', config.filterCategories);
+        applySynchronizedCheckboxes('dropdownTone', config.filterTones);
+
+        // Reconstitute the exact saved deck structure from raw word key string arrays
+        let alignedOrderedDeckList = [];
+        (config.wordSequenceLayout || []).forEach(savedWord => {
+            const match = wordsData.find(w => w.word === savedWord || w.word.toLowerCase() === savedWord.toLowerCase());
+            if (match) alignedOrderedDeckList.push(match);
+        });
+
+        // Fallback protection: if word lookups come up empty, recalculate baseline from checkboxes
+        if (alignedOrderedDeckList.length > 0) {
+            currentFilteredList = alignedOrderedDeckList;
+        } else {
+            let baseList = getFilteredData();
+            currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+        }
+
+        closeAllDropdowns();
+        updateDropdownLabels();
+        updateView();
+        
+        alert(`Session configuration restored perfectly! Filters and randomness are now synchronized.`);
+    } catch(err) {
+        alert("Could not pull alignment blueprint data from server: " + err.message);
+    } finally {
+        btnSessionLoad.textContent = "🔀 Load Session Config";
     }
 }
 
@@ -775,14 +875,12 @@ async function autoScanServerWordLists() {
     const scanPromises = [];
     for (let i = 1; i <= 30; i++) {
         const fileName = `g${i}.json`;
-        const fetchPromise = fetch(`./${fileName}`)
+        const fetchPromise = fetch(`././${fileName}`)
             .then(async (response) => {
                 if (response.ok) {
                     const parsed = await response.json();
                     if (parsed.group && Array.isArray(parsed.cards)) {
-                        const parsedGroupNum = parseInt(parsed.group);
-                        const compiledCards = parsed.cards.map(c => ({ ...c, group: parsedGroupNum }));
-                        freshWords = [...freshWords, ...compiledCards];
+                        freshWords = [...freshWords, ...parsed.cards.map(c => ({ ...c, group: parseInt(parsed.group) }))];
                     }
                 }
             })
@@ -808,6 +906,8 @@ async function initApp() {
 btnSync.addEventListener('click', autoScanServerWordLists);
 btnCloudSave.addEventListener('click', saveToCloudBlobs);
 btnCloudLoad.addEventListener('click', loadFromCloudBlobs);
+btnSessionSave.addEventListener('click', saveFullSessionConfigToCloud);
+btnSessionLoad.addEventListener('click', loadFullSessionConfigFromCloud);
 btnApplyFilter.addEventListener('click', handleFilterExecution);
 searchInput.addEventListener('input', () => {
     let baseList = getFilteredData();
