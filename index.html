@@ -157,7 +157,7 @@
         /* Group the destructive-ish / cloud actions visually via a divider, not color noise */
         .gre-btn-cloud-save, .gre-btn-cloud-load { border-style: dashed; }
 
-        .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+        .gre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 
         /* Fixed Left Alignment Architecture for Study Cards (Stops Center bleeding) */
         .gre-card { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; display: flex !important; flex-direction: column !important; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.15s ease; }
@@ -220,7 +220,7 @@
         .fc-btn:hover { border-color: var(--border-focus); background-color: var(--bg-accent); }
         .fc-counter { font-size: 12.5px; font-weight: 600; color: var(--text-muted); white-space: nowrap; font-family: ui-monospace, "SF Mono", monospace; }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; width: 100%; }
         .stats-card { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent; position: relative; overflow: hidden; }
         .stats-card:hover { border-color: var(--border-focus); transform: translateY(-1px); }
         .stats-group-title { font-size: 18px; font-weight: 600; margin: 0; color: var(--text-main); }
@@ -250,6 +250,7 @@
             body { padding: 8px; }
             .gre-widget-container { padding: 14px; border-radius: 8px; }
             .gre-grid { grid-template-columns: 1fr; gap: 12px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 12px; }
             .gre-card { padding: 16px; }
             .fc-card { padding: 20px; min-height: 300px; }
             .fc-front-title { font-size: 30px; }
