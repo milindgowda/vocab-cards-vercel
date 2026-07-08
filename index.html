@@ -5,209 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Vocabulary Command Center</title>
     <style>
-        :root {
-            --bg-main: #faf9f6;
-            --bg-canvas: #ffffff;
-            --bg-accent: #f4f1eb;
-            --text-main: #2d2924;
-            --text-muted: #706961;
-            --border-color: #e6e1da;
-            --border-focus: #c5b39a;
-            
-            --primary: #8c7863;
-            --primary-hover: #73614e;
-            --secondary: #e26d5c;
-            --secondary-hover: #ca5747;
-            
-            --color-known: #52b788;
-            --color-known-bg: #effbf5;
-            --color-delayed: #ee9b00;
-            --color-delayed-bg: #fef9ec;
-            --color-unknown: #ca6702;
-            --color-unknown-bg: #fdf2e6;
-            --color-unseen: #9b9389;
-            --color-unseen-bg: #f4f3f0;
-            
-            --tone-pos: #4cc9f0;
-            --tone-neg: #f72585;
-            --tone-neu: #7209b7;
+        @font-face {
+            font-family: 'Geist Fallback';
+            src: local('Arial');
         }
 
-        body { 
-            background-color: var(--bg-main); 
-            margin: 0; 
-            padding: 16px; 
+        :root {
+            --bg-main: #f6f5f3;
+            --bg-canvas: #fbfaf8;
+            --bg-accent: #efeeea;
+            --text-main: #3a3936;
+            --text-muted: #83807a;
+            --border-color: #e2e0da;
+            --border-focus: #b8b5ac;
+
+            --primary: #45443f;
+            --primary-hover: #302f2c;
+            --secondary: #4d7ea8;
+            --secondary-hover: #3d6a91;
+
+            --color-known: #5a8f68;
+            --color-known-bg: #eef4ee;
+            --color-delayed: #b08a4e;
+            --color-delayed-bg: #f8f1e6;
+            --color-unknown: #b3665f;
+            --color-unknown-bg: #f7edec;
+            --color-unseen: #918e87;
+            --color-unseen-bg: #eeede9;
+
+            --tone-pos: #5a8f68;
+            --tone-neg: #b3665f;
+            --tone-neu: #4d7ea8;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 16px;
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Geist Fallback', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
-        .gre-widget-container { 
-            background-color: var(--bg-canvas); 
-            padding: 24px; 
-            border-radius: 16px; 
-            box-shadow: 0 4px 20px rgba(44, 39, 32, 0.03), 0 1px 3px rgba(44, 39, 32, 0.02);
-            max-width: 1200px; 
-            margin: 20px auto; 
-            border: 1px solid var(--border-color); 
-            box-sizing: border-box; 
-        }
-
-        .gre-controls { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 16px; 
-            margin-bottom: 28px; 
-        }
-
-        .controls-row { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 12px; 
-            width: 100%; 
-            align-items: center; 
-        }
-
-        .gre-search-bar { 
-            width: 100%; 
-            padding: 14px 18px; 
-            border: 1px solid var(--border-color); 
-            background-color: var(--bg-main); 
-            color: var(--text-main); 
-            border-radius: 10px; 
-            font-size: 15px; 
-            outline: none; 
-            transition: all 0.2s ease;
-            box-sizing: border-box; 
-        }
-
-        .gre-search-bar:focus { 
-            border-color: var(--border-focus); 
+        .gre-widget-container {
             background-color: var(--bg-canvas);
-            box-shadow: 0 0 0 3px rgba(197, 179, 154, 0.15);
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(58,57,54,0.03);
+            max-width: 1200px;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
         }
-        
-        .multi-select-dropdown { position: relative; flex: 1 1 calc(20% - 10px); min-width: 165px; box-sizing: border-box; }
-        .dropdown-button { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 10px; background-color: var(--bg-canvas); color: var(--text-main); font-size: 14px; text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; font-weight: 500; transition: all 0.15s ease; display: flex; justify-content: space-between; align-items: center; }
-        .dropdown-button:hover:not(:disabled) { border-color: var(--border-focus); background-color: var(--bg-main); }
-        .dropdown-button::after { content: "▾"; font-size: 11px; color: var(--text-muted); margin-left: 6px; }
-        .dropdown-content { display: none; position: absolute; background-color: var(--bg-canvas); min-width: 230px; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); z-index: 10; max-height: 280px; overflow-y: auto; padding: 6px; box-sizing: border-box; margin-top: 6px; }
-        .multi-select-dropdown.open .dropdown-content { display: block; }
-        .dropdown-option { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; border-radius: 6px; font-size: 13.5px; color: var(--text-main); transition: background-color 0.1s ease; }
-        .dropdown-option:hover { background-color: var(--bg-accent); }
-        .dropdown-option input { cursor: pointer; margin: 0; width: 15px; height: 15px; accent-color: var(--primary); }
-        
-        .gre-filter-select-mode { flex: 1 1 160px; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 10px; background-color: var(--bg-canvas); color: var(--text-main); font-size: 14px; font-weight: 500; cursor: pointer; outline: none; transition: border-color 0.15s; }
-        .gre-filter-select-mode:focus { border-color: var(--border-focus); }
-        
-        .gre-sync-badge { background-color: var(--bg-accent); border-radius: 10px; padding: 10px 14px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--text-muted); }
-        .sync-input { border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 4px; font-size: 13px; background: var(--bg-canvas); color: var(--text-main); font-weight: 500; outline: none; width: 100px; transition: border-color 0.15s; }
-        .sync-input:focus { border-color: var(--border-focus); }
-        
-        .btn-container { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; margin-top: 4px; }
-        .gre-btn { flex: 1 1 130px; padding: 12px 16px; color: white; border: none; border-radius: 10px; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; min-height: 44px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-        .gre-btn-filter { background-color: var(--secondary); font-size: 14.5px; font-weight: 700; flex: 2 1 200px; letter-spacing: 0.3px; }
-        .gre-btn-filter:hover:not(:disabled) { background-color: var(--secondary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(226, 109, 92, 0.25); }
-        .gre-btn-sync { background-color: #588157; }
-        .gre-btn-sync:hover { background-color: #3a5a40; }
-        .gre-btn-random { background-color: #4a5759; }
-        .gre-btn-random.active { background-color: #212529; }
-        .gre-btn-cloud-save { background-color: #4895ef; }
-        .gre-btn-cloud-save:hover { background-color: #3f37c9; }
-        .gre-btn-cloud-load { background-color: #560bad; }
-        .gre-btn-cloud-load:hover { background-color: #3a0ca3; }
-        
-        .gre-btn-session-save { background-color: #d946ef; }
-        .gre-btn-session-save:hover { background-color: #a21caf; }
-        .gre-btn-session-load { background-color: #db2777; }
-        .gre-btn-session-load:hover { background-color: #9d174d; }
 
-        .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        
+        .gre-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .gre-search-bar {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.15s ease;
+            box-sizing: border-box;
+        }
+
+        .gre-search-bar::placeholder { color: var(--text-muted); }
+
+        .gre-search-bar:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(77, 126, 168, 0.18);
+        }
+
+        .multi-select-dropdown { position: relative; flex: 1 1 calc(20% - 10px); min-width: 165px; box-sizing: border-box; }
+        .dropdown-button { width: 100%; padding: 11px 13px; border: 1px solid var(--border-color); border-radius: 6px; background-color: var(--bg-main); color: var(--text-main); font-size: 13px; font-family: inherit; text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; font-weight: 500; transition: all 0.15s ease; display: flex; justify-content: space-between; align-items: center; }
+        .dropdown-button:hover:not(:disabled) { border-color: var(--border-focus); background-color: var(--bg-accent); }
+        .dropdown-button::after { content: "▾"; font-size: 10px; color: var(--text-muted); margin-left: 6px; }
+        .dropdown-content { display: none; position: absolute; background-color: var(--bg-canvas); min-width: 230px; border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 10; max-height: 280px; overflow-y: auto; padding: 6px; box-sizing: border-box; margin-top: 6px; }
+        .multi-select-dropdown.open .dropdown-content { display: block; }
+        .dropdown-option { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 13px; color: var(--text-main); transition: background-color 0.1s ease; }
+        .dropdown-option:hover { background-color: var(--bg-accent); }
+        .dropdown-option input { cursor: pointer; margin: 0; width: 14px; height: 14px; accent-color: var(--secondary); }
+
+        .single-select-dropdown .dropdown-option input[type="radio"] { accent-color: var(--secondary); }
+
+        .gre-sync-badge { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 6px; padding: 9px 13px; font-size: 12px; font-weight: 500; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--text-muted); }
+        .sync-input { border: 1px solid var(--border-color); padding: 5px 9px; border-radius: 4px; font-size: 12px; font-family: ui-monospace, "SF Mono", monospace; background: var(--bg-main); color: var(--text-main); font-weight: 500; outline: none; width: 100px; transition: border-color 0.15s; }
+        .sync-input:focus { border-color: var(--secondary); }
+
+        .btn-container { display: flex; gap: 8px; width: 100%; flex-wrap: wrap; margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--border-color); }
+
+        .gre-btn {
+            flex: 1 1 128px;
+            padding: 0 14px;
+            height: 36px;
+            color: var(--text-main);
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-family: inherit;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-sizing: border-box;
+            white-space: nowrap;
+            transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+        }
+        .gre-btn:hover:not(:disabled) { border-color: var(--border-focus); background-color: var(--bg-accent); }
+        .gre-btn:active:not(:disabled) { background-color: #ececec; }
+        .gre-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* Single solid primary action — everything else stays quiet */
+        .gre-btn-filter {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            font-weight: 600;
+            flex: 1 1 100%;
+            order: -1;
+            height: 38px;
+        }
+        .gre-btn-filter:hover:not(:disabled) { background-color: var(--primary-hover); border-color: var(--primary-hover); }
+        .gre-btn-filter:active:not(:disabled) { background-color: #2b2b2b; }
+
+        .gre-btn-random.active { background-color: rgba(77, 126, 168, 0.12); border-color: var(--secondary); color: var(--secondary-hover); }
+
+        /* Group the destructive-ish / cloud actions visually via a divider, not color noise */
+        .gre-btn-cloud-save, .gre-btn-cloud-load { border-style: dashed; }
+
+        .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+
         /* Fixed Left Alignment Architecture for Study Cards (Stops Center bleeding) */
-        .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex !important; flex-direction: column !important; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.2s ease; }
+        .gre-card { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; display: flex !important; flex-direction: column !important; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.15s ease; }
         .gre-card * { text-align: left !important; }
-        .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 6px 24px rgba(44,39,32,0.04); }
+        .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 0 0 1px var(--border-focus); }
         .gre-card-header { display: flex !important; justify-content: space-between !important; align-items: flex-start !important; margin-bottom: 10px; gap: 8px; width: 100%; }
-        .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
+        .gre-word { font-size: 20px; font-weight: 600; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
         .gre-tags-row { display: flex !important; gap: 6px; margin-bottom: 12px; align-items: center !important; flex-wrap: wrap; width: 100%; justify-content: flex-start !important; }
-        
-        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; display: inline-block; }
+
+        .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; display: inline-block; }
         .gre-badge.positive { background-color: var(--tone-pos); }
         .gre-badge.negative { background-color: var(--tone-neg); }
         .gre-badge.neutral { background-color: var(--tone-neu); }
-        
-        .mem-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; white-space: nowrap; border: 1px solid transparent; display: inline-block; }
-        .mem-badge.known { background-color: var(--color-known-bg); color: var(--color-known); border-color: rgba(82, 183, 136, 0.2); }
-        .mem-badge.delayed { background-color: var(--color-delayed-bg); color: var(--color-delayed); border-color: rgba(238, 155, 0, 0.2); }
-        .mem-badge.unknown { background-color: var(--color-unknown-bg); color: var(--color-unknown); border-color: rgba(202, 103, 2, 0.2); }
-        .mem-badge.unseen { background-color: var(--color-unseen-bg); color: var(--color-unseen); border-color: rgba(155, 147, 137, 0.15); }
-        
-        .gre-def { font-size: 14.5px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.4; font-style: italic; }
-        .gre-collocation { font-size: 13px; color: #3a5a40; background-color: #edf5ef; padding: 6px 12px; border-radius: 6px; font-weight: 600; margin-bottom: 14px; display: inline-block; word-break: break-word; }
-        .gre-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 5px 0; letter-spacing: 0.8px; }
-        .gre-context-box { font-size: 13px; color: var(--text-main); background-color: #fffaf0; border-left: 3px solid var(--secondary); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 0 0 12px 0; line-height: 1.45; }
-        .gre-mnemonic { font-size: 13.5px; color: #1d4ed8; font-weight: 500; background-color: #f0f4ff; padding: 7px 12px; border-radius: 6px; margin: 0 0 12px 0; line-height: 1.4; }
-        .gre-vis { font-size: 13px; color: #4a453f; margin: 0 0 12px 0; line-height: 1.45; }
+
+        .mem-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; border: 1px solid transparent; display: inline-block; font-family: ui-monospace, "SF Mono", monospace; }
+        .mem-badge.known { background-color: var(--color-known-bg); color: var(--color-known); border-color: rgba(70, 167, 88, 0.3); }
+        .mem-badge.delayed { background-color: var(--color-delayed-bg); color: var(--color-delayed); border-color: rgba(245, 166, 35, 0.3); }
+        .mem-badge.unknown { background-color: var(--color-unknown-bg); color: var(--color-unknown); border-color: rgba(229, 72, 77, 0.3); }
+        .mem-badge.unseen { background-color: var(--color-unseen-bg); color: var(--color-unseen); border-color: rgba(136, 136, 136, 0.25); }
+
+        .gre-def { font-size: 14px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.45; font-style: italic; opacity: 0.9; }
+        .gre-collocation { font-size: 12.5px; color: var(--color-known); background-color: var(--color-known-bg); border: 1px solid rgba(70, 167, 88, 0.25); padding: 5px 11px; border-radius: 4px; font-weight: 600; margin-bottom: 14px; display: inline-block; word-break: break-word; font-family: ui-monospace, "SF Mono", monospace; }
+        .gre-section-title { font-size: 10.5px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 5px 0; letter-spacing: 0.8px; }
+        .gre-context-box { font-size: 13px; color: var(--text-main); background-color: rgba(77, 126, 168, 0.07); border-left: 2px solid var(--secondary); padding: 8px 12px; border-radius: 0 4px 4px 0; margin: 0 0 12px 0; line-height: 1.45; }
+        .gre-mnemonic { font-size: 13px; color: var(--text-main); font-weight: 500; background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 7px 12px; border-radius: 4px; margin: 0 0 12px 0; line-height: 1.4; }
+        .gre-vis { font-size: 13px; color: var(--text-muted); margin: 0 0 12px 0; line-height: 1.45; }
         .gre-chips { display: flex !important; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; justify-content: flex-start !important; }
-        .gre-chip { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 4px 8px; border-radius: 5px; font-weight: 500; border: 1px solid rgba(0,0,0,0.03); display: inline-block; }
-        .gre-tag { font-size: 11px; color: var(--text-muted); background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 3px 7px; border-radius: 5px; font-weight: 500; display: inline-block; }
-        .gre-tag.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
-        .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 15px; background-color: var(--bg-main); border-radius: 12px; border: 1px dashed var(--border-color); }
-        
+        .gre-chip { background-color: var(--bg-main); color: var(--text-main); font-size: 11.5px; padding: 4px 8px; border-radius: 4px; font-weight: 500; border: 1px solid var(--border-color); display: inline-block; }
+        .gre-tag { font-size: 10.5px; color: var(--text-muted); background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 3px 7px; border-radius: 4px; font-weight: 500; display: inline-block; font-family: ui-monospace, "SF Mono", monospace; }
+        .gre-tag.group-tag { background-color: rgba(77, 126, 168, 0.1); font-weight: 600; color: var(--secondary-hover); border-color: rgba(77, 126, 168, 0.2); }
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 14px; background-color: var(--bg-main); border-radius: 8px; border: 1px dashed var(--border-color); }
+
         /* Dedicated Separated Rules for Intentionally Centered Flashcard Decks */
         .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 480px; width: 100%; box-sizing: border-box; }
-        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; text-align: center !important; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
+        .fc-card { background: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 12px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; text-align: center !important; cursor: pointer; box-sizing: border-box; transition: all 0.15s ease; -webkit-tap-highlight-color: transparent; }
         .fc-card * { text-align: center !important; }
-        .fc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(44, 39, 32, 0.06); border-color: var(--border-focus); }
-        
+        .fc-card:hover { border-color: var(--border-focus); }
+        .fc-card:active { transform: scale(0.995); }
+
         /* Ensure revealed layouts within flashcards fall back to clean left reads gracefully */
         .fc-card.revealed { align-items: stretch !important; justify-content: flex-start !important; text-align: left !important; }
         .fc-card.revealed * { text-align: left !important; }
         .fc-card.revealed .gre-card-header { display: flex !important; justify-content: space-between !important; }
         .fc-card.revealed .gre-tags-row { display: flex !important; justify-content: flex-start !important; }
         .fc-card.revealed .gre-chips { display: flex !important; justify-content: flex-start !important; }
-        
-        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; }
-        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-accent); padding: 4px 10px; border-radius: 20px; display: inline-block; }
+
+        .fc-front-title { font-size: 36px; font-weight: 700; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; }
+        .fc-hint { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 20px; display: inline-block; }
         .fc-score-row { display: flex; gap: 8px; width: 100%; margin-top: 14px; }
-        .score-btn { flex: 1; padding: 12px 4px; font-size: 13px; font-weight: 700; border: 1px solid transparent; border-radius: 10px; cursor: pointer; text-transform: uppercase; min-height: 44px; transition: all 0.15s; }
-        .score-btn.know { background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
-        .score-btn.know:hover { background-color: #c8e6c9; }
-        .score-btn.delay { background-color: #fff8e1; color: #f57f17; border-color: #ffe082; }
-        .score-btn.delay:hover { background-color: #ffe082; }
-        .score-btn.dont { background-color: #ffebee; color: #c62828; border-color: #ffcdd2; }
-        .score-btn.dont:hover { background-color: #ffcdd2; }
+        .score-btn { flex: 1; padding: 12px 4px; font-size: 12px; font-weight: 700; font-family: inherit; border: 1px solid transparent; border-radius: 6px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.3px; min-height: 44px; transition: all 0.15s; }
+        .score-btn.know { background-color: var(--color-known-bg); color: var(--color-known); border-color: rgba(70,167,88,0.3); }
+        .score-btn.know:hover { background-color: rgba(70,167,88,0.22); }
+        .score-btn.delay { background-color: var(--color-delayed-bg); color: var(--color-delayed); border-color: rgba(245,166,35,0.3); }
+        .score-btn.delay:hover { background-color: rgba(245,166,35,0.22); }
+        .score-btn.dont { background-color: var(--color-unknown-bg); color: var(--color-unknown); border-color: rgba(229,72,77,0.3); }
+        .score-btn.dont:hover { background-color: rgba(229,72,77,0.22); }
         .fc-navigation { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 16px; gap: 14px; }
-        .fc-btn { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--text-main); flex: 1; min-height: 44px; transition: all 0.15s; }
-        .fc-btn:hover { border-color: var(--border-focus); background-color: var(--bg-main); }
-        .fc-counter { font-size: 13.5px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
-        
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; width: 100%; }
-        .stats-card { border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: transform 0.2s; -webkit-tap-highlight-color: transparent; }
-        .stats-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,39,32,0.06); }
-        .stats-group-title { font-size: 20px; font-weight: 700; margin: 0; color: var(--text-main); }
-        .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; font-weight: 600; }
-        
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(45, 41, 36, 0.4); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; }
+        .fc-btn { background-color: transparent; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; font-size: 13px; font-family: inherit; font-weight: 600; cursor: pointer; color: var(--text-main); flex: 1; min-height: 42px; transition: all 0.15s; }
+        .fc-btn:hover { border-color: var(--border-focus); background-color: var(--bg-accent); }
+        .fc-counter { font-size: 12.5px; font-weight: 600; color: var(--text-muted); white-space: nowrap; font-family: ui-monospace, "SF Mono", monospace; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; }
+        .stats-card { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 22px; box-shadow: none; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent; position: relative; overflow: hidden; }
+        .stats-card:hover { border-color: var(--border-focus); transform: translateY(-1px); }
+        .stats-group-title { font-size: 18px; font-weight: 600; margin: 0; color: var(--text-main); }
+        .stats-metric-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; font-family: ui-monospace, "SF Mono", monospace; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; box-sizing: border-box; }
         .modal-overlay.active { display: flex; }
-        .modal-content-wrapper { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; max-width: 500px; width: 100%; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 24px 50px rgba(0,0,0,0.12); animation: modalFadeIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; }
-        .modal-header { padding: 18px 22px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-main); border-top-left-radius: 19px; border-top-right-radius: 19px; }
-        .modal-title { font-size: 17px; font-weight: 700; color: var(--text-main); margin: 0; }
-        .modal-close-btn { background: none; border: none; font-size: 26px; font-weight: 500; color: var(--text-muted); cursor: pointer; padding: 0; line-height: 1; transition: color 0.1s; }
+        .modal-content-wrapper { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 12px; max-width: 500px; width: 100%; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.15); animation: modalFadeIn 0.15s ease; position: relative; }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-accent); border-top-left-radius: 11px; border-top-right-radius: 11px; }
+        .modal-title { font-size: 15px; font-weight: 600; color: var(--text-main); margin: 0; }
+        .modal-close-btn { background: none; border: none; font-size: 22px; font-weight: 400; color: var(--text-muted); cursor: pointer; padding: 0; line-height: 1; transition: color 0.1s; }
         .modal-close-btn:hover { color: var(--text-main); }
-        .modal-body { padding: 20px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 8px; }
-        
-        .modal-word-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border-radius: 10px; border: 1px solid transparent; font-weight: 600; font-size: 14.5px; cursor: pointer; transition: all 0.15s ease; }
-        .modal-word-row:hover { transform: translateX(2px); filter: brightness(0.97); }
-        .modal-word-row.known { background-color: var(--color-known-bg); color: #1b6843; border-color: rgba(82,183,136,0.15); }
-        .modal-word-row.delayed { background-color: var(--color-delayed-bg); color: #8f5c00; border-color: rgba(238,155,0,0.15); }
-        .modal-word-row.unknown { background-color: var(--color-unknown-bg); color: #9c3100; border-color: rgba(202,103,2,0.15); }
-        .modal-word-row.unseen { background-color: var(--color-unseen-bg); color: #55504a; border-color: rgba(155,147,137,0.1); }
-        .modal-status-txt { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; opacity: 0.8; }
-        
-        .modal-back-btn { background: var(--bg-canvas); border: 1px solid var(--border-color); color: var(--text-main); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: all 0.15s; }
-        .modal-back-btn:hover { border-color: var(--border-focus); background-color: var(--bg-main); }
+        .modal-body { padding: 16px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+        .modal-word-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 13px; border-radius: 6px; border: 1px solid var(--border-color); font-weight: 500; font-size: 13.5px; cursor: pointer; transition: all 0.15s ease; background-color: var(--bg-main); }
+        .modal-word-row:hover { border-color: var(--border-focus); transform: translateX(2px); }
+        .modal-word-row.known { color: var(--color-known); }
+        .modal-word-row.delayed { color: var(--color-delayed); }
+        .modal-word-row.unknown { color: var(--color-unknown); }
+        .modal-word-row.unseen { color: var(--color-unseen); }
+        .modal-status-txt { font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; opacity: 0.85; font-family: ui-monospace, "SF Mono", monospace; }
+
+        .modal-back-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); font-size: 11.5px; font-family: inherit; font-weight: 600; padding: 6px 12px; border-radius: 6px; cursor: pointer; text-transform: uppercase; transition: all 0.15s; }
+        .modal-back-btn:hover { border-color: var(--border-focus); background-color: var(--bg-accent); }
     </style>
 </head>
 <body>
@@ -215,19 +252,34 @@
 <div class="gre-widget-container">
     <div class="gre-controls">
         <input type="text" id="greSearch" class="gre-search-bar" placeholder="Search dataset vocabulary...">
-        
+
         <div class="controls-row">
-            <select id="greModeFilter" class="gre-filter-select-mode">
+            <div class="multi-select-dropdown single-select-dropdown" id="dropdownMode">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownMode')" id="modeDropdownButton">📝 Study Mode</button>
+                <div class="dropdown-content">
+                    <label class="dropdown-option"><input type="radio" name="modeRadio" value="study" checked> 📝 Study Mode</label>
+                    <label class="dropdown-option"><input type="radio" name="modeRadio" value="flashcard"> 🎴 Flashcards</label>
+                    <label class="dropdown-option"><input type="radio" name="modeRadio" value="statistics"> 📊 Statistics</label>
+                </div>
+            </div>
+            <div class="multi-select-dropdown single-select-dropdown" id="dropdownStatsSort" style="display: none;">
+                <button class="dropdown-button" onclick="toggleDropdown('dropdownStatsSort')" id="statsSortDropdownButton">🥇 Highest Mastery</button>
+                <div class="dropdown-content">
+                    <label class="dropdown-option"><input type="radio" name="statsSortRadio" value="know" checked> 🥇 Highest Mastery</label>
+                    <label class="dropdown-option"><input type="radio" name="statsSortRadio" value="review"> 🚨 Needs Review</label>
+                </div>
+            </div>
+            <select id="greModeFilter" style="display:none;">
                 <option value="study">📝 Study Mode</option>
                 <option value="flashcard">🎴 Flashcards</option>
                 <option value="statistics">📊 Statistics</option>
             </select>
-            <select id="greStatsSortFilter" class="gre-filter-select-mode" style="display: none;">
+            <select id="greStatsSortFilter" style="display: none;">
                 <option value="know">🥇 Highest Mastery</option>
                 <option value="review">🚨 Needs Review</option>
             </select>
 
-            <div class="multi-select-dropdown" id="dropdownMemory">
+            <div class="multi-select-dropdown filter-dropdown" id="dropdownMemory">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownMemory')">🧠 Memory States (All)</button>
                 <div class="dropdown-content">
                     <label class="dropdown-option"><input type="checkbox" value="unseen" checked> Unseen</label>
@@ -237,12 +289,12 @@
                 </div>
             </div>
 
-            <div class="multi-select-dropdown" id="dropdownGroup">
+            <div class="multi-select-dropdown filter-dropdown" id="dropdownGroup">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownGroup')">📁 Word Groups (All)</button>
                 <div class="dropdown-content" id="groupOptionsContainer"></div>
             </div>
 
-            <div class="multi-select-dropdown" id="dropdownCategory">
+            <div class="multi-select-dropdown filter-dropdown" id="dropdownCategory">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownCategory')">🏷️ Categories (All)</button>
                 <div class="dropdown-content">
                     <label class="dropdown-option"><input type="checkbox" value="Control & Separation" checked> Control & Separation</label>
@@ -255,7 +307,7 @@
                 </div>
             </div>
 
-            <div class="multi-select-dropdown" id="dropdownTone">
+            <div class="multi-select-dropdown filter-dropdown" id="dropdownTone">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownTone')">🎭 Tones (All)</button>
                 <div class="dropdown-content">
                     <label class="dropdown-option"><input type="checkbox" value="positive" checked> Positive</label>
@@ -275,7 +327,7 @@
             <button class="gre-btn gre-btn-sync" id="greBtnSync">🔄 Refresh Word Lists</button>
             <button class="gre-btn gre-btn-cloud-save" id="greBtnCloudSave">☁️ Save Progress</button>
             <button class="gre-btn gre-btn-cloud-load" id="greBtnCloudLoad">☁️ Load Progress</button>
-            
+
             <button class="gre-btn gre-btn-session-save" id="greBtnSessionSave">🔀 Save Session Config</button>
             <button class="gre-btn gre-btn-session-load" id="greBtnSessionLoad">🔀 Load Session Config</button>
         </div>
@@ -300,6 +352,7 @@ let wordsData = [];
 let currentFlashcardIndex = 0;
 let flashcardRevealed = false;
 let currentFilteredList = [];
+let baseOrderedList = []; // checkbox-filtered list in its current display order (shuffled or not) — search narrows this without reordering it
 let isRandomized = false;
 let memoryScores = {};
 let lastActiveModalGroupId = null;
@@ -308,6 +361,11 @@ const displayContainer = document.getElementById('greDisplayContainer');
 const searchInput = document.getElementById('greSearch');
 const modeFilter = document.getElementById('greModeFilter');
 const statsSortFilter = document.getElementById('greStatsSortFilter');
+const modeDropdownButton = document.getElementById('modeDropdownButton');
+const statsSortDropdownButton = document.getElementById('statsSortDropdownButton');
+const dropdownStatsSort = document.getElementById('dropdownStatsSort');
+const modeOptionLabels = { study: '📝 Study Mode', flashcard: '🎴 Flashcards', statistics: '📊 Statistics' };
+const statsSortOptionLabels = { know: '🥇 Highest Mastery', review: '🚨 Needs Review' };
 const userPinInput = document.getElementById('greUserPin');
 const btnSync = document.getElementById('greBtnSync');
 const btnRandom = document.getElementById('greBtnRandom');
@@ -360,6 +418,39 @@ function updateDropdownLabels() {
     setLabel('dropdownTone', '🎭 Tones');
 }
 
+// Keeps the custom Mode / Stats-sort dropdown buttons and radios in sync with
+// the underlying hidden <select> value, whichever set it (click or programmatic load).
+function syncModeUI() {
+    modeDropdownButton.textContent = modeOptionLabels[modeFilter.value] || modeOptionLabels.study;
+    document.querySelectorAll('input[name="modeRadio"]').forEach(r => r.checked = (r.value === modeFilter.value));
+}
+
+function syncStatsSortUI() {
+    statsSortDropdownButton.textContent = statsSortOptionLabels[statsSortFilter.value] || statsSortOptionLabels.know;
+    document.querySelectorAll('input[name="statsSortRadio"]').forEach(r => r.checked = (r.value === statsSortFilter.value));
+}
+
+function setMode(value) {
+    modeFilter.value = value;
+    syncModeUI();
+    closeAllDropdowns();
+    modeFilter.dispatchEvent(new Event('change'));
+}
+
+function setStatsSort(value) {
+    statsSortFilter.value = value;
+    syncStatsSortUI();
+    closeAllDropdowns();
+    statsSortFilter.dispatchEvent(new Event('change'));
+}
+
+document.querySelectorAll('input[name="modeRadio"]').forEach(radio => {
+    radio.addEventListener('change', () => setMode(radio.value));
+});
+document.querySelectorAll('input[name="statsSortRadio"]').forEach(radio => {
+    radio.addEventListener('change', () => setStatsSort(radio.value));
+});
+
 function saveAppStateToBrowser() {
     const state = {
         search: searchInput.value,
@@ -401,6 +492,7 @@ function loadAppStateFromBrowser() {
         setChecked('#dropdownCategory input', state.filterCategory);
         setChecked('#dropdownTone input', state.filterTone);
         window.stashedGroups = state.filterGroup;
+        syncModeUI();
     } catch(e) {}
 }
 
@@ -435,33 +527,44 @@ function getMemoryBadgeHTML(word) {
     return `<span class="mem-badge unseen">Unseen</span>`;
 }
 
-// Fixed filter isolation routine (Clears out side-effects)
-function getFilteredData() {
-    const query = searchInput.value.toLowerCase().trim();
+function itemMatchesSearch(item, query) {
+    if (query === "") return true;
+    const wordStr = (item.word || '').toLowerCase();
+    const defStr = (item.def || '').toLowerCase();
+    const phraseStr = (item.phrase || '').toLowerCase();
+    const contextStr = (item.context || '').toLowerCase();
+    const synsArray = Array.isArray(item.syns) ? item.syns : [];
+    return wordStr.includes(query) ||
+           defStr.includes(query) ||
+           phraseStr.includes(query) ||
+           contextStr.includes(query) ||
+           synsArray.some(s => s.toLowerCase().includes(query));
+}
+
+// Checkbox filters only (memory state / group / category / tone) — this establishes
+// the base display order, which search then narrows without reshuffling it.
+function getCheckboxFilteredData() {
     const getChecked = (id) => Array.from(document.querySelectorAll(`#${id} input:checked`)).map(c => c.value);
-    
     const selMem = getChecked('dropdownMemory');
     const selGrp = getChecked('dropdownGroup');
     const selCat = getChecked('dropdownCategory');
     const selTon = getChecked('dropdownTone');
-    
+
     return wordsData.filter(item => {
-        const wordStr = (item.word || '').toLowerCase();
-        const defStr = (item.def || '').toLowerCase();
-        const phraseStr = (item.phrase || '').toLowerCase();
-        const contextStr = (item.context || '').toLowerCase();
-        const synsArray = Array.isArray(item.syns) ? item.syns : [];
         const status = memoryScores[item.word] || 'unseen';
-        
-        const matchesSearch = query === "" || 
-                              wordStr.includes(query) || 
-                              defStr.includes(query) || 
-                              phraseStr.includes(query) || 
-                              contextStr.includes(query) ||
-                              synsArray.some(s => s.toLowerCase().includes(query));
-                              
-        return matchesSearch && selMem.includes(status) && selGrp.includes(String(item.group)) && selCat.includes(item.cat || 'General') && selTon.includes(item.tone || 'neutral');
+        return selMem.includes(status) && selGrp.includes(String(item.group)) && selCat.includes(item.cat || 'General') && selTon.includes(item.tone || 'neutral');
     });
+}
+
+// Narrows a given (already-ordered) list by the current search text, preserving order.
+function filterBySearch(list) {
+    const query = searchInput.value.toLowerCase().trim();
+    return list.filter(item => itemMatchesSearch(item, query));
+}
+
+// Fixed filter isolation routine (Clears out side-effects)
+function getFilteredData() {
+    return filterBySearch(getCheckboxFilteredData());
 }
 
 function handleFilterExecution() {
@@ -469,19 +572,20 @@ function handleFilterExecution() {
     flashcardRevealed = false;
     closeAllDropdowns();
     updateDropdownLabels();
-    
-    let baseList = getFilteredData();
-    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+
+    const checkboxFiltered = getCheckboxFilteredData();
+    baseOrderedList = isRandomized ? shuffleArray(checkboxFiltered) : checkboxFiltered;
+    currentFilteredList = filterBySearch(baseOrderedList);
     updateView();
 }
 
 function updateView() {
     const mode = modeFilter.value;
     const isStats = mode === 'statistics';
-    statsSortFilter.style.display = isStats ? "inline-block" : "none";
+    dropdownStatsSort.style.display = isStats ? "" : "none";
     searchInput.disabled = btnRandom.disabled = btnApplyFilter.disabled = isStats;
     btnSessionSave.disabled = btnSessionLoad.disabled = isStats;
-    document.querySelectorAll('.dropdown-button').forEach(b => b.disabled = isStats);
+    document.querySelectorAll('.filter-dropdown .dropdown-button').forEach(b => b.disabled = isStats);
 
     displayContainer.innerHTML = '';
     if (wordsData.length === 0) {
@@ -492,7 +596,7 @@ function updateView() {
         displayContainer.innerHTML = '<div class="no-results">No vocabulary words match your criteria parameters. Click "Apply Filters".</div>';
         return;
     }
-    
+
     if (mode === 'study') renderStudyGrid();
     else if (mode === 'flashcard') {
         if (currentFlashcardIndex >= currentFilteredList.length) currentFlashcardIndex = 0;
@@ -538,7 +642,7 @@ function renderFlashcardLayout() {
     const card = document.createElement('div');
     card.className = `fc-card ${flashcardRevealed ? 'revealed' : ''}`;
     const memBadgeHTML = getMemoryBadgeHTML(item.word);
-    
+
     if (!flashcardRevealed) {
         card.innerHTML = `
             <div class="fc-front-title">${item.word}</div>
@@ -557,12 +661,12 @@ function renderFlashcardLayout() {
             <div class="gre-section-title">GRE Synonyms</div><div class="gre-chips">${synChips}</div>
         `;
     }
-    
+
     card.addEventListener('click', () => {
         flashcardRevealed = !flashcardRevealed;
         renderFlashcardLayout();
     });
-    
+
     if (flashcardRevealed) {
         const scoreRow = document.createElement('div');
         scoreRow.className = 'fc-score-row';
@@ -577,7 +681,7 @@ function renderFlashcardLayout() {
     } else {
         container.appendChild(card);
     }
-    
+
     const nav = document.createElement('div');
     nav.className = 'fc-navigation';
     const btnPrev = document.createElement('button'); btnPrev.className = 'fc-btn'; btnPrev.innerHTML = '← Prev';
@@ -595,7 +699,7 @@ function renderStatisticsDashboard() {
     const grid = document.createElement('div');
     grid.className = 'stats-grid';
     const groupMap = {};
-    
+
     wordsData.forEach(item => {
         if (!groupMap[item.group]) groupMap[item.group] = { group: item.group, total: 0, known: 0, delayed: 0, reviewNeeded: 0 };
         groupMap[item.group].total++;
@@ -616,18 +720,17 @@ function renderStatisticsDashboard() {
         const card = document.createElement('div');
         card.className = 'stats-card';
         const knownRatio = g.known / g.total;
-        const hue = Math.round(knownRatio * 140);
-        card.style.backgroundColor = `hsl(${hue}, 45%, 96%)`;
-        card.style.borderColor = `hsl(${hue}, 25%, 85%)`;
-        
+        const accentColor = knownRatio >= 0.66 ? '#46a758' : (knownRatio >= 0.33 ? '#f5a623' : '#e5484d');
+        card.style.borderTop = `2px solid ${accentColor}`;
+
         card.innerHTML = `
             <h3 class="stats-group-title">Group ${g.group}</h3>
-            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 2px 0;">
-            <div class="stats-metric-row" style="color: #2a6f4d;"><span>Known:</span><span class="stats-val">${g.known}/${g.total} (${Math.round((g.known/g.total)*100)}%)</span></div>
-            <div class="stats-metric-row" style="color: #b07000;"><span>Delayed:</span><span class="stats-val">${g.delayed}</span></div>
-            <div class="stats-metric-row" style="color: #a63a00;"><span>Review:</span><span class="stats-val">${g.reviewNeeded}</span></div>
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2px 0;">
+            <div class="stats-metric-row" style="color: var(--color-known);"><span>Known:</span><span class="stats-val">${g.known}/${g.total} (${Math.round((g.known/g.total)*100)}%)</span></div>
+            <div class="stats-metric-row" style="color: var(--color-delayed);"><span>Delayed:</span><span class="stats-val">${g.delayed}</span></div>
+            <div class="stats-metric-row" style="color: var(--color-unknown);"><span>Review:</span><span class="stats-val">${g.reviewNeeded}</span></div>
         `;
-        
+
         card.addEventListener('click', () => openStatsGroupModal(g.group));
         grid.appendChild(card);
     });
@@ -639,28 +742,28 @@ function openStatsGroupModal(groupId) {
     modalGroupHeaderTitle.textContent = `📋 Group ${groupId} Breakdown`;
     modalHeaderActionZone.innerHTML = `<button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>`;
     modalGroupListBody.innerHTML = '';
-    
+
     const groupWords = wordsData.filter(item => item.group === groupId).sort((a,b) => a.word.localeCompare(b.word));
-    
+
     groupWords.forEach(item => {
         const status = memoryScores[item.word] || 'unseen';
         const row = document.createElement('div');
         row.className = `modal-word-row ${status}`;
-        
+
         let readableStatus = "Unseen";
         if (status === 'known') readableStatus = "Known";
         if (status === 'delayed') readableStatus = "Delayed";
         if (status === 'unknown') readableStatus = "Don't Know";
-        
+
         row.innerHTML = `
             <span class="modal-word-txt">${item.word}</span>
             <span class="modal-status-txt">${readableStatus}</span>
         `;
-        
+
         row.addEventListener('click', () => renderDeepDiveWordCard(item));
         modalGroupListBody.appendChild(row);
     });
-    
+
     statsGroupModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -669,10 +772,10 @@ function openStatsGroupModal(groupId) {
 function renderDeepDiveWordCard(item) {
     modalGroupHeaderTitle.textContent = `🔍 ${item.word}`;
     modalHeaderActionZone.innerHTML = `<button class="modal-back-btn" onclick="openStatsGroupModal(${lastActiveModalGroupId})">← Back</button>`;
-    
+
     const synChips = (item.syns || []).map(s => `<span class="gre-chip">${s}</span>`).join('');
     const memBadgeHTML = getMemoryBadgeHTML(item.word);
-    
+
     modalGroupListBody.innerHTML = `
         <div class="gre-card" style="border:none; background:transparent; padding:0; box-shadow:none;">
             <div class="gre-tags-row" style="margin-top:4px;">
@@ -682,16 +785,16 @@ function renderDeepDiveWordCard(item) {
             </div>
             <p class="gre-def">${item.def || ''}</p>
             <span class="gre-collocation" style="margin-bottom:8px;">${item.phrase || ''}</span>
-            
+
             <div class="gre-section-title">⚠️ How GRE Uses This Word</div>
             <p class="gre-context-box">${item.context || ''}</p>
-            
+
             <div class="gre-section-title">Mnemonic Trick</div>
             <p class="gre-mnemonic">${item.mnem || ''}</p>
-            
+
             <div class="gre-section-title">Mental Image</div>
             <p class="gre-vis">${item.vis || ''}</p>
-            
+
             <div class="gre-section-title">GRE Synonyms</div>
             <div class="gre-chips" style="margin-bottom:10px;">${synChips}</div>
         </div>
@@ -736,7 +839,9 @@ btnRandom.addEventListener('click', () => {
     btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
     btnRandom.classList.toggle('active', isRandomized);
     currentFlashcardIndex = 0; flashcardRevealed = false;
-    currentFilteredList = isRandomized ? shuffleArray(currentFilteredList) : getFilteredData();
+    const checkboxFiltered = getCheckboxFilteredData();
+    baseOrderedList = isRandomized ? shuffleArray(checkboxFiltered) : checkboxFiltered;
+    currentFilteredList = filterBySearch(baseOrderedList);
     updateView();
 });
 
@@ -770,7 +875,7 @@ async function loadFromCloudBlobs() {
         let parsedData;
         try { parsedData = JSON.parse(textData); } catch(e) {}
         if (!response.ok) throw new Error(parsedData?.details || parsedData?.error || `HTTP Error ${response.status}`);
-        
+
         memoryScores = parsedData.scores || {};
         saveAppStateToBrowser();
         handleFilterExecution();
@@ -785,7 +890,7 @@ async function loadFromCloudBlobs() {
 async function saveFullSessionConfigToCloud() {
     const user = userPinInput.value.trim() || "default_user";
     btnSessionSave.textContent = "⏳ Saving Config...";
-    
+
     const getCheckedArray = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]:checked`)).map(c => c.value);
 
     const configPayload = {
@@ -821,9 +926,9 @@ async function loadFullSessionConfigFromCloud() {
     try {
         const response = await fetch(getApiUrl(user, "config"));
         if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
-        
+
         const config = await response.json();
-        
+
         // Exact target check logic bypasses overlapping blob files safely
         if (!config || !config.wordSequenceLayout) {
             alert(`No unified configuration blueprint exists yet for user profile: "${user}"`);
@@ -832,6 +937,7 @@ async function loadFullSessionConfigFromCloud() {
 
         searchInput.value = config.searchText || "";
         modeFilter.value = config.activeMode || "study";
+        syncModeUI();
         isRandomized = !!config.randomStatusOn;
         currentFlashcardIndex = config.flashcardIndex || 0;
         flashcardRevealed = false;
@@ -857,16 +963,17 @@ async function loadFullSessionConfigFromCloud() {
         });
 
         if (alignedOrderedDeckList.length > 0) {
-            currentFilteredList = alignedOrderedDeckList;
+            baseOrderedList = alignedOrderedDeckList;
         } else {
-            let baseList = getFilteredData();
-            currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+            const checkboxFiltered = getCheckboxFilteredData();
+            baseOrderedList = isRandomized ? shuffleArray(checkboxFiltered) : checkboxFiltered;
         }
+        currentFilteredList = filterBySearch(baseOrderedList);
 
         closeAllDropdowns();
         updateDropdownLabels();
         updateView();
-        
+
         alert(`Session configuration restored perfectly! Filters and randomness are now synchronized.`);
     } catch(err) {
         alert("Could not pull alignment blueprint data from server: " + err.message);
@@ -895,13 +1002,14 @@ async function autoScanServerWordLists() {
     await Promise.all(scanPromises);
     wordsData = freshWords;
     updateGroupFilterOptions();
-    
+
     if (!window.stashedGroups) {
     document.querySelectorAll('#dropdownGroup input[type="checkbox"]').forEach(cb => cb.checked = true);
 }
-    
-    let baseList = getFilteredData();
-    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+
+    const checkboxFiltered = getCheckboxFilteredData();
+    baseOrderedList = isRandomized ? shuffleArray(checkboxFiltered) : checkboxFiltered;
+    currentFilteredList = filterBySearch(baseOrderedList);
     updateView();
 }
 
@@ -917,8 +1025,9 @@ btnSessionSave.addEventListener('click', saveFullSessionConfigToCloud);
 btnSessionLoad.addEventListener('click', loadFullSessionConfigFromCloud);
 btnApplyFilter.addEventListener('click', handleFilterExecution);
 searchInput.addEventListener('input', () => {
-    let baseList = getFilteredData();
-    currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
+    currentFlashcardIndex = 0;
+    flashcardRevealed = false;
+    currentFilteredList = filterBySearch(baseOrderedList);
     updateView();
 });
 userPinInput.addEventListener('input', saveAppStateToBrowser);
