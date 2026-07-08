@@ -25,7 +25,8 @@ export default async function handler(req, res) {
       }
 
       // Read the newest file entry version out of the CDN cache pool
-      const targetBlob = blobs.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt))[0];
+      const targetBlob = blobs.find(b => b.pathname === filename) ||
+      blobs.sort((a,b)=>new Date(b.uploadedAt)-new Date(a.uploadedAt))[0];
       const response = await fetch(targetBlob.url);
       const data = await response.json();
       
