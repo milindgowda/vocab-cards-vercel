@@ -107,6 +107,7 @@
         .btn-container { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; margin-top: 4px; }
         .gre-btn { flex: 1 1 130px; padding: 12px 16px; color: white; border: none; border-radius: 10px; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; min-height: 44px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         .gre-btn-filter { background-color: var(--secondary); font-size: 14.5px; font-weight: 700; flex: 2 1 200px; letter-spacing: 0.3px; }
+        .gre-btn-filter { background-color: var(--secondary); font-size: 14.5px; font-weight: 700; flex: 2 1 200px; letter-spacing: 0.3px; }
         .gre-btn-filter:hover:not(:disabled) { background-color: var(--secondary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(226, 109, 92, 0.25); }
         .gre-btn-sync { background-color: #588157; }
         .gre-btn-sync:hover { background-color: #3a5a40; }
@@ -117,18 +118,19 @@
         .gre-btn-cloud-load { background-color: #560bad; }
         .gre-btn-cloud-load:hover { background-color: #3a0ca3; }
         
-        /* Unified session design colors mapping */
         .gre-btn-session-save { background-color: #d946ef; }
         .gre-btn-session-save:hover { background-color: #a21caf; }
         .gre-btn-session-load { background-color: #db2777; }
         .gre-btn-session-load:hover { background-color: #9d174d; }
 
         .gre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; position: relative; box-sizing: border-box; text-align: left; transition: all 0.2s ease; }
+        
+        /* Core Study Card Element Layer definitions */
+        .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.2s ease; }
         .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 6px 24px rgba(44,39,32,0.04); }
-        .gre-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 8px; }
-        .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
-        .gre-tags-row { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; }
+        .gre-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 8px; width: 100%; text-align: left; }
+        .gre-word { font-size: 21px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.3px; text-align: left; }
+        .gre-tags-row { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; width: 100%; justify-content: flex-start; }
         
         .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; }
         .gre-badge.positive { background-color: var(--tone-pos); }
@@ -141,24 +143,25 @@
         .mem-badge.unknown { background-color: var(--color-unknown-bg); color: var(--color-unknown); border-color: rgba(202, 103, 2, 0.2); }
         .mem-badge.unseen { background-color: var(--color-unseen-bg); color: var(--color-unseen); border-color: rgba(155, 147, 137, 0.15); }
         
-        .gre-def { font-size: 14.5px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.4; font-style: italic; }
-        .gre-collocation { font-size: 13px; color: #3a5a40; background-color: #edf5ef; padding: 6px 12px; border-radius: 6px; font-weight: 600; margin-bottom: 14px; display: inline-block; word-break: break-word; }
-        .gre-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 5px 0; letter-spacing: 0.8px; }
-        .gre-context-box { font-size: 13px; color: var(--text-main); background-color: #fffaf0; border-left: 3px solid var(--secondary); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 0 0 12px 0; line-height: 1.45; }
-        .gre-mnemonic { font-size: 13.5px; color: #1d4ed8; font-weight: 500; background-color: #f0f4ff; padding: 7px 12px; border-radius: 6px; margin: 0 0 12px 0; line-height: 1.4; }
-        .gre-vis { font-size: 13px; color: #4a453f; margin: 0 0 12px 0; line-height: 1.45; }
-        .gre-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; }
+        .gre-def { font-size: 14.5px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.4; font-style: italic; text-align: left; }
+        .gre-collocation { font-size: 13px; color: #3a5a40; background-color: #edf5ef; padding: 6px 12px; border-radius: 6px; font-weight: 600; margin-bottom: 14px; display: inline-block; word-break: break-word; text-align: left; }
+        .gre-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 5px 0; letter-spacing: 0.8px; text-align: left; }
+        .gre-context-box { font-size: 13px; color: var(--text-main); background-color: #fffaf0; border-left: 3px solid var(--secondary); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 0 0 12px 0; line-height: 1.45; text-align: left; }
+        .gre-mnemonic { font-size: 13.5px; color: #1d4ed8; font-weight: 500; background-color: #f0f4ff; padding: 7px 12px; border-radius: 6px; margin: 0 0 12px 0; line-height: 1.4; text-align: left; }
+        .gre-vis { font-size: 13px; color: #4a453f; margin: 0 0 12px 0; line-height: 1.45; text-align: left; }
+        .gre-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; justify-content: flex-start; }
         .gre-chip { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 4px 8px; border-radius: 5px; font-weight: 500; border: 1px solid rgba(0,0,0,0.03); }
         .gre-tag { font-size: 11px; color: var(--text-muted); background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 3px 7px; border-radius: 5px; font-weight: 500; }
         .gre-tag.group-tag { background-color: var(--bg-accent); font-weight: 600; color: var(--text-main); }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 15px; background-color: var(--bg-main); border-radius: 12px; border: 1px dashed var(--border-color); }
         
+        /* Intentionally Centered Flashcard View Mode Components Layout definitions */
         .fc-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px auto; max-width: 480px; width: 100%; box-sizing: border-box; }
-        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
+        .fc-card { background: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 20px; min-height: 360px; width: 100%; padding: 28px; box-shadow: 0 10px 30px rgba(44, 39, 32, 0.04); display: flex; flex-direction: column; justify-content: center !important; align-items: center !important; text-align: center !important; cursor: pointer; box-sizing: border-box; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); -webkit-tap-highlight-color: transparent; }
         .fc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(44, 39, 32, 0.06); border-color: var(--border-focus); }
-        .fc-card.revealed { align-items: stretch; text-align: left; justify-content: flex-start; }
-        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; }
-        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-accent); padding: 4px 10px; border-radius: 20px; }
+        .fc-card.revealed { align-items: stretch !important; text-align: left !important; justify-content: flex-start !important; }
+        .fc-front-title { font-size: 38px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -1px; word-break: break-all; text-align: center; }
+        .fc-hint { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-top: auto; font-weight: 600; background-color: var(--bg-accent); padding: 4px 10px; border-radius: 20px; text-align: center; }
         .fc-score-row { display: flex; gap: 8px; width: 100%; margin-top: 14px; }
         .score-btn { flex: 1; padding: 12px 4px; font-size: 13px; font-weight: 700; border: 1px solid transparent; border-radius: 10px; cursor: pointer; text-transform: uppercase; min-height: 44px; transition: all 0.15s; }
         .score-btn.know { background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
@@ -265,7 +268,6 @@
             <button class="gre-btn gre-btn-cloud-save" id="greBtnCloudSave">☁️ Save Progress</button>
             <button class="gre-btn gre-btn-cloud-load" id="greBtnCloudLoad">☁️ Load Progress</button>
             
-            <!-- Complete Unified Filter & Randomness Sync Configuration Triggers -->
             <button class="gre-btn gre-btn-session-save" id="greBtnSessionSave">🔀 Save Session Config</button>
             <button class="gre-btn gre-btn-session-load" id="greBtnSessionLoad">🔀 Load Session Config</button>
         </div>
@@ -313,7 +315,6 @@ const modalGroupHeaderTitle = document.getElementById('modalGroupHeaderTitle');
 const modalGroupListBody = document.getElementById('modalGroupListBody');
 const modalHeaderActionZone = document.getElementById('modalHeaderActionZone');
 
-// Split file names between core memory state scores and full alignment session objects
 const getApiUrl = (user, type = "state") => {
     const suffix = type === "config" ? "_full_session_config" : "";
     return `/api/state-manager?user=${encodeURIComponent(user + suffix)}`;
@@ -532,7 +533,7 @@ function renderFlashcardLayout() {
     if (!flashcardRevealed) {
         card.innerHTML = `
             <div class="fc-front-title">${item.word}</div>
-            <div class="gre-tags-row">${memBadgeHTML}</div>
+            <div class="gre-tags-row" style="justify-content:center !important;">${memBadgeHTML}</div>
             <div class="fc-hint">Group ${item.group} • Tap to reveal</div>
         `;
     } else {
@@ -771,14 +772,12 @@ async function loadFromCloudBlobs() {
     }
 }
 
-// Complete Unified Configuration Sync Save Engine
 async function saveFullSessionConfigToCloud() {
     const user = userPinInput.value.trim() || "default_user";
     btnSessionSave.textContent = "⏳ Saving Config...";
     
     const getCheckedArray = (id) => Array.from(document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]:checked`)).map(c => c.value);
 
-    // Bundle filters, parameters, search text, and current randomized word layout order together
     const configPayload = {
         searchText: searchInput.value,
         activeMode: modeFilter.value,
@@ -806,7 +805,6 @@ async function saveFullSessionConfigToCloud() {
     }
 }
 
-// Complete Unified Configuration Sync Load Engine
 async function loadFullSessionConfigFromCloud() {
     const user = userPinInput.value.trim() || "default_user";
     btnSessionLoad.textContent = "⏳ Restoring Config...";
@@ -821,7 +819,6 @@ async function loadFullSessionConfigFromCloud() {
             return;
         }
 
-        // Restore scalar settings parameters
         searchInput.value = config.searchText || "";
         modeFilter.value = config.activeMode || "study";
         isRandomized = !!config.randomStatusOn;
@@ -831,7 +828,6 @@ async function loadFullSessionConfigFromCloud() {
         btnRandom.textContent = isRandomized ? "🔀 Random On" : "🔀 Random Off";
         btnRandom.classList.toggle('active', isRandomized);
 
-        // Map visual checkboxes to reflect incoming sync properties 
         const applySynchronizedCheckboxes = (id, savedList) => {
             if (!savedList) return;
             document.querySelectorAll(`#${id} .dropdown-content input[type="checkbox"]`).forEach(cb => {
@@ -843,14 +839,13 @@ async function loadFullSessionConfigFromCloud() {
         applySynchronizedCheckboxes('dropdownCategory', config.filterCategories);
         applySynchronizedCheckboxes('dropdownTone', config.filterTones);
 
-        // Reconstitute the exact saved deck structure from raw word key string arrays
+        /* CRUCIAL SYNC BUG FIX: Cleared out broken arrow loop query typo signature */
         let alignedOrderedDeckList = [];
         (config.wordSequenceLayout || []).forEach(savedWord => {
-            const match = wordsData.find(w => w.word === savedWord || w.word.toLowerCase() === savedWord.toLowerCase());
+            const match = wordsData.find(w => w.word === savedWord);
             if (match) alignedOrderedDeckList.push(match);
         });
 
-        // Fallback protection: if word lookups come up empty, recalculate baseline from checkboxes
         if (alignedOrderedDeckList.length > 0) {
             currentFilteredList = alignedOrderedDeckList;
         } else {
