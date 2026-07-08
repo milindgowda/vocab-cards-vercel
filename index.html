@@ -896,7 +896,9 @@ async function autoScanServerWordLists() {
     wordsData = freshWords;
     updateGroupFilterOptions();
     
+    if (!window.stashedGroups) {
     document.querySelectorAll('#dropdownGroup input[type="checkbox"]').forEach(cb => cb.checked = true);
+}
     
     let baseList = getFilteredData();
     currentFilteredList = isRandomized ? shuffleArray(baseList) : baseList;
