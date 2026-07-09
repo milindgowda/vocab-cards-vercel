@@ -874,7 +874,7 @@ function renderClusterDashboard() {
         card.style.borderLeft = `3px solid ${accentColor}`;
 
         card.innerHTML = `
-            <h3 class="stats-group-title">${cluster.root}</h3>
+            <h3 class="stats-group-title">${cluster.cluster}</h3>
             <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 2px 0;">
             <div class="stats-metric-row" style="color: var(--color-known);"><span>Known:</span><span class="stats-val">${known}/${words.length} (${Math.round(knownRatio*100)}%)</span></div>
             <div class="stats-metric-row" style="color: var(--color-delayed);"><span>Delayed:</span><span class="stats-val">${delayed}</span></div>
@@ -889,7 +889,7 @@ function renderClusterDashboard() {
 
 function openClusterModal(cluster) {
     lastActiveModalCluster = cluster;
-    modalGroupHeaderTitle.textContent = `🧬 ${cluster.root}`;
+    modalGroupHeaderTitle.textContent = `🧬 ${cluster.cluster}`;
     modalHeaderActionZone.innerHTML = `<button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>`;
     modalGroupListBody.innerHTML = '';
 
