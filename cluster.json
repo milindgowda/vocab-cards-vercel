@@ -13,7 +13,8 @@
       { "word": "recondite", "rank": 4 },
       { "word": "abstruse", "rank": 4 },
       { "word": "cryptic", "rank": 4 }
-    ]
+    ],
+    "story": "A **covert** spy named Claire conducts a **surreptitious** midnight meeting in a **clandestine** bunker. She casts **furtive** glances around, moving with **stealthy** silence. The mission involves decoding **esoteric** symbols and **arcane** rituals written in an **obscure** language. The instructions are so **recondite** and **abstruse** that only she can understand the **cryptic** messages. Claire must keep this hidden from everyone—or face execution."
   },
   {
     "cluster": "Talkative / Wordy",
@@ -24,7 +25,8 @@
       { "word": "prolix", "rank": 2 },
       { "word": "voluble", "rank": 2 },
       { "word": "wordy", "rank": 3 }
-    ]
+    ],
+    "story": "Larry the **loquacious** lawyer is so **garrulous** that even his goldfish has learned to swim away. His **verbose** speeches are famously **prolix**—he once gave a 12-hour closing argument about a parking ticket. Despite being **voluble** and incredibly **wordy**, he never actually says anything meaningful."
   },
   {
     "cluster": "Silent / Quiet / Reserved",
@@ -36,7 +38,8 @@
       { "word": "diffident", "rank": 3 },
       { "word": "terse", "rank": 3 },
       { "word": "succinct", "rank": 3 }
-    ]
+    ],
+    "story": "Taciturn Tom is a **laconic** cowboy who speaks only in one-word answers. He's naturally **reticent** and **reserved**—his **diffident** personality makes him avoid eye contact. When he does speak, his replies are always **terse** and **succinct**, like a gunshot: quick and final. His horse talks more than he does."
   },
   {
     "cluster": "Harsh Criticism / Verbal Attack",
@@ -53,7 +56,8 @@
       { "word": "caustic", "rank": 3 },
       { "word": "reprehend", "rank": 3 },
       { "word": "chide", "rank": 4 }
-    ]
+    ],
+    "story": "The general **castigated** the soldier, delivering a **censure** so brutal it made the whole platoon weep. He **reproached** and **upbraided** him publicly, **admonishing** him for cowardice. His words were **scathing**, **vitriolic**, and **acerbic**—every sentence was a **mordant** dagger. His **caustic** tone would make anyone **reprehend** him in return, but no one dared—they only **chide** him silently behind his back."
   },
   {
     "cluster": "Flattery / Submissive Behavior",
@@ -66,7 +70,8 @@
       { "word": "ingratiating", "rank": 3 },
       { "word": "toadying", "rank": 3 },
       { "word": "bootlicking", "rank": 4 }
-    ]
+    ],
+    "story": "The **obsequious** butler was so **sycophantic** that he'd applaud when the boss sneezed. He was **servile** and **subservient**, **fawning** over every tiny gesture. His **ingratiating** smile and **toadying** laughter made everyone sick. The boss loved his **bootlicking** so much that he promoted him to Head Bootlicker."
   },
   {
     "cluster": "Greedy / Materialistic",
@@ -79,7 +84,8 @@
       { "word": "covetous", "rank": 2 },
       { "word": "grasping", "rank": 3 },
       { "word": "predatory", "rank": 3 }
-    ]
+    ],
+    "story": "The **avaricious** CEO was **rapacious**—he'd steal candy from a baby and charge the baby for the candy. He was **venal** and **mercenary**, always **acquisitive**, constantly **covetous** of his rivals' fortunes. His **grasping** hands and **predatory** business tactics made him the most hated man on Wall Street."
   },
   {
     "cluster": "Generous / Selfless / Charitable",
@@ -92,7 +98,8 @@
       { "word": "munificent", "rank": 3 },
       { "word": "liberal", "rank": 3 },
       { "word": "bountiful", "rank": 4 }
-    ]
+    ],
+    "story": "The **altruistic** billionaire was **beneficent** and **benevolent**—he donated billions. He was **magnanimous** in victory and **philanthropic** to the core. His **munificent** gifts and **liberal** spending made him the most **bountiful** donor in history."
   },
   {
     "cluster": "Meticulous / Detail-Oriented",
@@ -106,7 +113,8 @@
       { "word": "conscientious", "rank": 3 },
       { "word": "thorough", "rank": 3 },
       { "word": "precise", "rank": 4 }
-    ]
+    ],
+    "story": "Fred the **meticulous** accountant was so **scrupulous** and **punctilious** that he counted his hairs every morning. He was **fastidious** about cleanliness, taking **painstaking** care with every entry. His **exacting** standards made him **conscientious** and **thorough**—his work was always **precise**. He once refunded a penny."
   },
   {
     "cluster": "Careless / Negligent / Reckless",
@@ -120,7 +128,8 @@
       { "word": "precipitate", "rank": 3 },
       { "word": "headlong", "rank": 4 },
       { "word": "slipshod", "rank": 4 }
-    ]
+    ],
+    "story": "The **negligent** pilot was **remiss** in his pre-flight check—he was **lax** about safety. He made a **foolhardy** decision to fly through a storm—an **impetuous** and **rash** move. He made a **precipitate** dive, going **headlong** into the ocean. His **slipshod** flying got him fired."
   },
   {
     "cluster": "Lazy / Inactive / Sluggish",
@@ -134,7 +143,8 @@
       { "word": "languid", "rank": 3 },
       { "word": "listless", "rank": 3 },
       { "word": "somnolent", "rank": 4 }
-    ]
+    ],
+    "story": "Lazy Larry was **indolent** and **lethargic**—he moved like molasses. His **torpid** body and **slothful** habits made him the slowest person alive. He was **sluggish**, almost **inert**, with a **languid** wave and **listless** eyes. The office was so boring it made him **somnolent**."
   },
   {
     "cluster": "Hardworking / Diligent / Tireless",
@@ -147,7 +157,8 @@
       { "word": "persevering", "rank": 3 },
       { "word": "untiring", "rank": 3 },
       { "word": "unflagging", "rank": 3 }
-    ]
+    ],
+    "story": "Sheila was **sedulous** and **assiduous**, an **industrious** worker who never quit. She was **indefatigable** and **diligent**, always **persevering** against obstacles. Her **untiring** energy and **unflagging** spirit made her the most productive person in history."
   },
   {
     "cluster": "Stubborn / Unyielding",
@@ -161,7 +172,8 @@
       { "word": "stubborn", "rank": 3 },
       { "word": "tenacious", "rank": 3 },
       { "word": "stiff-necked", "rank": 4 }
-    ]
+    ],
+    "story": "The **intransigent** mule was **obdurate**—he would not move. He was **obstinate** and **dogged**, **pertinacious** in his refusal. He was **adamant** about staying put, so **stubborn** and **tenacious** that even a tractor couldn't budge his **stiff-necked** attitude."
   },
   {
     "cluster": "Changeable / Unpredictable",
@@ -174,7 +186,8 @@
       { "word": "whimsical", "rank": 3 },
       { "word": "fluctuating", "rank": 3 },
       { "word": "protean", "rank": 4 }
-    ]
+    ],
+    "story": "The **capricious** queen was **volatile**—one moment smiling, the next screaming. Her **erratic** and **mercurial** moods made her **fickle**. Her **whimsical** decisions and **fluctuating** policies made courtiers nervous. She was **protean**, changing form like water."
   },
   {
     "cluster": "Confusing / Unclear / Hard to Understand",
@@ -189,7 +202,8 @@
       { "word": "inscrutable", "rank": 3 },
       { "word": "enigmatic", "rank": 4 },
       { "word": "cryptic", "rank": 4 }
-    ]
+    ],
+    "story": "The professor's **convoluted** lecture was **opaque**—nobody understood a word. His **abstruse** and **recondite** theories, full of **arcane** jargon, created a **labyrinthine** maze of ideas. His **tortuous** logic left students with **inscrutable** faces, staring at the **enigmatic** chalkboard covered in **cryptic** symbols."
   },
   {
     "cluster": "Clear / Understandable / Lucid",
@@ -203,7 +217,8 @@
       { "word": "intelligible", "rank": 3 },
       { "word": "explicit", "rank": 3 },
       { "word": "clear-cut", "rank": 4 }
-    ]
+    ],
+    "story": "Lucy's **lucid** explanation was **pellucid**—crystal **limpid** water clear. Her **cogent** arguments were **perspicuous** and **transparent**, making the complex simple. Her **intelligible** and **explicit** instructions were so **clear-cut** that even a child could understand."
   },
   {
     "cluster": "Praise / Approval / Commendation",
@@ -218,7 +233,8 @@
       { "word": "applaud", "rank": 3 },
       { "word": "glorify", "rank": 3 },
       { "word": "exalt", "rank": 4 }
-    ]
+    ],
+    "story": "The king **lauded** his knight, **extolling** his bravery. Everyone **acclaimed** him, **venerating** his name. They **lionized** him and **canonized** him as a saint. The court **commended** him, **applauding** his deeds, and **glorifying** his name. He was **exalted** above all others."
   },
   {
     "cluster": "Insult / Disrespect / Belittle",
@@ -233,7 +249,8 @@
       { "word": "ridicule", "rank": 3 },
       { "word": "contempt", "rank": 3 },
       { "word": "derogatory", "rank": 4 }
-    ]
+    ],
+    "story": "The bully **derided** the new kid, heaping **scorn** and **disdain** upon him. He **disparaged** and **belittled** his every move, **slighting** him at every turn. He **mocked** and **ridiculed** him with **contempt**, making **derogatory** remarks until the kid cried."
   },
   {
     "cluster": "Calm / Peaceful / Serene",
@@ -247,7 +264,8 @@
       { "word": "imperturbable", "rank": 3 },
       { "word": "peaceful", "rank": 3 },
       { "word": "halcyon", "rank": 4 }
-    ]
+    ],
+    "story": "The **placid** lake was **serene** and **tranquil**—not a ripple. The meditating monk remained **composed** and **stoic**, **unruffled** by the chaos around him. He was **imperturbable**, radiating **peaceful** energy. It was a **halcyon** day."
   },
   {
     "cluster": "Angry / Hostile / Aggressive",
@@ -263,7 +281,8 @@
       { "word": "testy", "rank": 3 },
       { "word": "petulant", "rank": 4 },
       { "word": "fractious", "rank": 4 }
-    ]
+    ],
+    "story": "The **irascible** boss was **belligerent** and **truculent**—he yelled at everyone. He was **pugnacious** and **cantankerous**, **choleric** with rage. His **bellicose** and **combative** attitude made him **testy** and **petulant**, especially when dealing with **fractious** employees."
   },
   {
     "cluster": "Fearful / Cowardly / Timid",
@@ -277,7 +296,8 @@
       { "word": "fainthearted", "rank": 3 },
       { "word": "cowardly", "rank": 3 },
       { "word": "nerveless", "rank": 4 }
-    ]
+    ],
+    "story": "The **timorous** mouse was **pusillanimous** and **craven**—it ran from its own shadow. It was **diffident** and **timid**, always **trepid** around cats. Its **fainthearted** and **cowardly** nature made it hide all day, completely **nerveless**."
   },
   {
     "cluster": "Brave / Bold / Fearless",
@@ -291,7 +311,8 @@
       { "word": "daring", "rank": 3 },
       { "word": "fearless", "rank": 3 },
       { "word": "plucky", "rank": 4 }
-    ]
+    ],
+    "story": "The **intrepid** explorer was **audacious**—he wrestled crocodiles. He was **dauntless** and **valiant**, a **chivalrous** and **gallant** knight. His **daring** and **fearless** personality, combined with **plucky** determination, made him a legend."
   },
   {
     "cluster": "Wise / Smart / Discerning",
@@ -306,7 +327,8 @@
       { "word": "discerning", "rank": 3 },
       { "word": "penetrating", "rank": 3 },
       { "word": "percipient", "rank": 4 }
-    ]
+    ],
+    "story": "The **sagacious** owl was **perspicacious** and **astute**—she saw through every lie. She was **shrewd** and **canny**, making **judicious** decisions. Her **insightful** and **discerning** mind had a **penetrating** gaze, making her the most **percipient** creature in the forest."
   },
   {
     "cluster": "Foolish / Stupid / Childish",
@@ -319,7 +341,8 @@
       { "word": "idiotic", "rank": 3 },
       { "word": "moronic", "rank": 3 },
       { "word": "doltish", "rank": 4 }
-    ]
+    ],
+    "story": "The **puerile** clown made **fatuous** jokes—so dumb they hurt. His **inane** and **vacuous** comments, full of **asinine** logic, were **idiotic** and **moronic**. He was so **doltish** that he forgot his own name."
   },
   {
     "cluster": "Common / Ordinary / Mundane",
@@ -334,7 +357,8 @@
       { "word": "pedestrian", "rank": 3 },
       { "word": "quotidian", "rank": 3 },
       { "word": "hackneyed", "rank": 4 }
-    ]
+    ],
+    "story": "His **mundane** life was **prosaic** and **banal**—every day the same. His **trite** and **hackneyed** jokes were **platitudinous**—meaningless clichés. His **commonplace** and **pedestrian** existence was **quotidian**, dull as dishwater."
   },
   {
     "cluster": "Unique / Unusual / Eccentric",
@@ -348,7 +372,8 @@
       { "word": "unconventional", "rank": 3 },
       { "word": "singular", "rank": 3 },
       { "word": "outlandish", "rank": 4 }
-    ]
+    ],
+    "story": "The **anomalous** penguin was **eccentric** and **idiosyncratic**—he wore a top hat. His **quirky** and **peculiar** habits were **atypical** for a penguin. His **unconventional** and **singular** style was so **outlandish** that he became famous."
   },
   {
     "cluster": "Harmful / Damaging / Destructive",
@@ -363,7 +388,8 @@
       { "word": "corrosive", "rank": 3 },
       { "word": "venomous", "rank": 3 },
       { "word": "destructive", "rank": 4 }
-    ]
+    ],
+    "story": "The **deleterious** poison was **pernicious** and **noxious**—it killed instantly. Its **detrimental** and **baneful** effects were **injurious** to all. The **malignant** and **corrosive** substance was **venomous**, entirely **destructive**."
   },
   {
     "cluster": "Harmless / Safe / Innocuous",
@@ -375,7 +401,8 @@
       { "word": "unobjectionable", "rank": 3 },
       { "word": "safe", "rank": 3 },
       { "word": "nontoxic", "rank": 4 }
-    ]
+    ],
+    "story": "The **innocuous** potion was **benign**—just water. It was **inoffensive** and **harmless**, completely **unobjectionable**. It was **safe** for children, absolutely **nontoxic**."
   },
   {
     "cluster": "Old / Outdated / Antique",
@@ -389,7 +416,8 @@
       { "word": "defunct", "rank": 3 },
       { "word": "bygone", "rank": 3 },
       { "word": "hoary", "rank": 4 }
-    ]
+    ],
+    "story": "The **archaic** computer was **obsolete**—it used floppy disks. It was so **antiquated** and **anachronistic** that it seemed **antediluvian**. Its **outmoded** and **defunct** technology belonged to a **bygone** era. Its **hoary** parts were covered in dust."
   },
   {
     "cluster": "New / Young / Fresh",
@@ -403,7 +431,8 @@
       { "word": "emerging", "rank": 3 },
       { "word": "fresh", "rank": 3 },
       { "word": "infant", "rank": 4 }
-    ]
+    ],
+    "story": "The **novel** invention was **nascent**—just starting. Its **fledgling** creators were **neophytes** in the field. Their **innovative** and **burgeoning** company was an **emerging** powerhouse, bringing **fresh** ideas to the **infant** industry."
   },
   {
     "cluster": "Abundance / Plenty / Overflowing",
@@ -417,7 +446,8 @@
       { "word": "abundant", "rank": 3 },
       { "word": "luxuriant", "rank": 3 },
       { "word": "rife", "rank": 4 }
-    ]
+    ],
+    "story": "The garden had **copious** flowers—**profuse** and **bountiful**. There was **ample** space for **prolific** growth—**plentiful** and **abundant** blooms. The **luxuriant** greenery was **rife** with life."
   },
   {
     "cluster": "Scarcity / Lack / Insufficiency",
@@ -431,7 +461,8 @@
       { "word": "deficient", "rank": 3 },
       { "word": "scanty", "rank": 3 },
       { "word": "sporadic", "rank": 4 }
-    ]
+    ],
+    "story": "There was a **dearth** of water—a **paucity** of rain. The **scant** and **sparse** supplies were **meager** at best. The **insufficient** and **deficient** rations, **scanty** at best, arrived only **sporadically**."
   },
   {
     "cluster": "Decrease / Diminish / Lessen",
@@ -445,7 +476,8 @@
       { "word": "diminish", "rank": 3 },
       { "word": "decline", "rank": 3 },
       { "word": "taper", "rank": 4 }
-    ]
+    ],
+    "story": "The storm began to **abate**—its strength **waned**. The floodwaters **ebbed** and **dwindled** away. The wind **subsided** and **attenuated**, the thunder **diminished** in intensity. The storm **declined**, finally **tapering** to nothing."
   },
   {
     "cluster": "Increase / Grow / Expand",
@@ -459,7 +491,8 @@
       { "word": "escalate", "rank": 3 },
       { "word": "intensify", "rank": 3 },
       { "word": "swell", "rank": 4 }
-    ]
+    ],
+    "story": "The flowers **burgeoned** in spring, **proliferating** wildly. The gardener **augmented** the soil, **amplifying** the nutrients and **magnifying** the growth. The blooms **mushroomed** and **escalated** in number, the beauty **intensified**, and the garden **swelled** with life."
   },
   {
     "cluster": "Truth / Honesty / Sincerity",
@@ -474,7 +507,8 @@
       { "word": "frank", "rank": 3 },
       { "word": "ingenuous", "rank": 3 },
       { "word": "forthright", "rank": 4 }
-    ]
+    ],
+    "story": "The witness spoke with **veracity**—her **probity** was unquestionable. Her **candor** gave her story **verisimilitude**, making it **credible** and **sincere**. She was **candid** and **frank**, **ingenuous** in her honesty, completely **forthright**."
   },
   {
     "cluster": "Lies / Deception / Falsehood",
@@ -489,7 +523,8 @@
       { "word": "fabricated", "rank": 3 },
       { "word": "counterfeit", "rank": 3 },
       { "word": "sham", "rank": 4 }
-    ]
+    ],
+    "story": "His **specious** argument was **spurious**—completely **bogus**. His **fallacious** logic made him **dissemble** and **equivocate**, unable to answer directly. He **prevaricated** endlessly, giving **fabricated** and **counterfeit** explanations. It was all a **sham**."
   },
   {
     "cluster": "Strength / Force / Power",
@@ -503,7 +538,8 @@
       { "word": "mighty", "rank": 3 },
       { "word": "sturdy", "rank": 3 },
       { "word": "invincible", "rank": 4 }
-    ]
+    ],
+    "story": "The **robust** warrior was **potent**—his strike could break stone. He was **vigorous** and **resilient**, **tenacious** in battle. His **formidable** presence and **mighty** strength made him **sturdy** as a fortress, almost **invincible**."
   },
   {
     "cluster": "Weakness / Fragility",
@@ -517,7 +553,8 @@
       { "word": "infirm", "rank": 3 },
       { "word": "debilitated", "rank": 3 },
       { "word": "vulnerable", "rank": 4 }
-    ]
+    ],
+    "story": "The **feeble** old man was **enervated**—exhausted. His health was **precarious**, his grip on life **tenuous**. His **fragile** frame and **frail** body left him **infirm** and **debilitated**, making him **vulnerable** to every illness."
   },
   {
     "cluster": "Delay / Procrastinate / Slow",
@@ -531,7 +568,8 @@
       { "word": "loiter", "rank": 3 },
       { "word": "stall", "rank": 3 },
       { "word": "dally", "rank": 4 }
-    ]
+    ],
+    "story": "The **dilatory** student would **dawdle** endlessly. He'd **procrastinate** and **lag**, **tarrying** at every step. He'd **linger** and **loiter**, **stalling** with every excuse, always **dallying** instead of working."
   },
   {
     "cluster": "Speed / Hurry / Hasten",
@@ -544,7 +582,8 @@
       { "word": "rush", "rank": 3 },
       { "word": "speed", "rank": 3 },
       { "word": "advance", "rank": 4 }
-    ]
+    ],
+    "story": "The manager **expedited** the process to **hasten** delivery. He **accelerated** the timeline, **precipitating** a quick launch. The pace **quickened**—everyone **rushed** and **sped** through tasks to **advance** the project."
   },
   {
     "cluster": "Prevent / Obstruct / Hinder",
@@ -559,7 +598,8 @@
       { "word": "preclude", "rank": 3 },
       { "word": "obviate", "rank": 3 },
       { "word": "stymie", "rank": 4 }
-    ]
+    ],
+    "story": "The barricade **impeded** traffic, **obstructing** movement and **hindering** travel. Police **inhibited** access, **hampering** the escape. They **thwarted** every attempt to pass, **forestalling** the chase and **precluding** any success. They **obviated** the problem, completely **stymieing** the thieves."
   },
   {
     "cluster": "Support / Strengthen / Reinforce",
@@ -573,7 +613,8 @@
       { "word": "substantiate", "rank": 3 },
       { "word": "validate", "rank": 3 },
       { "word": "underpin", "rank": 4 }
-    ]
+    ],
+    "story": "The workers **bolstered** the wall, **buttressing** it with steel. They **reinforced** and **fortified** the structure, **augmenting** its strength. The engineer **corroborated** the design, **substantiated** the plans, and **validated** the calculations. Strong pillars **underpinned** the whole thing."
   },
   {
     "cluster": "Weaken / Undermine / Sabotage",
@@ -587,7 +628,8 @@
       { "word": "compromise", "rank": 3 },
       { "word": "enfeeble", "rank": 3 },
       { "word": "debilitate", "rank": 4 }
-    ]
+    ],
+    "story": "The spy **subverted** the government, **undermining** its authority. Corruption **eroded** trust, **vitiated** the system, and **impaired** its function. Enemies **sabotaged** and **compromised** security, **enfeebling** and **debilitating** the nation."
   },
   {
     "cluster": "Agreement / Harmony / Unity",
@@ -601,7 +643,8 @@
       { "word": "rapport", "rank": 3 },
       { "word": "solidarity", "rank": 3 },
       { "word": "unanimity", "rank": 4 }
-    ]
+    ],
+    "story": "The committee reached **consensus**, an **accord** of **concord**. They governed with **comity** and **amity**, living in **harmony**. Their **rapport** and **solidarity** showed complete **unanimity** of purpose."
   },
   {
     "cluster": "Disagreement / Conflict / Strife",
@@ -616,7 +659,8 @@
       { "word": "rancor", "rank": 3 },
       { "word": "hostility", "rank": 3 },
       { "word": "friction", "rank": 4 }
-    ]
+    ],
+    "story": "The meeting was pure **discord**—**dissension** and **contention** ruled. **Strife** broke out, fueled by **animosity** and **antipathy**. Old **enmity** and **rancor** bubbled up, creating **hostility** and constant **friction**."
   },
   {
     "cluster": "Pretend / Fake / Feign",
@@ -630,7 +674,8 @@
       { "word": "masquerade", "rank": 3 },
       { "word": "counterfeit", "rank": 3 },
       { "word": "pose", "rank": 4 }
-    ]
+    ],
+    "story": "The con man **feigned** illness—it was a **sham**. He **dissembled** his true nature, his **affectation** obvious. He **simulated** pain and **pretended** to be helpless, an elaborate **masquerade**. His **counterfeit** act was a **pose** to gain sympathy."
   },
   {
     "cluster": "Polite / Courteous / Refined",
@@ -644,7 +689,8 @@
       { "word": "gracious", "rank": 3 },
       { "word": "courteous", "rank": 3 },
       { "word": "mannerly", "rank": 4 }
-    ]
+    ],
+    "story": "The **urbane** host was **cordial** and **decorous**—perfect manners. He was **chivalrous** and **gallant**, always **civil** to guests. His **gracious** and **courteous** nature made him the most **mannerly** man in town."
   },
   {
     "cluster": "Rude / Crude / Unrefined",
@@ -658,7 +704,8 @@
       { "word": "discourteous", "rank": 3 },
       { "word": "brusque", "rank": 3 },
       { "word": "ill-mannered", "rank": 4 }
-    ]
+    ],
+    "story": "The **boorish** lout was **churlish** and **uncouth**—he burped at dinner. His **crass** jokes and **impertinent** questions were **insolent**. His **discourteous** and **brusque** manner made him famously **ill-mannered**."
   },
   {
     "cluster": "Famous / Renowned / Celebrated",
@@ -672,7 +719,8 @@
       { "word": "notable", "rank": 3 },
       { "word": "prominent", "rank": 3 },
       { "word": "celebrated", "rank": 4 }
-    ]
+    ],
+    "story": "The **illustrious** scientist was **preeminent** in her field, **distinguished** and **renowned**. Her **acclaimed** and **eminent** work made her **notable** and **prominent**. She was widely **celebrated**."
   },
   {
     "cluster": "Infamous / Notorious / Disgraceful",
@@ -686,6 +734,7 @@
       { "word": "shameful", "rank": 3 },
       { "word": "scandalous", "rank": 3 },
       { "word": "disreputable", "rank": 4 }
-    ]
+    ],
+    "story": "The **infamous** criminal was **notorious** and **opprobrious**—hated by all. His **disgraceful** and **ignominious** acts were **dishonorable**. His **shameful** and **scandalous** behavior made him thoroughly **disreputable**."
   }
 ]
