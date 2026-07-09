@@ -14,7 +14,7 @@
             --bg-main: #f6f5f3;
             --bg-canvas: #fbfaf8;
             --bg-accent: #efeeea;
-            --text-main: #3a3936;
+            --text-main: #201f1c;
             --text-muted: #83807a;
             --border-color: #e2e0da;
             --border-focus: #b8b5ac;
@@ -160,11 +160,11 @@
         .gre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 
         /* Fixed Left Alignment Architecture for Study Cards (Stops Center bleeding) */
-        .gre-card { background-color: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; display: flex !important; flex-direction: column !important; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.15s ease; }
+        .gre-card { background-color: var(--bg-canvas); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; display: flex !important; flex-direction: column !important; position: relative; box-sizing: border-box; text-align: left !important; justify-content: flex-start !important; align-items: stretch !important; transition: all 0.15s ease; }
         .gre-card * { text-align: left !important; }
         .gre-card:hover { border-color: var(--border-focus); box-shadow: 0 0 0 1px var(--border-focus); }
         .gre-card-header { display: flex !important; justify-content: space-between !important; align-items: flex-start !important; margin-bottom: 10px; gap: 8px; width: 100%; }
-        .gre-word { font-size: 20px; font-weight: 600; color: var(--text-main); margin: 0; letter-spacing: -0.3px; }
+        .gre-word { font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0; letter-spacing: -0.2px; }
         .gre-tags-row { display: flex !important; gap: 6px; margin-bottom: 12px; align-items: center !important; flex-wrap: wrap; width: 100%; justify-content: flex-start !important; }
 
         .gre-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; white-space: nowrap; color: #fff; display: inline-block; }
@@ -178,7 +178,7 @@
         .mem-badge.unknown { background-color: var(--color-unknown-bg); color: var(--color-unknown); border-color: rgba(229, 72, 77, 0.3); }
         .mem-badge.unseen { background-color: var(--color-unseen-bg); color: var(--color-unseen); border-color: rgba(136, 136, 136, 0.25); }
 
-        .gre-def { font-size: 14px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.45; font-style: italic; opacity: 0.9; }
+        .gre-def { font-size: 14px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.45; font-style: italic; }
         .gre-collocation { font-size: 12.5px; color: var(--color-known); background-color: var(--color-known-bg); border: 1px solid rgba(70, 167, 88, 0.25); padding: 5px 11px; border-radius: 4px; font-weight: 600; margin-bottom: 14px; display: inline-block; word-break: break-word; font-family: ui-monospace, "SF Mono", monospace; }
         .gre-section-title { font-size: 10.5px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 5px 0; letter-spacing: 0.8px; }
         .gre-context-box { font-size: 13px; color: var(--text-main); background-color: rgba(77, 126, 168, 0.07); border-left: 2px solid var(--secondary); padding: 8px 12px; border-radius: 0 4px 4px 0; margin: 0 0 12px 0; line-height: 1.45; }
@@ -274,6 +274,7 @@
                     <label class="dropdown-option"><input type="radio" name="modeRadio" value="study" checked> 📝 Study Mode</label>
                     <label class="dropdown-option"><input type="radio" name="modeRadio" value="flashcard"> 🎴 Flashcards</label>
                     <label class="dropdown-option"><input type="radio" name="modeRadio" value="statistics"> 📊 Statistics</label>
+                    <label class="dropdown-option"><input type="radio" name="modeRadio" value="cluster"> 🧬 Clusters</label>
                 </div>
             </div>
             <div class="multi-select-dropdown single-select-dropdown" id="dropdownStatsSort" style="display: none;">
@@ -287,6 +288,7 @@
                 <option value="study">📝 Study Mode</option>
                 <option value="flashcard">🎴 Flashcards</option>
                 <option value="statistics">📊 Statistics</option>
+                <option value="cluster">🧬 Clusters</option>
             </select>
             <select id="greStatsSortFilter" style="display: none;">
                 <option value="know">🥇 Highest Mastery</option>
@@ -370,6 +372,8 @@ let baseOrderedList = []; // checkbox-filtered list in its current display order
 let isRandomized = false;
 let memoryScores = {};
 let lastActiveModalGroupId = null;
+let clusterData = [];
+let lastActiveModalCluster = null;
 
 const displayContainer = document.getElementById('greDisplayContainer');
 const searchInput = document.getElementById('greSearch');
@@ -378,7 +382,7 @@ const statsSortFilter = document.getElementById('greStatsSortFilter');
 const modeDropdownButton = document.getElementById('modeDropdownButton');
 const statsSortDropdownButton = document.getElementById('statsSortDropdownButton');
 const dropdownStatsSort = document.getElementById('dropdownStatsSort');
-const modeOptionLabels = { study: '📝 Study Mode', flashcard: '🎴 Flashcards', statistics: '📊 Statistics' };
+const modeOptionLabels = { study: '📝 Study Mode', flashcard: '🎴 Flashcards', statistics: '📊 Statistics', cluster: '🧬 Clusters' };
 const statsSortOptionLabels = { know: '🥇 Highest Mastery', review: '🚨 Needs Review' };
 const userPinInput = document.getElementById('greUserPin');
 const btnSync = document.getElementById('greBtnSync');
@@ -596,12 +600,19 @@ function handleFilterExecution() {
 function updateView() {
     const mode = modeFilter.value;
     const isStats = mode === 'statistics';
+    const isCluster = mode === 'cluster';
+    const disableFilterControls = isStats || isCluster;
     dropdownStatsSort.style.display = isStats ? "" : "none";
-    searchInput.disabled = btnRandom.disabled = btnApplyFilter.disabled = isStats;
-    btnSessionSave.disabled = btnSessionLoad.disabled = isStats;
-    document.querySelectorAll('.filter-dropdown .dropdown-button').forEach(b => b.disabled = isStats);
+    searchInput.disabled = btnRandom.disabled = btnApplyFilter.disabled = disableFilterControls;
+    btnSessionSave.disabled = btnSessionLoad.disabled = disableFilterControls;
+    document.querySelectorAll('.filter-dropdown .dropdown-button').forEach(b => b.disabled = disableFilterControls);
 
     displayContainer.innerHTML = '';
+    if (isCluster) {
+        renderClusterDashboard();
+        saveAppStateToBrowser();
+        return;
+    }
     if (wordsData.length === 0) {
         displayContainer.innerHTML = `<div class="no-results">Downloading vocabulary files...</div>`;
         return;
@@ -779,7 +790,7 @@ function openStatsGroupModal(groupId) {
             <span class="modal-status-txt">${readableStatus}</span>
         `;
 
-        row.addEventListener('click', () => renderDeepDiveWordCard(item));
+        row.addEventListener('click', () => renderDeepDiveWordCard(item, () => openStatsGroupModal(lastActiveModalGroupId)));
         modalGroupListBody.appendChild(row);
     });
 
@@ -787,10 +798,12 @@ function openStatsGroupModal(groupId) {
     document.body.style.overflow = 'hidden';
 }
 
-// Clean Left Aligned isolated Layout for Deep Dive views
-function renderDeepDiveWordCard(item) {
+// Clean Left Aligned isolated Layout for Deep Dive views. backHandler decides where "← Back" returns to,
+// so this same word card can be reached from either the Group breakdown or a Cluster breakdown.
+function renderDeepDiveWordCard(item, backHandler) {
     modalGroupHeaderTitle.textContent = `🔍 ${item.word}`;
-    modalHeaderActionZone.innerHTML = `<button class="modal-back-btn" onclick="openStatsGroupModal(${lastActiveModalGroupId})">← Back</button>`;
+    modalHeaderActionZone.innerHTML = `<button class="modal-back-btn" id="modalBackBtn">← Back</button>`;
+    document.getElementById('modalBackBtn').addEventListener('click', backHandler);
 
     const synChips = (item.syns || []).map(s => `<span class="gre-chip">${s}</span>`).join('');
     const memBadgeHTML = getMemoryBadgeHTML(item.word);
@@ -819,6 +832,97 @@ function renderDeepDiveWordCard(item) {
         </div>
     `;
     modalGroupListBody.scrollTop = 0;
+}
+
+// ---- Cluster Mode: groups words by shared root/emotion, loaded from cluster.json ----
+async function loadClusterData() {
+    try {
+        const response = await fetch('././cluster.json');
+        if (response.ok) {
+            const parsed = await response.json();
+            clusterData = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.clusters) ? parsed.clusters : []);
+        }
+    } catch(e) {}
+}
+
+function renderClusterDashboard() {
+    if (clusterData.length === 0) {
+        displayContainer.innerHTML = '<div class="no-results">No cluster.json data found (or still loading). Make sure cluster.json is alongside your g*.json word files.</div>';
+        return;
+    }
+    const grid = document.createElement('div');
+    grid.className = 'stats-grid';
+
+    clusterData.forEach(cluster => {
+        const words = cluster.words || [];
+        let known = 0, delayed = 0, review = 0;
+        words.forEach(w => {
+            const status = memoryScores[w.word] || 'unseen';
+            if (status === 'known') known++;
+            else if (status === 'delayed') delayed++;
+            else review++;
+        });
+        const total = words.length || 1;
+        const knownRatio = known / total;
+        const accentColor = knownRatio >= 0.66 ? '#46a758' : (knownRatio >= 0.33 ? '#f5a623' : '#e5484d');
+        const bgColor = knownRatio >= 0.66 ? 'var(--color-known-bg)' : (knownRatio >= 0.33 ? 'var(--color-delayed-bg)' : 'var(--color-unknown-bg)');
+
+        const card = document.createElement('div');
+        card.className = 'stats-card';
+        card.style.backgroundColor = bgColor;
+        card.style.borderColor = accentColor;
+        card.style.borderLeft = `3px solid ${accentColor}`;
+
+        card.innerHTML = `
+            <h3 class="stats-group-title">${cluster.root}</h3>
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 2px 0;">
+            <div class="stats-metric-row" style="color: var(--color-known);"><span>Known:</span><span class="stats-val">${known}/${words.length} (${Math.round(knownRatio*100)}%)</span></div>
+            <div class="stats-metric-row" style="color: var(--color-delayed);"><span>Delayed:</span><span class="stats-val">${delayed}</span></div>
+            <div class="stats-metric-row" style="color: var(--color-unknown);"><span>Review:</span><span class="stats-val">${review}</span></div>
+        `;
+
+        card.addEventListener('click', () => openClusterModal(cluster));
+        grid.appendChild(card);
+    });
+    displayContainer.appendChild(grid);
+}
+
+function openClusterModal(cluster) {
+    lastActiveModalCluster = cluster;
+    modalGroupHeaderTitle.textContent = `🧬 ${cluster.root}`;
+    modalHeaderActionZone.innerHTML = `<button class="modal-close-btn" onclick="closeStatsGroupModal()">×</button>`;
+    modalGroupListBody.innerHTML = '';
+
+    const sortedWords = [...(cluster.words || [])].sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0));
+
+    sortedWords.forEach(w => {
+        const status = memoryScores[w.word] || 'unseen';
+        const row = document.createElement('div');
+        row.className = `modal-word-row ${status}`;
+
+        let readableStatus = "Unseen";
+        if (status === 'known') readableStatus = "Known";
+        if (status === 'delayed') readableStatus = "Delayed";
+        if (status === 'unknown') readableStatus = "Don't Know";
+
+        row.innerHTML = `
+            <span class="modal-word-txt">${w.word}${w.rank ? ` <span style="opacity:0.5; font-size:11px;">#${w.rank}</span>` : ''}</span>
+            <span class="modal-status-txt">${readableStatus}</span>
+        `;
+
+        row.addEventListener('click', () => {
+            const match = wordsData.find(item => (item.word || '').toLowerCase() === (w.word || '').toLowerCase());
+            if (match) {
+                renderDeepDiveWordCard(match, () => openClusterModal(cluster));
+            } else {
+                alert(`"${w.word}" wasn't found in your loaded g*.json vocabulary — check the spelling matches exactly.`);
+            }
+        });
+        modalGroupListBody.appendChild(row);
+    });
+
+    statsGroupModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeStatsGroupModal() {
@@ -1034,10 +1138,11 @@ async function autoScanServerWordLists() {
 
 async function initApp() {
     loadAppStateFromBrowser();
-    await autoScanServerWordLists();
+    await Promise.all([autoScanServerWordLists(), loadClusterData()]);
+    if (modeFilter.value === 'cluster') updateView();
 }
 
-btnSync.addEventListener('click', autoScanServerWordLists);
+btnSync.addEventListener('click', () => { loadClusterData(); autoScanServerWordLists(); });
 btnCloudSave.addEventListener('click', saveToCloudBlobs);
 btnCloudLoad.addEventListener('click', loadFromCloudBlobs);
 btnSessionSave.addEventListener('click', saveFullSessionConfigToCloud);
