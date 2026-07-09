@@ -1,0 +1,691 @@
+[
+  {
+    "cluster": "Secretive / Hidden",
+    "words": [
+      { "word": "covert", "rank": 1 },
+      { "word": "surreptitious", "rank": 1 },
+      { "word": "clandestine", "rank": 1 },
+      { "word": "furtive", "rank": 2 },
+      { "word": "stealthy", "rank": 2 },
+      { "word": "esoteric", "rank": 3 },
+      { "word": "arcane", "rank": 3 },
+      { "word": "obscure", "rank": 3 },
+      { "word": "recondite", "rank": 4 },
+      { "word": "abstruse", "rank": 4 },
+      { "word": "cryptic", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Talkative / Wordy",
+    "words": [
+      { "word": "loquacious", "rank": 1 },
+      { "word": "garrulous", "rank": 1 },
+      { "word": "verbose", "rank": 2 },
+      { "word": "prolix", "rank": 2 },
+      { "word": "voluble", "rank": 2 },
+      { "word": "wordy", "rank": 3 }
+    ]
+  },
+  {
+    "cluster": "Silent / Quiet / Reserved",
+    "words": [
+      { "word": "taciturn", "rank": 1 },
+      { "word": "laconic", "rank": 1 },
+      { "word": "reticent", "rank": 2 },
+      { "word": "reserved", "rank": 2 },
+      { "word": "diffident", "rank": 3 },
+      { "word": "terse", "rank": 3 },
+      { "word": "succinct", "rank": 3 }
+    ]
+  },
+  {
+    "cluster": "Harsh Criticism / Verbal Attack",
+    "words": [
+      { "word": "castigate", "rank": 1 },
+      { "word": "censure", "rank": 1 },
+      { "word": "reproach", "rank": 1 },
+      { "word": "upbraid", "rank": 1 },
+      { "word": "admonish", "rank": 2 },
+      { "word": "scathing", "rank": 2 },
+      { "word": "vitriolic", "rank": 2 },
+      { "word": "acerbic", "rank": 2 },
+      { "word": "mordant", "rank": 3 },
+      { "word": "caustic", "rank": 3 },
+      { "word": "reprehend", "rank": 3 },
+      { "word": "chide", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Flattery / Submissive Behavior",
+    "words": [
+      { "word": "obsequious", "rank": 1 },
+      { "word": "sycophantic", "rank": 1 },
+      { "word": "servile", "rank": 2 },
+      { "word": "subservient", "rank": 2 },
+      { "word": "fawning", "rank": 2 },
+      { "word": "ingratiating", "rank": 3 },
+      { "word": "toadying", "rank": 3 },
+      { "word": "bootlicking", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Greedy / Materialistic",
+    "words": [
+      { "word": "avaricious", "rank": 1 },
+      { "word": "rapacious", "rank": 1 },
+      { "word": "venal", "rank": 2 },
+      { "word": "mercenary", "rank": 2 },
+      { "word": "acquisitive", "rank": 2 },
+      { "word": "covetous", "rank": 2 },
+      { "word": "grasping", "rank": 3 },
+      { "word": "predatory", "rank": 3 }
+    ]
+  },
+  {
+    "cluster": "Generous / Selfless / Charitable",
+    "words": [
+      { "word": "altruistic", "rank": 1 },
+      { "word": "beneficent", "rank": 1 },
+      { "word": "benevolent", "rank": 1 },
+      { "word": "magnanimous", "rank": 2 },
+      { "word": "philanthropic", "rank": 2 },
+      { "word": "munificent", "rank": 3 },
+      { "word": "liberal", "rank": 3 },
+      { "word": "bountiful", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Meticulous / Detail-Oriented",
+    "words": [
+      { "word": "meticulous", "rank": 1 },
+      { "word": "scrupulous", "rank": 1 },
+      { "word": "punctilious", "rank": 1 },
+      { "word": "fastidious", "rank": 2 },
+      { "word": "painstaking", "rank": 2 },
+      { "word": "exacting", "rank": 2 },
+      { "word": "conscientious", "rank": 3 },
+      { "word": "thorough", "rank": 3 },
+      { "word": "precise", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Careless / Negligent / Reckless",
+    "words": [
+      { "word": "negligent", "rank": 1 },
+      { "word": "remiss", "rank": 1 },
+      { "word": "lax", "rank": 2 },
+      { "word": "foolhardy", "rank": 2 },
+      { "word": "impetuous", "rank": 3 },
+      { "word": "rash", "rank": 3 },
+      { "word": "precipitate", "rank": 3 },
+      { "word": "headlong", "rank": 4 },
+      { "word": "slipshod", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Lazy / Inactive / Sluggish",
+    "words": [
+      { "word": "indolent", "rank": 1 },
+      { "word": "lethargic", "rank": 1 },
+      { "word": "torpid", "rank": 2 },
+      { "word": "slothful", "rank": 2 },
+      { "word": "sluggish", "rank": 2 },
+      { "word": "inert", "rank": 3 },
+      { "word": "languid", "rank": 3 },
+      { "word": "listless", "rank": 3 },
+      { "word": "somnolent", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Hardworking / Diligent / Tireless",
+    "words": [
+      { "word": "sedulous", "rank": 1 },
+      { "word": "assiduous", "rank": 1 },
+      { "word": "industrious", "rank": 1 },
+      { "word": "indefatigable", "rank": 2 },
+      { "word": "diligent", "rank": 2 },
+      { "word": "persevering", "rank": 3 },
+      { "word": "untiring", "rank": 3 },
+      { "word": "unflagging", "rank": 3 }
+    ]
+  },
+  {
+    "cluster": "Stubborn / Unyielding",
+    "words": [
+      { "word": "intransigent", "rank": 1 },
+      { "word": "obdurate", "rank": 1 },
+      { "word": "obstinate", "rank": 2 },
+      { "word": "dogged", "rank": 2 },
+      { "word": "pertinacious", "rank": 2 },
+      { "word": "adamant", "rank": 2 },
+      { "word": "stubborn", "rank": 3 },
+      { "word": "tenacious", "rank": 3 },
+      { "word": "stiff-necked", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Changeable / Unpredictable",
+    "words": [
+      { "word": "capricious", "rank": 1 },
+      { "word": "volatile", "rank": 1 },
+      { "word": "erratic", "rank": 2 },
+      { "word": "mercurial", "rank": 2 },
+      { "word": "fickle", "rank": 2 },
+      { "word": "whimsical", "rank": 3 },
+      { "word": "fluctuating", "rank": 3 },
+      { "word": "protean", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Confusing / Unclear / Hard to Understand",
+    "words": [
+      { "word": "convoluted", "rank": 1 },
+      { "word": "opaque", "rank": 1 },
+      { "word": "abstruse", "rank": 2 },
+      { "word": "recondite", "rank": 2 },
+      { "word": "arcane", "rank": 2 },
+      { "word": "labyrinthine", "rank": 3 },
+      { "word": "tortuous", "rank": 3 },
+      { "word": "inscrutable", "rank": 3 },
+      { "word": "enigmatic", "rank": 4 },
+      { "word": "cryptic", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Clear / Understandable / Lucid",
+    "words": [
+      { "word": "lucid", "rank": 1 },
+      { "word": "pellucid", "rank": 1 },
+      { "word": "limpid", "rank": 1 },
+      { "word": "cogent", "rank": 2 },
+      { "word": "perspicuous", "rank": 2 },
+      { "word": "transparent", "rank": 2 },
+      { "word": "intelligible", "rank": 3 },
+      { "word": "explicit", "rank": 3 },
+      { "word": "clear-cut", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Praise / Approval / Commendation",
+    "words": [
+      { "word": "laud", "rank": 1 },
+      { "word": "extol", "rank": 1 },
+      { "word": "acclaim", "rank": 1 },
+      { "word": "venerate", "rank": 2 },
+      { "word": "lionize", "rank": 2 },
+      { "word": "canonize", "rank": 2 },
+      { "word": "commend", "rank": 3 },
+      { "word": "applaud", "rank": 3 },
+      { "word": "glorify", "rank": 3 },
+      { "word": "exalt", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Insult / Disrespect / Belittle",
+    "words": [
+      { "word": "deride", "rank": 1 },
+      { "word": "scorn", "rank": 1 },
+      { "word": "disdain", "rank": 1 },
+      { "word": "disparage", "rank": 2 },
+      { "word": "belittle", "rank": 2 },
+      { "word": "slight", "rank": 2 },
+      { "word": "mock", "rank": 3 },
+      { "word": "ridicule", "rank": 3 },
+      { "word": "contempt", "rank": 3 },
+      { "word": "derogatory", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Calm / Peaceful / Serene",
+    "words": [
+      { "word": "placid", "rank": 1 },
+      { "word": "serene", "rank": 1 },
+      { "word": "tranquil", "rank": 1 },
+      { "word": "composed", "rank": 2 },
+      { "word": "stoic", "rank": 2 },
+      { "word": "unruffled", "rank": 2 },
+      { "word": "imperturbable", "rank": 3 },
+      { "word": "peaceful", "rank": 3 },
+      { "word": "halcyon", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Angry / Hostile / Aggressive",
+    "words": [
+      { "word": "irascible", "rank": 1 },
+      { "word": "belligerent", "rank": 1 },
+      { "word": "truculent", "rank": 1 },
+      { "word": "pugnacious", "rank": 2 },
+      { "word": "cantankerous", "rank": 2 },
+      { "word": "choleric", "rank": 2 },
+      { "word": "bellicose", "rank": 2 },
+      { "word": "combative", "rank": 3 },
+      { "word": "testy", "rank": 3 },
+      { "word": "petulant", "rank": 4 },
+      { "word": "fractious", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Fearful / Cowardly / Timid",
+    "words": [
+      { "word": "timorous", "rank": 1 },
+      { "word": "pusillanimous", "rank": 1 },
+      { "word": "craven", "rank": 1 },
+      { "word": "diffident", "rank": 2 },
+      { "word": "timid", "rank": 2 },
+      { "word": "trepid", "rank": 2 },
+      { "word": "fainthearted", "rank": 3 },
+      { "word": "cowardly", "rank": 3 },
+      { "word": "nerveless", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Brave / Bold / Fearless",
+    "words": [
+      { "word": "intrepid", "rank": 1 },
+      { "word": "audacious", "rank": 1 },
+      { "word": "dauntless", "rank": 2 },
+      { "word": "valiant", "rank": 2 },
+      { "word": "chivalrous", "rank": 2 },
+      { "word": "gallant", "rank": 3 },
+      { "word": "daring", "rank": 3 },
+      { "word": "fearless", "rank": 3 },
+      { "word": "plucky", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Wise / Smart / Discerning",
+    "words": [
+      { "word": "sagacious", "rank": 1 },
+      { "word": "perspicacious", "rank": 1 },
+      { "word": "astute", "rank": 1 },
+      { "word": "shrewd", "rank": 2 },
+      { "word": "canny", "rank": 2 },
+      { "word": "judicious", "rank": 2 },
+      { "word": "insightful", "rank": 3 },
+      { "word": "discerning", "rank": 3 },
+      { "word": "penetrating", "rank": 3 },
+      { "word": "percipient", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Foolish / Stupid / Childish",
+    "words": [
+      { "word": "puerile", "rank": 1 },
+      { "word": "fatuous", "rank": 1 },
+      { "word": "inane", "rank": 2 },
+      { "word": "vacuous", "rank": 2 },
+      { "word": "asinine", "rank": 2 },
+      { "word": "idiotic", "rank": 3 },
+      { "word": "moronic", "rank": 3 },
+      { "word": "doltish", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Common / Ordinary / Mundane",
+    "words": [
+      { "word": "mundane", "rank": 1 },
+      { "word": "prosaic", "rank": 1 },
+      { "word": "banal", "rank": 1 },
+      { "word": "trite", "rank": 2 },
+      { "word": "hackneyed", "rank": 2 },
+      { "word": "platitudinous", "rank": 2 },
+      { "word": "commonplace", "rank": 3 },
+      { "word": "pedestrian", "rank": 3 },
+      { "word": "quotidian", "rank": 3 },
+      { "word": "hackneyed", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Unique / Unusual / Eccentric",
+    "words": [
+      { "word": "anomalous", "rank": 1 },
+      { "word": "eccentric", "rank": 1 },
+      { "word": "idiosyncratic", "rank": 1 },
+      { "word": "quirky", "rank": 2 },
+      { "word": "peculiar", "rank": 2 },
+      { "word": "atypical", "rank": 2 },
+      { "word": "unconventional", "rank": 3 },
+      { "word": "singular", "rank": 3 },
+      { "word": "outlandish", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Harmful / Damaging / Destructive",
+    "words": [
+      { "word": "deleterious", "rank": 1 },
+      { "word": "pernicious", "rank": 1 },
+      { "word": "noxious", "rank": 1 },
+      { "word": "detrimental", "rank": 2 },
+      { "word": "baneful", "rank": 2 },
+      { "word": "injurious", "rank": 2 },
+      { "word": "malignant", "rank": 3 },
+      { "word": "corrosive", "rank": 3 },
+      { "word": "venomous", "rank": 3 },
+      { "word": "destructive", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Harmless / Safe / Innocuous",
+    "words": [
+      { "word": "innocuous", "rank": 1 },
+      { "word": "benign", "rank": 1 },
+      { "word": "inoffensive", "rank": 2 },
+      { "word": "harmless", "rank": 2 },
+      { "word": "unobjectionable", "rank": 3 },
+      { "word": "safe", "rank": 3 },
+      { "word": "nontoxic", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Old / Outdated / Antique",
+    "words": [
+      { "word": "archaic", "rank": 1 },
+      { "word": "obsolete", "rank": 1 },
+      { "word": "antiquated", "rank": 1 },
+      { "word": "anachronistic", "rank": 2 },
+      { "word": "antediluvian", "rank": 2 },
+      { "word": "outmoded", "rank": 2 },
+      { "word": "defunct", "rank": 3 },
+      { "word": "bygone", "rank": 3 },
+      { "word": "hoary", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "New / Young / Fresh",
+    "words": [
+      { "word": "novel", "rank": 1 },
+      { "word": "nascent", "rank": 1 },
+      { "word": "fledgling", "rank": 2 },
+      { "word": "neophyte", "rank": 2 },
+      { "word": "innovative", "rank": 2 },
+      { "word": "burgeoning", "rank": 3 },
+      { "word": "emerging", "rank": 3 },
+      { "word": "fresh", "rank": 3 },
+      { "word": "infant", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Abundance / Plenty / Overflowing",
+    "words": [
+      { "word": "copious", "rank": 1 },
+      { "word": "profuse", "rank": 1 },
+      { "word": "bountiful", "rank": 1 },
+      { "word": "ample", "rank": 2 },
+      { "word": "prolific", "rank": 2 },
+      { "word": "plentiful", "rank": 2 },
+      { "word": "abundant", "rank": 3 },
+      { "word": "luxuriant", "rank": 3 },
+      { "word": "rife", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Scarcity / Lack / Insufficiency",
+    "words": [
+      { "word": "dearth", "rank": 1 },
+      { "word": "paucity", "rank": 1 },
+      { "word": "scant", "rank": 2 },
+      { "word": "sparse", "rank": 2 },
+      { "word": "meager", "rank": 2 },
+      { "word": "insufficient", "rank": 3 },
+      { "word": "deficient", "rank": 3 },
+      { "word": "scanty", "rank": 3 },
+      { "word": "sporadic", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Decrease / Diminish / Lessen",
+    "words": [
+      { "word": "abate", "rank": 1 },
+      { "word": "wane", "rank": 1 },
+      { "word": "ebb", "rank": 1 },
+      { "word": "dwindle", "rank": 2 },
+      { "word": "subside", "rank": 2 },
+      { "word": "attenuate", "rank": 2 },
+      { "word": "diminish", "rank": 3 },
+      { "word": "decline", "rank": 3 },
+      { "word": "taper", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Increase / Grow / Expand",
+    "words": [
+      { "word": "burgeon", "rank": 1 },
+      { "word": "proliferate", "rank": 1 },
+      { "word": "augment", "rank": 2 },
+      { "word": "amplify", "rank": 2 },
+      { "word": "magnify", "rank": 2 },
+      { "word": "mushroom", "rank": 3 },
+      { "word": "escalate", "rank": 3 },
+      { "word": "intensify", "rank": 3 },
+      { "word": "swell", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Truth / Honesty / Sincerity",
+    "words": [
+      { "word": "veracity", "rank": 1 },
+      { "word": "probity", "rank": 1 },
+      { "word": "candor", "rank": 1 },
+      { "word": "verisimilitude", "rank": 2 },
+      { "word": "credible", "rank": 2 },
+      { "word": "sincere", "rank": 2 },
+      { "word": "candid", "rank": 3 },
+      { "word": "frank", "rank": 3 },
+      { "word": "ingenuous", "rank": 3 },
+      { "word": "forthright", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Lies / Deception / Falsehood",
+    "words": [
+      { "word": "specious", "rank": 1 },
+      { "word": "spurious", "rank": 1 },
+      { "word": "bogus", "rank": 1 },
+      { "word": "fallacious", "rank": 2 },
+      { "word": "dissemble", "rank": 2 },
+      { "word": "equivocate", "rank": 2 },
+      { "word": "prevaricate", "rank": 3 },
+      { "word": "fabricated", "rank": 3 },
+      { "word": "counterfeit", "rank": 3 },
+      { "word": "sham", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Strength / Force / Power",
+    "words": [
+      { "word": "robust", "rank": 1 },
+      { "word": "potent", "rank": 1 },
+      { "word": "vigorous", "rank": 2 },
+      { "word": "resilient", "rank": 2 },
+      { "word": "tenacious", "rank": 2 },
+      { "word": "formidable", "rank": 3 },
+      { "word": "mighty", "rank": 3 },
+      { "word": "sturdy", "rank": 3 },
+      { "word": "invincible", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Weakness / Fragility",
+    "words": [
+      { "word": "feeble", "rank": 1 },
+      { "word": "enervated", "rank": 1 },
+      { "word": "precarious", "rank": 2 },
+      { "word": "tenuous", "rank": 2 },
+      { "word": "fragile", "rank": 2 },
+      { "word": "frail", "rank": 3 },
+      { "word": "infirm", "rank": 3 },
+      { "word": "debilitated", "rank": 3 },
+      { "word": "vulnerable", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Delay / Procrastinate / Slow",
+    "words": [
+      { "word": "dilatory", "rank": 1 },
+      { "word": "dawdle", "rank": 1 },
+      { "word": "procrastinate", "rank": 2 },
+      { "word": "lag", "rank": 2 },
+      { "word": "tarry", "rank": 2 },
+      { "word": "linger", "rank": 3 },
+      { "word": "loiter", "rank": 3 },
+      { "word": "stall", "rank": 3 },
+      { "word": "dally", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Speed / Hurry / Hasten",
+    "words": [
+      { "word": "expedite", "rank": 1 },
+      { "word": "hasten", "rank": 1 },
+      { "word": "accelerate", "rank": 2 },
+      { "word": "precipitate", "rank": 2 },
+      { "word": "quicken", "rank": 3 },
+      { "word": "rush", "rank": 3 },
+      { "word": "speed", "rank": 3 },
+      { "word": "advance", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Prevent / Obstruct / Hinder",
+    "words": [
+      { "word": "impede", "rank": 1 },
+      { "word": "obstruct", "rank": 1 },
+      { "word": "hinder", "rank": 1 },
+      { "word": "inhibit", "rank": 2 },
+      { "word": "hamper", "rank": 2 },
+      { "word": "thwart", "rank": 2 },
+      { "word": "forestall", "rank": 3 },
+      { "word": "preclude", "rank": 3 },
+      { "word": "obviate", "rank": 3 },
+      { "word": "stymie", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Support / Strengthen / Reinforce",
+    "words": [
+      { "word": "bolster", "rank": 1 },
+      { "word": "buttress", "rank": 1 },
+      { "word": "reinforce", "rank": 1 },
+      { "word": "fortify", "rank": 2 },
+      { "word": "augment", "rank": 2 },
+      { "word": "corroborate", "rank": 2 },
+      { "word": "substantiate", "rank": 3 },
+      { "word": "validate", "rank": 3 },
+      { "word": "underpin", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Weaken / Undermine / Sabotage",
+    "words": [
+      { "word": "subvert", "rank": 1 },
+      { "word": "undermine", "rank": 1 },
+      { "word": "erode", "rank": 2 },
+      { "word": "vitiate", "rank": 2 },
+      { "word": "impair", "rank": 2 },
+      { "word": "sabotage", "rank": 3 },
+      { "word": "compromise", "rank": 3 },
+      { "word": "enfeeble", "rank": 3 },
+      { "word": "debilitate", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Agreement / Harmony / Unity",
+    "words": [
+      { "word": "consensus", "rank": 1 },
+      { "word": "accord", "rank": 1 },
+      { "word": "concord", "rank": 1 },
+      { "word": "comity", "rank": 2 },
+      { "word": "amity", "rank": 2 },
+      { "word": "harmony", "rank": 2 },
+      { "word": "rapport", "rank": 3 },
+      { "word": "solidarity", "rank": 3 },
+      { "word": "unanimity", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Disagreement / Conflict / Strife",
+    "words": [
+      { "word": "discord", "rank": 1 },
+      { "word": "dissension", "rank": 1 },
+      { "word": "contention", "rank": 1 },
+      { "word": "strife", "rank": 2 },
+      { "word": "animosity", "rank": 2 },
+      { "word": "antipathy", "rank": 2 },
+      { "word": "enmity", "rank": 3 },
+      { "word": "rancor", "rank": 3 },
+      { "word": "hostility", "rank": 3 },
+      { "word": "friction", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Pretend / Fake / Feign",
+    "words": [
+      { "word": "feign", "rank": 1 },
+      { "word": "sham", "rank": 1 },
+      { "word": "dissemble", "rank": 1 },
+      { "word": "affectation", "rank": 2 },
+      { "word": "simulate", "rank": 2 },
+      { "word": "pretend", "rank": 2 },
+      { "word": "masquerade", "rank": 3 },
+      { "word": "counterfeit", "rank": 3 },
+      { "word": "pose", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Polite / Courteous / Refined",
+    "words": [
+      { "word": "urbane", "rank": 1 },
+      { "word": "cordial", "rank": 1 },
+      { "word": "decorous", "rank": 1 },
+      { "word": "chivalrous", "rank": 2 },
+      { "word": "gallant", "rank": 2 },
+      { "word": "civil", "rank": 2 },
+      { "word": "gracious", "rank": 3 },
+      { "word": "courteous", "rank": 3 },
+      { "word": "mannerly", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Rude / Crude / Unrefined",
+    "words": [
+      { "word": "boorish", "rank": 1 },
+      { "word": "churlish", "rank": 1 },
+      { "word": "uncouth", "rank": 1 },
+      { "word": "crass", "rank": 2 },
+      { "word": "impertinent", "rank": 2 },
+      { "word": "insolent", "rank": 2 },
+      { "word": "discourteous", "rank": 3 },
+      { "word": "brusque", "rank": 3 },
+      { "word": "ill-mannered", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Famous / Renowned / Celebrated",
+    "words": [
+      { "word": "illustrious", "rank": 1 },
+      { "word": "preeminent", "rank": 1 },
+      { "word": "distinguished", "rank": 1 },
+      { "word": "renowned", "rank": 2 },
+      { "word": "acclaimed", "rank": 2 },
+      { "word": "eminent", "rank": 2 },
+      { "word": "notable", "rank": 3 },
+      { "word": "prominent", "rank": 3 },
+      { "word": "celebrated", "rank": 4 }
+    ]
+  },
+  {
+    "cluster": "Infamous / Notorious / Disgraceful",
+    "words": [
+      { "word": "infamous", "rank": 1 },
+      { "word": "notorious", "rank": 1 },
+      { "word": "opprobrious", "rank": 1 },
+      { "word": "disgraceful", "rank": 2 },
+      { "word": "ignominious", "rank": 2 },
+      { "word": "dishonorable", "rank": 2 },
+      { "word": "shameful", "rank": 3 },
+      { "word": "scandalous", "rank": 3 },
+      { "word": "disreputable", "rank": 4 }
+    ]
+  }
+]
