@@ -103,6 +103,9 @@
         .dropdown-content { display: none; position: absolute; background-color: var(--bg-canvas); min-width: 230px; border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 10; max-height: 280px; overflow-y: auto; padding: 6px; box-sizing: border-box; margin-top: 6px; }
         .multi-select-dropdown.open .dropdown-content { display: block; }
         .dropdown-option { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 13px; color: var(--text-main); transition: background-color 0.1s ease; }
+        .dropdown-quick-actions { display: flex; gap: 6px; padding: 2px 4px 8px 4px; margin-bottom: 6px; border-bottom: 1px solid var(--border-color); }
+        .dropdown-quick-btn { flex: 1; background: transparent; border: 1px solid var(--border-color); color: var(--secondary); font-family: inherit; font-size: 11.5px; font-weight: 600; padding: 6px 8px; border-radius: 5px; cursor: pointer; transition: all 0.12s ease; }
+        .dropdown-quick-btn:hover { background-color: var(--bg-accent); border-color: var(--border-focus); }
         .dropdown-option:hover { background-color: var(--bg-accent); }
         .dropdown-option input { cursor: pointer; margin: 0; width: 14px; height: 14px; accent-color: var(--secondary); }
 
@@ -308,7 +311,13 @@
 
             <div class="multi-select-dropdown filter-dropdown" id="dropdownGroup">
                 <button class="dropdown-button" onclick="toggleDropdown('dropdownGroup')">📁 Word Groups (All)</button>
-                <div class="dropdown-content" id="groupOptionsContainer"></div>
+                <div class="dropdown-content">
+                    <div class="dropdown-quick-actions">
+                        <button type="button" class="dropdown-quick-btn" id="groupSelectAllBtn">Select All</button>
+                        <button type="button" class="dropdown-quick-btn" id="groupDeselectAllBtn">Deselect All</button>
+                    </div>
+                    <div id="groupOptionsContainer"></div>
+                </div>
             </div>
 
             <div class="multi-select-dropdown filter-dropdown" id="dropdownCategory">
@@ -394,6 +403,19 @@ const btnCloudLoad = document.getElementById('greBtnCloudLoad');
 const btnSessionSave = document.getElementById('greBtnSessionSave');
 const btnSessionLoad = document.getElementById('greBtnSessionLoad');
 const groupOptionsContainer = document.getElementById('groupOptionsContainer');
+const groupSelectAllBtn = document.getElementById('groupSelectAllBtn');
+const groupDeselectAllBtn = document.getElementById('groupDeselectAllBtn');
+
+groupSelectAllBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('#groupOptionsContainer input[type="checkbox"]').forEach(cb => cb.checked = true);
+    updateDropdownLabels();
+});
+groupDeselectAllBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('#groupOptionsContainer input[type="checkbox"]').forEach(cb => cb.checked = false);
+    updateDropdownLabels();
+});
 
 const statsGroupModal = document.getElementById('statsGroupModal');
 const modalGroupHeaderTitle = document.getElementById('modalGroupHeaderTitle');
